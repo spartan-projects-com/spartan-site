@@ -955,6 +955,7 @@
             color: var(--gray-900);
             font-size: 18px;
             transition: all 0.3s ease;
+            user-select: none;
         }
         
         .faq-question:hover {
@@ -969,19 +970,19 @@
             margin-left: 16px;
         }
         
-        .faq-icon.active {
+        .faq-item.open .faq-icon {
             transform: rotate(180deg);
         }
         
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
+            transition: max-height 0.4s ease;
             background: var(--gray-50);
         }
         
-        .faq-answer.active {
-            max-height: 400px;
+        .faq-item.open .faq-answer {
+            max-height: 200px;
             padding: 0 32px 32px;
         }
         
@@ -990,6 +991,7 @@
             line-height: 1.7;
             margin: 0;
             font-size: 16px;
+            padding-top: 0;
         }
         
         /* Stats Section */
@@ -2023,15 +2025,6 @@
             element.classList.toggle('active');
             icon.classList.toggle('active');
         }
-
-        // Add event listeners to FAQ questions
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.faq-question').forEach(question => {
-                question.addEventListener('click', function() {
-                    toggleFAQ(this);
-                });
-            });
-        });
 
         // Scroll animations
         const observerOptions = {
