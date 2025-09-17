@@ -1886,7 +1886,7 @@
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
                         How quickly can we see results?
                         <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
                             <path d="m6 9 6 6 6-6"/>
@@ -1898,7 +1898,7 @@
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
                         What industries do you work with?
                         <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
                             <path d="m6 9 6 6 6-6"/>
@@ -1910,7 +1910,7 @@
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
                         How do you ensure confidentiality?
                         <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
                             <path d="m6 9 6 6 6-6"/>
@@ -1922,7 +1922,7 @@
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
                         What's included in full-time consulting?
                         <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
                             <path d="m6 9 6 6 6-6"/>
@@ -1934,7 +1934,7 @@
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
                         Do you provide ongoing support?
                         <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
                             <path d="m6 9 6 6 6-6"/>
@@ -1946,7 +1946,7 @@
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
                         Can you provide references?
                         <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
                             <path d="m6 9 6 6 6-6"/>
@@ -2023,6 +2023,15 @@
             element.classList.toggle('active');
             icon.classList.toggle('active');
         }
+
+        // Add event listeners to FAQ questions
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function() {
+                    toggleFAQ(this);
+                });
+            });
+        });
 
         // Scroll animations
         const observerOptions = {
