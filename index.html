@@ -669,84 +669,127 @@
             background: white;
         }
         
-        .cases-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+        .cases-container {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
             max-width: 1200px;
             margin: 0 auto;
         }
         
-        .case-card {
-            background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
-            padding: 40px;
-            border-radius: 24px;
-            border: 1px solid var(--gray-200);
-            position: relative;
-            transition: all 0.4s ease;
+        .case-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 48px;
+            align-items: center;
         }
         
-        .case-card:hover {
+        .case-row:nth-child(even) {
+            grid-template-columns: 2fr 1fr;
+        }
+        
+        .case-row:nth-child(even) .case-content {
+            order: 2;
+        }
+        
+        .case-row:nth-child(even) .case-visual {
+            order: 1;
+        }
+        
+        .case-content {
+            padding: 40px;
+        }
+        
+        .case-visual {
+            position: relative;
+            background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
+            border-radius: 24px;
+            border: 1px solid var(--gray-200);
+            padding: 48px;
+            text-align: center;
+            transition: all 0.4s ease;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .case-visual:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-xl);
         }
         
         .case-logo {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             background: var(--gradient-1);
-            border-radius: 20px;
+            border-radius: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: 800;
-            font-size: 24px;
-            margin-bottom: 24px;
+            font-size: 32px;
+            margin: 0 auto 32px;
             box-shadow: var(--shadow-lg);
-        }
-        
-        .case-company {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--gray-900);
-            margin-bottom: 8px;
-        }
-        
-        .case-type {
-            color: var(--primary);
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 24px;
-        }
-        
-        .case-result {
-            color: var(--gray-600);
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 32px;
         }
         
         .case-metric {
             background: var(--gradient-4);
-            padding: 24px;
-            border-radius: 16px;
-            text-align: center;
+            padding: 32px;
+            border-radius: 20px;
             color: white;
+            margin-top: 24px;
         }
         
         .case-metric-number {
-            font-size: 36px;
+            font-size: 48px;
             font-weight: 900;
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
         }
         
         .case-metric-label {
-            font-size: 14px;
+            font-size: 16px;
             opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        .case-company {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 12px;
+        }
+        
+        .case-type {
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 32px;
+        }
+        
+        .case-result {
+            color: var(--gray-600);
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+        
+        .case-tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .case-tag {
+            background: var(--gray-100);
+            color: var(--gray-700);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
             font-weight: 500;
         }
         
@@ -1166,6 +1209,16 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 32px;
             }
+            
+            .case-row {
+                grid-template-columns: 1fr !important;
+                gap: 32px;
+            }
+            
+            .case-row:nth-child(even) .case-content,
+            .case-row:nth-child(even) .case-visual {
+                order: 0;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1188,8 +1241,7 @@
             }
             
             .services-grid,
-            .pricing-grid,
-            .cases-grid {
+            .pricing-grid {
                 grid-template-columns: 1fr;
                 gap: 24px;
             }
@@ -1198,6 +1250,19 @@
             .stats-grid {
                 grid-template-columns: 1fr;
                 gap: 24px;
+            }
+            
+            .cases-container {
+                gap: 32px;
+            }
+            
+            .case-content {
+                padding: 24px 0;
+            }
+            
+            .case-visual {
+                padding: 32px 24px;
+                min-height: 250px;
             }
             
             nav ul {
@@ -1699,37 +1764,64 @@
                 <h2 class="section-title">Case Studies</h2>
             </div>
             
-            <div class="cases-grid">
-                <div class="case-card">
-                    <div class="case-logo">AQ</div>
-                    <div class="case-company">Aquamark</div>
-                    <div class="case-type">Startup</div>
-                    <p class="case-result">Connected with industry players and secured sponsorships for market entry.</p>
-                    <div class="case-metric">
-                        <span class="case-metric-number">100</span>
-                        <div class="case-metric-label">Users in 90 days</div>
+            <div class="cases-container">
+                <div class="case-row">
+                    <div class="case-content">
+                        <div class="case-company">Aquamark</div>
+                        <div class="case-type">Startup</div>
+                        <p class="case-result">Connected with industry players and secured sponsorships for market entry.</p>
+                        <div class="case-tags">
+                            <span class="case-tag">Market Entry</span>
+                            <span class="case-tag">Strategic Partnerships</span>
+                            <span class="case-tag">Growth Strategy</span>
+                        </div>
+                    </div>
+                    <div class="case-visual">
+                        <div class="case-logo">AQ</div>
+                        <div class="case-metric">
+                            <span class="case-metric-number">100</span>
+                            <div class="case-metric-label">Users in 90 days</div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="case-card">
-                    <div class="case-logo">OR</div>
-                    <div class="case-company">Onramp</div>
-                    <div class="case-type">Ecommerce Funder</div>
-                    <p class="case-result">Streamlined operations and improved portfolio performance across all verticals.</p>
-                    <div class="case-metric">
-                        <span class="case-metric-number">35%</span>
-                        <div class="case-metric-label">Efficiency improvement</div>
+                <div class="case-row">
+                    <div class="case-content">
+                        <div class="case-company">Onramp</div>
+                        <div class="case-type">Ecommerce Funder</div>
+                        <p class="case-result">Streamlined operations and improved portfolio performance across all verticals.</p>
+                        <div class="case-tags">
+                            <span class="case-tag">Operations</span>
+                            <span class="case-tag">Portfolio Management</span>
+                            <span class="case-tag">Process Optimization</span>
+                        </div>
+                    </div>
+                    <div class="case-visual">
+                        <div class="case-logo">OR</div>
+                        <div class="case-metric">
+                            <span class="case-metric-number">35%</span>
+                            <div class="case-metric-label">Efficiency improvement</div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="case-card">
-                    <div class="case-logo">FF</div>
-                    <div class="case-company">Forward Financing</div>
-                    <div class="case-type">Lender</div>
-                    <p class="case-result">Optimized funding model and expanded market reach through strategic partnerships.</p>
-                    <div class="case-metric">
-                        <span class="case-metric-number">25%</span>
-                        <div class="case-metric-label">Market reach increase</div>
+                <div class="case-row">
+                    <div class="case-content">
+                        <div class="case-company">Forward Financing</div>
+                        <div class="case-type">Lender</div>
+                        <p class="case-result">Optimized funding model and expanded market reach through strategic partnerships.</p>
+                        <div class="case-tags">
+                            <span class="case-tag">Funding Strategy</span>
+                            <span class="case-tag">Market Expansion</span>
+                            <span class="case-tag">Strategic Alliances</span>
+                        </div>
+                    </div>
+                    <div class="case-visual">
+                        <div class="case-logo">FF</div>
+                        <div class="case-metric">
+                            <span class="case-metric-number">25%</span>
+                            <div class="case-metric-label">Market reach increase</div>
+                        </div>
                     </div>
                 </div>
             </div>
