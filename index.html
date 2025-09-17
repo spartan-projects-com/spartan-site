@@ -3,713 +3,1087 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spartan Projects | Fintech Consulting Excellence</title>
+    <title>Spartan Projects - Fintech Consulting</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
-            background: #ffffff;
+            color: #000;
+            background-color: #ffffff;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
-
+        
         /* Header */
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            position: fixed;
+        header {
+            background: white;
+            padding: 20px 0;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 16px 0;
-            border-bottom: 1px solid #f0f0f0;
+            z-index: 100;
+            border-bottom: 1px solid #f5f5f5;
         }
-
-        .nav {
+        
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
+        
         .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #000;
-            letter-spacing: -0.02em;
+            height: 40px;
+            width: auto;
         }
-
-        .nav-links {
+        
+        .logo-placeholder {
+            width: 180px;
+            height: 40px;
+            background: #2d4a87;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        nav ul {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 32px;
         }
-
-        .nav-links a {
+        
+        nav a {
+            color: #000;
             text-decoration: none;
-            color: #666;
             font-weight: 500;
             font-size: 15px;
             transition: color 0.2s ease;
         }
-
-        .nav-links a:hover {
-            color: #000;
+        
+        nav a:hover {
+            color: #2d4a87;
         }
-
+        
         /* Hero Section */
         .hero {
-            padding: 120px 0 80px;
-            text-align: center;
-            background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+            padding: 80px 0;
+            background: white;
         }
-
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-text {
+            text-align: left;
+        }
+        
         .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 24px;
+            font-size: 56px;
+            font-weight: 700;
             color: #000;
-            letter-spacing: -0.02em;
+            margin-bottom: 24px;
             line-height: 1.1;
+            letter-spacing: -0.02em;
         }
-
+        
         .hero p {
             font-size: 20px;
             color: #666;
             margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.5;
         }
-
+        
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            background: #f5f5f5;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 16px;
+            border: 2px dashed #ddd;
+        }
+        
         .cta-button {
             display: inline-block;
-            background: #000;
+            background: #2d4a87;
             color: white;
             padding: 16px 32px;
+            border-radius: 6px;
             text-decoration: none;
-            border-radius: 8px;
             font-weight: 600;
             font-size: 16px;
             transition: all 0.2s ease;
         }
-
+        
         .cta-button:hover {
-            background: #333;
+            background: #1e3259;
             transform: translateY(-1px);
         }
-
-        /* Services Section */
-        .services {
-            padding: 120px 0;
-            background: #ffffff;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 80px;
-            color: #000;
-            letter-spacing: -0.02em;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-        }
-
-        .service-card {
-            background: #ffffff;
-            padding: 32px;
-            border-radius: 12px;
-            border: 1px solid #f0f0f0;
-            transition: all 0.2s ease;
-        }
-
-        .service-card:hover {
-            border-color: #e0e0e0;
-            transform: translateY(-4px);
-        }
-
-        .service-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #000;
-        }
-
-        .service-description {
-            color: #666;
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        /* Team Section */
-        .team {
-            padding: 120px 0;
+        
+        /* Trust Section */
+        .trust {
+            padding: 60px 0;
             background: #fafafa;
         }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 80px;
-        }
-
-        .team-member {
+        
+        .trust-title {
             text-align: center;
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 40px;
+            font-weight: 500;
         }
-
-        .team-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: #e0e0e0;
-            margin: 0 auto 24px;
+        
+        .carousel-container {
+            overflow: hidden;
+            mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+        }
+        
+        .carousel-track {
+            display: flex;
+            animation: scroll-left 30s linear infinite;
+            gap: 32px;
+            width: fit-content;
+        }
+        
+        .logo-item {
+            width: 120px;
+            height: 60px;
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #999;
             font-size: 14px;
-            border: 1px solid #f0f0f0;
+            font-weight: 500;
+            flex-shrink: 0;
         }
-
-        .team-name {
+        
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 16px;
+        }
+        
+        .section-description {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+            color: #666;
+            font-size: 18px;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .process-step {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #2d4a87;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 12px;
+        }
+        
+        .step-description {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        
+        /* Services */
+        .services {
+            padding: 80px 0;
+            background: #fafafa;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid #e5e5e5;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: #f0f4ff;
+            border-radius: 12px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2d4a87;
+        }
+        
+        .service-card h3 {
+            font-size: 18px;
+            color: #000;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .service-card p {
+            color: #666;
+            font-size: 15px;
+        }
+        
+        /* Discretion Banner */
+        .discretion-banner {
+            background: #2d4a87;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .discretion-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .discretion-banner h3 {
             font-size: 20px;
             font-weight: 600;
             margin-bottom: 8px;
-            color: #000;
+            color: white;
         }
-
-        .team-role {
-            color: #666;
-            font-size: 15px;
-            margin-bottom: 16px;
+        
+        .discretion-banner p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
         }
-
-        .team-bio {
-            color: #666;
+        
+        .references-btn {
+            background: white;
+            color: #2d4a87;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
             font-size: 14px;
-            line-height: 1.5;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s ease;
         }
-
-        /* Reviews Section */
-        .reviews {
-            padding: 120px 0;
-            background: #ffffff;
+        
+        .references-btn:hover {
+            background: #f8f9fa;
+            transform: translateY(-1px);
         }
-
-        .reviews-grid {
+        
+        /* Use Cases */
+        .use-cases {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .cases-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 32px;
-            margin-top: 80px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-
-        .review-card {
+        
+        .case-card {
             background: #fafafa;
             padding: 32px;
             border-radius: 12px;
-            border: 1px solid #f0f0f0;
+            border: 1px solid #e5e5e5;
         }
-
-        .review-text {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #333;
-            margin-bottom: 24px;
-            font-style: italic;
-        }
-
-        .review-author {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .review-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: #e0e0e0;
+        
+        .case-logo {
+            width: 60px;
+            height: 60px;
+            background: #2d4a87;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #999;
-            font-size: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 20px;
         }
-
-        .review-info h4 {
-            font-size: 15px;
+        
+        .case-company {
+            font-size: 18px;
             font-weight: 600;
             color: #000;
             margin-bottom: 4px;
         }
-
-        .review-info p {
-            font-size: 13px;
+        
+        .case-type {
             color: #666;
-        }
-
-        /* Case Studies Section */
-        .case-studies {
-            padding: 120px 0;
-            background: #fafafa;
-        }
-
-        .case-study-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
-            margin-top: 80px;
-        }
-
-        .case-study {
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #f0f0f0;
-            transition: all 0.2s ease;
-        }
-
-        .case-study:hover {
-            transform: translateY(-4px);
-            border-color: #e0e0e0;
-        }
-
-        .case-study-image {
-            width: 100%;
-            height: 200px;
-            background: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
             font-size: 14px;
+            margin-bottom: 20px;
         }
-
-        .case-study-content {
-            padding: 32px;
-        }
-
-        .case-study h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #000;
-        }
-
-        .case-study p {
+        
+        .case-result {
             color: #666;
             font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
         }
-
-        .case-study-result {
-            background: #f8f8f8;
+        
+        .case-metric {
+            background: #f0f4ff;
             padding: 16px;
             border-radius: 8px;
-            font-size: 14px;
-            color: #333;
-            font-weight: 500;
+            text-align: center;
         }
-
-        /* Client Logos */
-        .clients {
+        
+        .case-metric-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2d4a87;
+            display: block;
+        }
+        
+        .case-metric-label {
+            color: #666;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+        
+        /* Pricing */
+        .pricing {
             padding: 80px 0;
-            background: #ffffff;
-        }
-
-        .clients-title {
-            text-align: center;
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .logo-carousel {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            opacity: 0.6;
-        }
-
-        .client-logo {
-            width: 120px;
-            height: 60px;
-            background: #f0f0f0;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 12px;
-            text-align: center;
-            border: 1px solid #e0e0e0;
-        }
-
-        /* About Section */
-        .about {
-            padding: 120px 0;
-            background: #000;
-            color: #ffffff;
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about h2 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 32px;
-            letter-spacing: -0.02em;
-        }
-
-        .about p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 24px;
-            opacity: 0.9;
-        }
-
-        .mission-statement {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 12px;
-            margin: 40px 0;
-            font-style: italic;
-            font-size: 20px;
-            line-height: 1.6;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 120px 0;
             background: #fafafa;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: white;
+            padding: 40px 32px;
+            border-radius: 12px;
             text-align: center;
+            border: 1px solid #e5e5e5;
+            position: relative;
         }
-
-        .contact h2 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: #000;
+        
+        .pricing-card.featured {
+            border-color: #2d4a87;
+            transform: scale(1.02);
         }
-
-        .contact p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        .contact-button {
-            display: inline-block;
-            background: #000;
+        
+        .pricing-card.featured::before {
+            content: "Most Popular";
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2d4a87;
             color: white;
-            padding: 20px 40px;
-            text-decoration: none;
-            border-radius: 8px;
+            padding: 8px 24px;
+            border-radius: 0 0 8px 8px;
+            font-size: 12px;
             font-weight: 600;
-            font-size: 18px;
+        }
+        
+        .pricing-title {
+            font-size: 24px;
+            color: #000;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .pricing-subtitle {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 32px;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 8px 0;
+            color: #666;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .pricing-features li::before {
+            content: "✓";
+            background: #2d4a87;
+            color: white;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .contact-btn {
+            background: #2d4a87;
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            font-size: 15px;
             transition: all 0.2s ease;
         }
-
-        .contact-button:hover {
-            background: #333;
-            transform: translateY(-1px);
+        
+        .contact-btn:hover {
+            background: #1e3259;
         }
-
-        /* Footer */
-        .footer {
-            background: #000;
+        
+        .pricing-card:not(.featured) .contact-btn {
+            background: white;
+            color: #2d4a87;
+            border: 2px solid #2d4a87;
+        }
+        
+        .pricing-card:not(.featured) .contact-btn:hover {
+            background: #2d4a87;
             color: white;
-            padding: 40px 0;
+        }
+        
+        /* FAQ */
+        .faq-section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #000;
+            font-size: 16px;
+            transition: background-color 0.2s ease;
+        }
+        
+        .faq-question:hover {
+            background: #fafafa;
+        }
+        
+        .faq-icon {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.2s ease;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+        
+        .faq-icon.active {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: #fafafa;
+        }
+        
+        .faq-answer.active {
+            max-height: 300px;
+            padding: 0 24px 24px;
+        }
+        
+        .faq-answer p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2d4a87;
+            color: white;
+            padding: 60px 0 40px;
+        }
+        
+        .footer-content {
             text-align: center;
         }
-
-        .footer p {
-            opacity: 0.6;
-            font-size: 14px;
+        
+        .footer-content h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            color: white;
         }
-
-        /* Responsive Design */
+        
+        .footer-content p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+        }
+        
+        .contact-info {
+            margin: 24px 0;
+        }
+        
+        .contact-info p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 15px;
+            margin: 8px 0;
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
-
+            
+            .hero-text {
+                text-align: center;
+            }
+            
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 40px;
             }
-
-            .section-title,
-            .about h2,
-            .contact h2 {
-                font-size: 32px;
-            }
-
+            
             .services-grid,
-            .team-grid,
-            .reviews-grid,
-            .case-study-grid {
+            .pricing-grid,
+            .cases-grid {
                 grid-template-columns: 1fr;
             }
-
-            .logo-carousel {
-                gap: 30px;
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 32px;
             }
-
-            .client-logo {
-                width: 100px;
-                height: 50px;
+            
+            nav ul {
+                flex-direction: column;
+                gap: 16px;
+            }
+            
+            .container {
+                padding: 0 16px;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav container">
-            <div class="logo">SPARTAN PROJECTS</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#case-studies">Case Studies</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-placeholder">SPARTAN PROJECTS</div>
+                <nav>
+                    <ul>
+                        <li><a href="#how-it-works">Process</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#cases">Cases</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero">
         <div class="container">
-            <h1>Fintech Consulting Excellence</h1>
-            <p>We partner with financial institutions to unlock growth, optimize operations, and navigate the evolving fintech landscape.</p>
-            <a href="#contact" class="cta-button">Get Started</a>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Building Smarter Finance Companies</h1>
+                    <p>Guiding fintechs to lasting growth.</p>
+                    <a href="#contact" class="cta-button">Get Started</a>
+                </div>
+                <div class="hero-image">
+                    Stock photo placeholder
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <section class="trust">
+        <div class="container">
+            <h2 class="trust-title">Trusted by Industry Leaders</h2>
+        </div>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="logo-item">Company 1</div>
+                <div class="logo-item">Company 2</div>
+                <div class="logo-item">Company 3</div>
+                <div class="logo-item">Company 4</div>
+                <div class="logo-item">Company 5</div>
+                <div class="logo-item">Company 6</div>
+                <div class="logo-item">Company 7</div>
+                <div class="logo-item">Company 8</div>
+                <div class="logo-item">Company 9</div>
+                <div class="logo-item">Company 10</div>
+                <div class="logo-item">Company 11</div>
+                <div class="logo-item">Company 12</div>
+                <div class="logo-item">Company 13</div>
+                <div class="logo-item">Company 14</div>
+                <div class="logo-item">Company 15</div>
+                <div class="logo-item">Company 16</div>
+                <!-- Duplicate for seamless loop -->
+                <div class="logo-item">Company 1</div>
+                <div class="logo-item">Company 2</div>
+                <div class="logo-item">Company 3</div>
+                <div class="logo-item">Company 4</div>
+                <div class="logo-item">Company 5</div>
+                <div class="logo-item">Company 6</div>
+                <div class="logo-item">Company 7</div>
+                <div class="logo-item">Company 8</div>
+                <div class="logo-item">Company 9</div>
+                <div class="logo-item">Company 10</div>
+                <div class="logo-item">Company 11</div>
+                <div class="logo-item">Company 12</div>
+                <div class="logo-item">Company 13</div>
+                <div class="logo-item">Company 14</div>
+                <div class="logo-item">Company 15</div>
+                <div class="logo-item">Company 16</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-description">Start growing after a few simple steps.</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Free Consult</h3>
+                    <p class="step-description">30-minute discovery call to discuss your challenges and goals.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Scope & Budget</h3>
+                    <p class="step-description">Detailed proposal with scope, timeline, and investment.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Sign NDAs</h3>
+                    <p class="step-description">Execute agreements to protect your information.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Start Growing</h3>
+                    <p class="step-description">Begin implementation with regular check-ins.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="services" id="services">
         <div class="container">
             <h2 class="section-title">Our Services</h2>
+            <p class="section-description">Strategic guidance for brokers, funders, and software companies.</p>
+            
             <div class="services-grid">
                 <div class="service-card">
-                    <h3 class="service-title">Revenue Growth</h3>
-                    <p class="service-description">Increasing revenue through decreasing costs, and properly managing workflows for efficiency.</p>
-                </div>
-
-                <div class="service-card">
-                    <h3 class="service-title">Lending Solutions</h3>
-                    <p class="service-description">Looking to lend and build a portfolio? Start putting your funds to work in as little as 30 days.</p>
-                </div>
-
-                <div class="service-card">
-                    <h3 class="service-title">Operational Efficiency</h3>
-                    <p class="service-description">Aligning departments to work together creating seamless teams working towards aligned goals.</p>
-                </div>
-
-                <div class="service-card">
-                    <h3 class="service-title">Leadership Training</h3>
-                    <p class="service-description">Strong Leaders make strong companies. Learn how to lead through the obstacles of growth and scaling.</p>
-                </div>
-
-                <div class="service-card">
-                    <h3 class="service-title">Technology Stack</h3>
-                    <p class="service-description">Less overhead, more automation. Increase revenue by using the proper software in the proper order.</p>
-                </div>
-
-                <div class="service-card">
-                    <h3 class="service-title">Portfolio Management</h3>
-                    <p class="service-description">Using data to make educated adjustments to portfolio concentration and investment strategies.</p>
-                </div>
-
-                <div class="service-card">
-                    <h3 class="service-title">Compliance & Regulations</h3>
-                    <p class="service-description">Making sure you are up to date with all state and federal disclosure requirements.</p>
-                </div>
-
-                <div class="service-card">
-                    <h3 class="service-title">Strategic Partnerships</h3>
-                    <p class="service-description">Growing market share by partnering with companies that provide access to your services.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team" id="team">
-        <div class="container">
-            <h2 class="section-title">Our Team</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="team-photo">Photo Placeholder</div>
-                    <h3 class="team-name">Team Member Name</h3>
-                    <p class="team-role">Founder & CEO</p>
-                    <p class="team-bio">Industry veteran with 15+ years experience in fintech consulting and strategic partnerships.</p>
-                </div>
-
-                <div class="team-member">
-                    <div class="team-photo">Photo Placeholder</div>
-                    <h3 class="team-name">Team Member Name</h3>
-                    <p class="team-role">Head of Operations</p>
-                    <p class="team-bio">Expert in operational efficiency and workflow optimization for financial institutions.</p>
-                </div>
-
-                <div class="team-member">
-                    <div class="team-photo">Photo Placeholder</div>
-                    <h3 class="team-name">Team Member Name</h3>
-                    <p class="team-role">Technology Director</p>
-                    <p class="team-bio">Specialist in fintech software solutions and digital transformation strategies.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Client Logos -->
-    <section class="clients">
-        <div class="container">
-            <p class="clients-title">Trusted by Leading Financial Institutions</p>
-            <div class="logo-carousel">
-                <div class="client-logo">Client Logo 1</div>
-                <div class="client-logo">Client Logo 2</div>
-                <div class="client-logo">Client Logo 3</div>
-                <div class="client-logo">Client Logo 4</div>
-                <div class="client-logo">Client Logo 5</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section class="reviews" id="reviews">
-        <div class="container">
-            <h2 class="section-title">Client Reviews</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <p class="review-text">"Spartan Projects transformed our lending operations. Their strategic guidance helped us scale from $10M to $50M in portfolio assets within 18 months."</p>
-                    <div class="review-author">
-                        <div class="review-avatar">Photo</div>
-                        <div class="review-info">
-                            <h4>John Smith</h4>
-                            <p>CEO, TechLend Financial</p>
-                        </div>
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3v18h18"/>
+                            <path d="m19 9-5 5-4-4-3 3"/>
+                        </svg>
                     </div>
+                    <h3>Revenue Growth</h3>
+                    <p>Accelerate revenue and maximize profitability.</p>
                 </div>
-
-                <div class="review-card">
-                    <p class="review-text">"The operational efficiency improvements they implemented reduced our processing time by 60% while maintaining the highest compliance standards."</p>
-                    <div class="review-author">
-                        <div class="review-avatar">Photo</div>
-                        <div class="review-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>COO, Digital Finance Corp</p>
-                        </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
                     </div>
+                    <h3>Lending Solutions</h3>
+                    <p>Start funding in 30 days.</p>
                 </div>
-
-                <div class="review-card">
-                    <p class="review-text">"Their technology stack recommendations saved us $200K annually in software costs while improving our team's productivity significantly."</p>
-                    <div class="review-author">
-                        <div class="review-avatar">Photo</div>
-                        <div class="review-info">
-                            <h4>Michael Chen</h4>
-                            <p>CTO, FinanceFlow Solutions</p>
-                        </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="m22 21-3-3m0 0-3-3m3 3 3-3m-3 3-3 3"/>
+                        </svg>
                     </div>
+                    <h3>Acquisition Strategy</h3>
+                    <p>Valuation, deal structuring, execution.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="m2 17 10 5 10-5"/>
+                            <path d="m2 12 10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Operations</h3>
+                    <p>Streamline, automate, reduce costs.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Team Training</h3>
+                    <p>Develop leaders, enhance sales.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m9 12 2 2 4-4"/>
+                            <path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"/>
+                            <path d="M21 12A9 9 0 1 1 12 3"/>
+                        </svg>
+                    </div>
+                    <h3>Compliance</h3>
+                    <p>Navigate requirements with confidence.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                        </svg>
+                    </div>
+                    <h3>Tech Stack</h3>
+                    <p>Optimize software infrastructure.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3v18h18"/>
+                            <rect x="7" y="8" width="3" height="8"/>
+                            <rect x="12" y="4" width="3" height="12"/>
+                            <rect x="17" y="6" width="3" height="10"/>
+                        </svg>
+                    </div>
+                    <h3>Portfolio Management</h3>
+                    <p>Maximize returns, minimize risk.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+                        </svg>
+                    </div>
+                    <h3>Strategic Partnerships</h3>
+                    <p>Leverage our network for growth.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Case Studies Section -->
-    <section class="case-studies" id="case-studies">
+    <section class="discretion-banner">
+        <div class="container">
+            <div class="discretion-content">
+                <h3>We take discretion seriously.</h3>
+                <p>Your information and relationships are protected.</p>
+                <a href="#contact" class="references-btn">Want references? Just ask!</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="use-cases" id="cases">
         <div class="container">
             <h2 class="section-title">Case Studies</h2>
-            <div class="case-study-grid">
-                <div class="case-study">
-                    <div class="case-study-image">Case Study Image</div>
-                    <div class="case-study-content">
-                        <h3>Digital Lending Platform Scale-Up</h3>
-                        <p>Helped a mid-size financial institution launch their digital lending platform, streamlining operations and implementing automated underwriting processes.</p>
-                        <div class="case-study-result">Result: 300% increase in loan processing speed, $2M additional revenue in first year</div>
+            
+            <div class="cases-grid">
+                <div class="case-card">
+                    <div class="case-logo">AQ</div>
+                    <div class="case-company">Aquamark</div>
+                    <div class="case-type">Startup</div>
+                    <p class="case-result">Connected with industry players and secured sponsorships for market entry.</p>
+                    <div class="case-metric">
+                        <span class="case-metric-number">100</span>
+                        <div class="case-metric-label">Users in 90 days</div>
                     </div>
                 </div>
-
-                <div class="case-study">
-                    <div class="case-study-image">Case Study Image</div>
-                    <div class="case-study-content">
-                        <h3>Compliance Framework Overhaul</h3>
-                        <p>Comprehensive compliance audit and framework implementation for a growing fintech startup to meet federal and state regulatory requirements.</p>
-                        <div class="case-study-result">Result: 100% compliance score, avoided $500K in potential penalties</div>
+                
+                <div class="case-card">
+                    <div class="case-logo">OR</div>
+                    <div class="case-company">Onramp</div>
+                    <div class="case-type">Ecommerce Funder</div>
+                    <p class="case-result">Streamlined operations and improved portfolio performance across all verticals.</p>
+                    <div class="case-metric">
+                        <span class="case-metric-number">35%</span>
+                        <div class="case-metric-label">Efficiency improvement</div>
                     </div>
                 </div>
-
-                <div class="case-study">
-                    <div class="case-study-image">Case Study Image</div>
-                    <div class="case-study-content">
-                        <h3>Portfolio Optimization Strategy</h3>
-                        <p>Data-driven portfolio management strategy implementation, reducing risk exposure while maximizing returns for a $100M+ investment fund.</p>
-                        <div class="case-study-result">Result: 25% improvement in risk-adjusted returns, 40% reduction in defaults</div>
+                
+                <div class="case-card">
+                    <div class="case-logo">FF</div>
+                    <div class="case-company">Forward Financing</div>
+                    <div class="case-type">Lender</div>
+                    <p class="case-result">Optimized funding model and expanded market reach through strategic partnerships.</p>
+                    <div class="case-metric">
+                        <span class="case-metric-number">25%</span>
+                        <div class="case-metric-label">Market reach increase</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
+    <section class="pricing" id="pricing">
         <div class="container">
-            <div class="about-content">
-                <h2>Spartan Projects in Your Future Plans</h2>
-                <p>We are made up of industry veterans who have guided some of the biggest names in fintech, helping them secure and manage multi-million-dollar funding with our expertise in operations, sales, and market trends.</p>
-                
-                <div class="mission-statement">
-                    "Our mission is simple: We plan to be here for the long haul, working tirelessly to connect the brightest minds in the industry. At Spartan Projects, we refuse to accept mediocrity. We challenge the status quo, encouraging others to raise their standards, dream big, and push beyond what's comfortable."
+            <h2 class="section-title">Choose Your Plan</h2>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-title">Part Time</div>
+                    <div class="pricing-subtitle">Flexible consulting</div>
+                    <ul class="pricing-features">
+                        <li>Strategic planning</li>
+                        <li>Monthly reviews</li>
+                        <li>Email support</li>
+                        <li>Industry insights</li>
+                        <li>Flexible scheduling</li>
+                    </ul>
+                    <button class="contact-btn" onclick="window.location.href='#contact'">Contact Us</button>
                 </div>
                 
-                <p>When you partner with Spartan Projects, you're not just hiring consultants – you're gaining allies who are invested in your long-term success and committed to excellence at every level.</p>
+                <div class="pricing-card featured">
+                    <div class="pricing-title">Full Time</div>
+                    <div class="pricing-subtitle">Dedicated partnership</div>
+                    <ul class="pricing-features">
+                        <li>Dedicated consultant</li>
+                        <li>Weekly strategy sessions</li>
+                        <li>24/7 priority support</li>
+                        <li>Complete analysis</li>
+                        <li>Implementation support</li>
+                        <li>Team training</li>
+                    </ul>
+                    <button class="contact-btn" onclick="window.location.href='#contact'">Contact Us</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-title">Project</div>
+                    <div class="pricing-subtitle">Focused delivery</div>
+                    <ul class="pricing-features">
+                        <li>Defined scope & timeline</li>
+                        <li>Milestone delivery</li>
+                        <li>Expert team assignment</li>
+                        <li>Regular updates</li>
+                        <li>Knowledge transfer</li>
+                    </ul>
+                    <button class="contact-btn" onclick="window.location.href='#contact'">Contact Us</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <section class="faq-section" id="faq">
         <div class="container">
-            <h2>Ready to Get Started?</h2>
-            <p>Let's discuss how we can help transform your financial technology operations.</p>
-            <a href="mailto:hello@spartanprojects.com" class="contact-button">Contact Us</a>
+            <div class="faq-container">
+                <h2 class="section-title">FAQ</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How quickly can we see results?
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
+                            <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most clients see improvements within 30-60 days. Lending solutions can be set up in 30 days, while revenue initiatives typically show results within the first quarter.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        What industries do you work with?
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
+                            <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We specialize in fintech: brokers, funders, lenders, and financial software companies. From startups to established enterprises across all funding verticals.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How do you ensure confidentiality?
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
+                            <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>All engagements begin with comprehensive NDAs. We maintain strict security protocols and never share client information with competitors.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        What's included in full-time consulting?
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
+                            <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Dedicated consultant, weekly strategy sessions, 24/7 support, complete business analysis, implementation support, team training, and quarterly reviews.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Do you provide ongoing support?
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
+                            <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. All projects include knowledge transfer and documentation. Many clients retain us for ongoing advisory services and additional projects.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Can you provide references?
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
+                            <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We can connect you with relevant references based on your needs during our initial consultation.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <footer id="contact">
         <div class="container">
-            <p>&copy; 2025 Spartan Projects. All rights reserved.</p>
+            <div class="footer-content">
+                <h3>Ready to Transform Your Business?</h3>
+                <p>Let's discuss how we can help you achieve your goals.</p>
+                <div class="contact-info">
+                    <p>Email: info@spartanprojects.com</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+                <p>&copy; 2025 Spartan Projects. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
@@ -728,17 +1102,25 @@
             });
         });
 
-        // Header background on scroll
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.borderBottom = '1px solid #e0e0e0';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.borderBottom = '1px solid #f0f0f0';
-            }
-        });
+        // FAQ Toggle functionality
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('.faq-icon');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-answer.active').forEach(faq => {
+                if (faq !== answer) {
+                    faq.classList.remove('active');
+                    faq.previousElementSibling.classList.remove('active');
+                    faq.previousElementSibling.querySelector('.faq-icon').classList.remove('active');
+                }
+            });
+            
+            // Toggle current FAQ
+            answer.classList.toggle('active');
+            element.classList.toggle('active');
+            icon.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
