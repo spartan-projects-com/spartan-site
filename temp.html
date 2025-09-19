@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- IMPORTANT: This page lives in /resources/ and images live one level up (project root) -->
   <link rel="icon" type="image/png" sizes="32x32" href="../helmet.png?v=2" />
   <link rel="shortcut icon" href="../helmet.png?v=2" />
   <link rel="apple-touch-icon" sizes="180x180" href="../helmet.png?v=2" />
@@ -33,14 +34,11 @@
       --gray-800: #1e293b;
       --gray-900: #0f172a;
       --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #0891b2 100%);
-      --gradient-secondary: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
       --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
       --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    img { max-width: 100%; height: auto; display: block; }
     body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: var(--gray-800); background-color: #ffffff; overflow-x: hidden; }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
@@ -60,8 +58,8 @@
 
     /* Page Header */
     .page-header { padding: 80px 0 60px; background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%); text-align: center; }
-    .page-title { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.2; color: var(--gray-900); margin-bottom: 16px; letter-spacing: -0.02em; }
-    .page-subtitle { font-size: 20px; color: var(--gray-600); max-width: 600px; margin: 0 auto; line-height: 1.7; }
+    .page-title { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.2; color: var(--gray-900); margin-bottom: 16px; letter-spacing: -0.02em; }
+    .page-subtitle { font-size: 18px; color: var(--gray-600); max-width: 640px; margin: 0 auto; line-height: 1.7; }
 
     /* Resources Section */
     .resources-section { padding: 80px 0; }
@@ -72,13 +70,13 @@
     .resources-grid .resource-card:nth-child(4) { grid-column: 2 / span 2; }
     .resources-grid .resource-card:nth-child(5) { grid-column: 4 / span 2; }
 
-    .resource-card { background: white; padding: 32px; border-radius: 12px; border: 1px solid var(--gray-200); transition: all 0.3s ease; position: relative; display: flex; flex-direction: column; gap: 20px; }
-    .resource-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--spartan-blue-light); }
-    .resource-header { display: flex; justify-content: center; align-items: center; margin-bottom: 24px; padding: 24px; background: linear-gradient(135deg, var(--spartan-blue) 0%, var(--spartan-cyan) 100%); border-radius: 12px; margin: -32px -32px 24px -32px; }
-    .resource-logo { width: 130px; height: 90px; object-fit: contain; filter: brightness(0) invert(1); }
-    .resource-url { color: var(--spartan-blue); text-decoration: none; font-weight: 500; font-size: 16px; transition: all 0.3s ease; }
+    .resource-card { background: white; padding: 28px; border-radius: 12px; border: 1px solid var(--gray-200); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; display: flex; flex-direction: column; gap: 16px; box-shadow: var(--shadow-sm); }
+    .resource-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--spartan-blue); }
+    .resource-header { display: flex; justify-content: center; align-items: center; margin-bottom: 8px; padding: 18px; background: linear-gradient(135deg, var(--spartan-blue) 0%, var(--spartan-cyan) 100%); border-radius: 12px; margin: -28px -28px 16px -28px; }
+    .resource-logo { width: 140px; height: 90px; object-fit: contain; /* keep original colors for better brand fidelity */ filter: none; }
+    .resource-url { color: var(--spartan-blue); text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.2s ease; word-break: break-word; }
     .resource-url:hover { color: var(--spartan-blue-dark); text-decoration: underline; }
-    .resource-description { color: var(--gray-600); line-height: 1.6; font-size: 16px; }
+    .resource-description { color: var(--gray-600); line-height: 1.6; font-size: 15px; }
     .external-link-icon { width: 16px; height: 16px; margin-left: 4px; vertical-align: middle; }
 
     /* Footer */
@@ -89,33 +87,34 @@
     .footer-links a { color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s ease; }
     .footer-links a:hover { color: white; }
 
-    /* ========================= */
-    /* Responsive (mobile only)  */
-    /* ========================= */
-    .nav-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--gray-200); border-radius: 8px; background: white; align-items: center; justify-content: center; gap: 5px; padding: 0 10px; box-shadow: var(--shadow-sm); }
+    /* Mobile nav button */
+    .nav-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--gray-200); border-radius: 8px; background: #fff; align-items: center; justify-content: center; gap: 5px; padding: 0 10px; box-shadow: var(--shadow-sm); }
     .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--gray-700); border-radius: 2px; transition: transform 0.2s ease, opacity 0.2s ease; }
     .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
     .nav-toggle[aria-expanded="true"] span:first-child { transform: translateY(4px) rotate(45deg); }
     .nav-toggle[aria-expanded="true"] span:last-child { transform: translateY(-4px) rotate(-45deg); }
 
+    /* ========= Responsive ========= */
+    @media (max-width: 1024px) {
+      .resources-grid { grid-template-columns: repeat(3, 1fr); }
+      .resources-grid .resource-card { grid-column: auto / span 1; }
+    }
     @media (max-width: 768px) {
       .container { padding: 0 16px; }
       .logo-image { height: 48px; }
 
-      /* Mobile nav dropdown (desktop unchanged) */
-      .nav-toggle { display: flex; }
-      header nav { position: absolute; top: 64px; left: 0; right: 0; display: none; background: #fff; border-top: 1px solid var(--gray-200); box-shadow: var(--shadow-md); }
+      /* Mobile dropdown nav; desktop unchanged */
+      header nav { position: absolute; top: 64px; left: 0; right: 0; display: none; background: #fff; border-top: 1px solid var(--gray-200); box-shadow: var(--shadow-md); z-index: 1001; }
       header nav.open { display: block; }
       header nav ul { display: flex; flex-direction: column; gap: 0; padding: 8px 8px; }
       header nav li a { display: block; padding: 14px 8px; }
+      .nav-toggle { display: flex; }
 
-      .page-header { padding: 60px 0 40px; }
+      .page-header { padding: 56px 0 36px; }
+      .page-subtitle { font-size: 16px; }
 
-      .resources-grid { grid-template-columns: 1fr; }
-      .resources-grid .resource-card:nth-child(4),
-      .resources-grid .resource-card:nth-child(5) { grid-column: span 1; }
-
-      .resource-header { flex-direction: column; text-align: center; margin: -24px -24px 20px -24px; padding: 20px; }
+      .resources-grid { grid-template-columns: 1fr; gap: 20px; }
+      .resource-header { margin: -20px -20px 12px -20px; padding: 16px; }
       .resource-logo { width: 120px; height: 80px; }
 
       .footer-content { flex-direction: column; text-align: center; }
@@ -154,45 +153,45 @@
   <section class="resources-section">
     <div class="container">
       <div class="resources-grid">
-        <!-- 1 -->
+        <!-- NOTE: use ../ because this file is /resources/index.html and images are in project root -->
         <div class="resource-card">
           <div class="resource-header"><img src="../aquacase.png" alt="Aquamark" class="resource-logo" /></div>
           <a href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer" class="resource-url">www.aquamark.io
             <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
-          <p class="resource-description">Aquamark is a lightweight watermarking tool used by funders and brokers to prevent deal theft.</p>
+          <p class="resource-description">A lightweight watermarking tool used by funders and brokers to deter deal theft.</p>
         </div>
-        <!-- 2 -->
+
         <div class="resource-card">
           <div class="resource-header"><img src="../sbfa.png" alt="SBFA" class="resource-logo" /></div>
           <a href="https://sbfassociation.org/" target="_blank" rel="noopener noreferrer" class="resource-url">sbfassociation.org
             <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
-          <p class="resource-description">The Small Business Finance Association is a nonprofit that promotes responsible, transparent small-business lending.</p>
+          <p class="resource-description">A nonprofit that promotes responsible, transparent small‑business lending.</p>
         </div>
-        <!-- 3 -->
+
         <div class="resource-card">
           <div class="resource-header"><img src="../greenl.png" alt="GreenLedger" class="resource-logo" /></div>
-          <a href="https://44664037.hs-sites.com/greenledger" target="_blank" rel="noopener noreferrer" class="resource-url">greenledger platform
+          <a href="https://44664037.hs-sites.com/greenledger" target="_blank" rel="noopener noreferrer" class="resource-url">GreenLedger platform
             <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
-          <p class="resource-description">GreenLedger helps small businesses avoid MCA defaults with tailored, reasonable repayment plans.</p>
+          <p class="resource-description">Helps small businesses avoid MCA default with tailored, reasonable repayment plans.</p>
         </div>
-        <!-- 4 -->
+
         <div class="resource-card">
           <div class="resource-header"><img src="../debanked.png" alt="deBanked" class="resource-logo" /></div>
           <a href="https://debanked.com/" target="_blank" rel="noopener noreferrer" class="resource-url">debanked.com
             <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
-          <p class="resource-description">deBanked is a leading publication for alternative business finance and fintech, offering news, analysis, and market insights.</p>
+          <p class="resource-description">Leading publication for alternative business finance and fintech with news and insights.</p>
         </div>
-        <!-- 5 -->
+
         <div class="resource-card">
           <div class="resource-header"><img src="../ilp.png" alt="ILPA" class="resource-logo" /></div>
           <a href="https://innovativelending.org/" target="_blank" rel="noopener noreferrer" class="resource-url">innovativelending.org
             <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
-          <p class="resource-description">The ILPA is a trade group for online small-business funders, promoting best-practice standards and access to capital.</p>
+          <p class="resource-description">Trade group for online small‑business funders, promoting best‑practice standards.</p>
         </div>
       </div>
     </div>
@@ -226,7 +225,7 @@
       }
     });
 
-    // Simple fade-in animation on scroll
+    // Animate cards on reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -238,19 +237,21 @@
 
     document.querySelectorAll('.resource-card').forEach((el) => {
       el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      el.style.transform = 'translateY(16px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
       observer.observe(el);
     });
 
     // Mobile nav toggle
     const toggle = document.querySelector('.nav-toggle');
     const nav = document.querySelector('header nav');
-    toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!expanded));
-      nav.classList.toggle('open');
-    });
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    }
 
     // Close mobile nav after clicking a link
     document.querySelectorAll('header nav a').forEach((a) => {
