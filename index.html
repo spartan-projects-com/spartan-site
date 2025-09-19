@@ -258,6 +258,8 @@
         .trust-section {
             padding: 60px 0;
             background: var(--gray-50);
+            position: relative;
+            overflow: hidden;
         }
         
         .trust-title {
@@ -270,33 +272,41 @@
             letter-spacing: 0.1em;
         }
         
-        .trust-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            opacity: 0.6;
+        .carousel-container {
+            overflow: hidden;
+            width: 100%;
         }
         
-        .trust-logo {
-            height: 40px;
+        .carousel-track {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 20px;
-            background: white;
-            border-radius: 8px;
-            border: 1px solid var(--gray-200);
-            color: var(--gray-500);
-            font-weight: 600;
-            font-size: 14px;
+            animation: scroll-left 60s linear infinite;
+            gap: 32px;
+            width: fit-content;
+        }
+        
+        .logo-item {
+            width: 140px;
+            height: 80px;
+            flex-shrink: 0;
             transition: all 0.3s ease;
         }
         
-        .trust-logo:hover {
-            opacity: 1;
-            transform: translateY(-2px);
+        .logo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: all 0.3s ease;
+            filter: grayscale(100%) opacity(0.6);
+        }
+        
+        .logo-item:hover img {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.05);
+        }
+        
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
         
         /* Section Styling */
@@ -749,13 +759,208 @@
     <section class="trust-section">
         <div class="container">
             <h2 class="trust-title">Trusted by Industry Leaders</h2>
-            <div class="trust-logos">
-                <div class="trust-logo">Forward Financing</div>
-                <div class="trust-logo">Credibly</div>
-                <div class="trust-logo">Kapitus</div>
-                <div class="trust-logo">OnDeck</div>
-                <div class="trust-logo">National Funding</div>
-                <div class="trust-logo">Balboa Capital</div>
+        </div>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="logo-item">
+                    <img src="ACHWorks.jpg" alt="ACH Works" />
+                </div>
+                <div class="logo-item">
+                    <img src="Aquamark.jpg" alt="Aquamark" />
+                </div>
+                <div class="logo-item">
+                    <img src="Backd.jpg" alt="Backd" />
+                </div>
+                <div class="logo-item">
+                    <img src="Balboa Capital.jpg" alt="Balboa Capital" />
+                </div>
+                <div class="logo-item">
+                    <img src="Big Think Capital.jpg" alt="Big Think Capital" />
+                </div>
+                <div class="logo-item">
+                    <img src="BusinessLoans.com.jpg" alt="BusinessLoans.com" />
+                </div>
+                <div class="logo-item">
+                    <img src="CFG Merchant Solutions.jpg" alt="CFG Merchant Solutions" />
+                </div>
+                <div class="logo-item">
+                    <img src="Can Capital.jpg" alt="Can Capital" />
+                </div>
+                <div class="logo-item">
+                    <img src="Capfront.jpg" alt="Capfront" />
+                </div>
+                <div class="logo-item">
+                    <img src="Clear.jpg" alt="Clear" />
+                </div>
+                <div class="logo-item">
+                    <img src="Cloudsquare.jpg" alt="Cloudsquare" />
+                </div>
+                <div class="logo-item">
+                    <img src="Credibly.jpg" alt="Credibly" />
+                </div>
+                <div class="logo-item">
+                    <img src="Docusign.jpg" alt="DocuSign" />
+                </div>
+                <div class="logo-item">
+                    <img src="Dragina.jpg" alt="Dragina" />
+                </div>
+                <div class="logo-item">
+                    <img src="Elevate.jpg" alt="Elevate" />
+                </div>
+                <div class="logo-item">
+                    <img src="Expansion Capital Group.jpg" alt="Expansion Capital Group" />
+                </div>
+                <div class="logo-item">
+                    <img src="Expertan.jpg" alt="Expertan" />
+                </div>
+                <div class="logo-item">
+                    <img src="Fora Financial.jpg" alt="Fora Financial" />
+                </div>
+                <div class="logo-item">
+                    <img src="Forward Financing.jpg" alt="Forward Financing" />
+                </div>
+                <div class="logo-item">
+                    <img src="Fundera.jpg" alt="Fundera" />
+                </div>
+                <div class="logo-item">
+                    <img src="Gorg.jpg" alt="Gorg" />
+                </div>
+                <div class="logo-item">
+                    <img src="Heron Bird.jpg" alt="Heron Bird" />
+                </div>
+                <div class="logo-item">
+                    <img src="Kapitus.jpg" alt="Kapitus" />
+                </div>
+                <div class="logo-item">
+                    <img src="Lending Tree.jpg" alt="Lending Tree" />
+                </div>
+                <div class="logo-item">
+                    <img src="Lendio.jpg" alt="Lendio" />
+                </div>
+                <div class="logo-item">
+                    <img src="Lendz.jpg" alt="Lendz" />
+                </div>
+                <div class="logo-item">
+                    <img src="MoneyThumb.jpg" alt="MoneyThumb" />
+                </div>
+                <div class="logo-item">
+                    <img src="National Funding.jpg" alt="National Funding" />
+                </div>
+                <div class="logo-item">
+                    <img src="Ocrolus.jpg" alt="Ocrolus" />
+                </div>
+                <div class="logo-item">
+                    <img src="On Deck.jpg" alt="On Deck" />
+                </div>
+                <div class="logo-item">
+                    <img src="Onyx.jpg" alt="Onyx" />
+                </div>
+                <div class="logo-item">
+                    <img src="Plaid.jpg" alt="Plaid" />
+                </div>
+                <div class="logo-item">
+                    <img src="Trulo.jpg" alt="Trulo" />
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="logo-item">
+                    <img src="ACHWorks.jpg" alt="ACH Works" />
+                </div>
+                <div class="logo-item">
+                    <img src="Aquamark.jpg" alt="Aquamark" />
+                </div>
+                <div class="logo-item">
+                    <img src="Backd.jpg" alt="Backd" />
+                </div>
+                <div class="logo-item">
+                    <img src="Balboa Capital.jpg" alt="Balboa Capital" />
+                </div>
+                <div class="logo-item">
+                    <img src="Big Think Capital.jpg" alt="Big Think Capital" />
+                </div>
+                <div class="logo-item">
+                    <img src="BusinessLoans.com.jpg" alt="BusinessLoans.com" />
+                </div>
+                <div class="logo-item">
+                    <img src="CFG Merchant Solutions.jpg" alt="CFG Merchant Solutions" />
+                </div>
+                <div class="logo-item">
+                    <img src="Can Capital.jpg" alt="Can Capital" />
+                </div>
+                <div class="logo-item">
+                    <img src="Capfront.jpg" alt="Capfront" />
+                </div>
+                <div class="logo-item">
+                    <img src="Clear.jpg" alt="Clear" />
+                </div>
+                <div class="logo-item">
+                    <img src="Cloudsquare.jpg" alt="Cloudsquare" />
+                </div>
+                <div class="logo-item">
+                    <img src="Credibly.jpg" alt="Credibly" />
+                </div>
+                <div class="logo-item">
+                    <img src="Docusign.jpg" alt="DocuSign" />
+                </div>
+                <div class="logo-item">
+                    <img src="Dragina.jpg" alt="Dragina" />
+                </div>
+                <div class="logo-item">
+                    <img src="Elevate.jpg" alt="Elevate" />
+                </div>
+                <div class="logo-item">
+                    <img src="Expansion Capital Group.jpg" alt="Expansion Capital Group" />
+                </div>
+                <div class="logo-item">
+                    <img src="Expertan.jpg" alt="Expertan" />
+                </div>
+                <div class="logo-item">
+                    <img src="Fora Financial.jpg" alt="Fora Financial" />
+                </div>
+                <div class="logo-item">
+                    <img src="Forward Financing.jpg" alt="Forward Financing" />
+                </div>
+                <div class="logo-item">
+                    <img src="Fundera.jpg" alt="Fundera" />
+                </div>
+                <div class="logo-item">
+                    <img src="Gorg.jpg" alt="Gorg" />
+                </div>
+                <div class="logo-item">
+                    <img src="Heron Bird.jpg" alt="Heron Bird" />
+                </div>
+                <div class="logo-item">
+                    <img src="Kapitus.jpg" alt="Kapitus" />
+                </div>
+                <div class="logo-item">
+                    <img src="Lending Tree.jpg" alt="Lending Tree" />
+                </div>
+                <div class="logo-item">
+                    <img src="Lendio.jpg" alt="Lendio" />
+                </div>
+                <div class="logo-item">
+                    <img src="Lendz.jpg" alt="Lendz" />
+                </div>
+                <div class="logo-item">
+                    <img src="MoneyThumb.jpg" alt="MoneyThumb" />
+                </div>
+                <div class="logo-item">
+                    <img src="National Funding.jpg" alt="National Funding" />
+                </div>
+                <div class="logo-item">
+                    <img src="Ocrolus.jpg" alt="Ocrolus" />
+                </div>
+                <div class="logo-item">
+                    <img src="On Deck.jpg" alt="On Deck" />
+                </div>
+                <div class="logo-item">
+                    <img src="Onyx.jpg" alt="Onyx" />
+                </div>
+                <div class="logo-item">
+                    <img src="Plaid.jpg" alt="Plaid" />
+                </div>
+                <div class="logo-item">
+                    <img src="Trulo.jpg" alt="Trulo" />
+                </div>
             </div>
         </div>
     </section>
