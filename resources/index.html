@@ -96,6 +96,70 @@
             width: auto;
         }
         
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .mobile-menu-toggle:hover {
+            background-color: var(--gray-100);
+        }
+        
+        .hamburger {
+            width: 24px;
+            height: 18px;
+            position: relative;
+        }
+        
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: var(--gray-600);
+            border-radius: 1px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        
+        .hamburger span:nth-child(1) {
+            top: 0px;
+        }
+        
+        .hamburger span:nth-child(2) {
+            top: 8px;
+        }
+        
+        .hamburger span:nth-child(3) {
+            top: 16px;
+        }
+        
+        .mobile-menu-toggle.open .hamburger span:nth-child(1) {
+            top: 8px;
+            transform: rotate(135deg);
+        }
+        
+        .mobile-menu-toggle.open .hamburger span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+        
+        .mobile-menu-toggle.open .hamburger span:nth-child(3) {
+            top: 8px;
+            transform: rotate(-135deg);
+        }
+        
+        nav {
+            position: relative;
+        }
+        
         nav ul {
             display: flex;
             list-style: none;
@@ -295,31 +359,162 @@
                 padding: 0 16px;
             }
             
+            .logo-image {
+                height: 50px;
+            }
+            
+            .logo {
+                font-size: 18px;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
             nav ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                border: 1px solid var(--gray-200);
+                border-radius: 8px;
+                margin-top: 8px;
+                padding: 16px;
+                flex-direction: column;
+                gap: 16px;
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-10px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            nav ul.open {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav li {
+                text-align: center;
+            }
+            
+            nav a {
+                font-size: 16px;
+                padding: 8px 16px;
+                display: block;
+                border-radius: 6px;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+            
+            nav a:hover {
+                background-color: var(--gray-50);
+            }
+            
+            nav a::after {
                 display: none;
+            }
+            
+            .page-header {
+                padding: 60px 0 40px;
+            }
+            
+            .page-title {
+                font-size: clamp(2rem, 8vw, 2.5rem);
+            }
+            
+            .page-subtitle {
+                font-size: 18px;
+                padding: 0 16px;
+            }
+            
+            .resources-section {
+                padding: 60px 0;
             }
             
             .resources-grid {
                 grid-template-columns: 1fr;
+                gap: 24px;
             }
             
+            .resources-grid .resource-card:nth-child(1),
+            .resources-grid .resource-card:nth-child(2),
+            .resources-grid .resource-card:nth-child(3),
             .resources-grid .resource-card:nth-child(4),
             .resources-grid .resource-card:nth-child(5) {
                 grid-column: span 1;
             }
             
+            .resource-card {
+                padding: 24px;
+            }
+            
             .resource-header {
-                flex-direction: column;
-                text-align: center;
+                margin: -24px -24px 20px -24px;
+                padding: 20px;
+            }
+            
+            .resource-logo {
+                width: 100px;
+                height: 70px;
             }
             
             .footer-content {
                 flex-direction: column;
                 text-align: center;
+                gap: 16px;
             }
+            
+            .footer-links {
+                gap: 24px;
+                justify-content: center;
+            }
+        }
 
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
+            }
+            
             .page-header {
-                padding: 60px 0 40px;
+                padding: 40px 0 30px;
+            }
+            
+            .resources-section {
+                padding: 40px 0;
+            }
+            
+            .resources-grid {
+                gap: 20px;
+            }
+            
+            .resource-card {
+                padding: 20px;
+            }
+            
+            .resource-header {
+                margin: -20px -20px 16px -20px;
+                padding: 16px;
+            }
+            
+            .resource-logo {
+                width: 80px;
+                height: 60px;
+            }
+            
+            .resource-url {
+                font-size: 15px;
+            }
+            
+            .resource-description {
+                font-size: 15px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
             }
         }
     </style>
@@ -331,9 +526,17 @@
                 <a href="../index.html" class="logo">
                     <img src="../spartan.png" alt="Spartan Projects" class="logo-image" />
                 </a>
+                
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+                
                 <nav>
-                    <ul>
-   
+                    <ul id="mobileMenu">
                         <li><a href="https://spartan-projects-com.github.io/spartan-site/">Back Home</a></li>
                         <li><a href="resources.html" class="active">Resources</a></li>
                         <li><a href="https://spartan-projects-com.github.io/spartan-site/contact/">Contact</a></li>
@@ -371,7 +574,7 @@
 
                 <div class="resource-card">
                     <div class="resource-header">
-<img src="../sbfa.png"     alt="SBFA"      class="resource-logo" />
+<img src="../sbfa.png" alt="SBFA" class="resource-logo" />
                     </div>
                     <a href="https://sbfassociation.org/" target="_blank" rel="noopener noreferrer" class="resource-url">
                         sbfassociation.org
@@ -386,7 +589,7 @@
 
                 <div class="resource-card">
                     <div class="resource-header">
-<img src="../greenl.png"    alt="GreenLedger" class="resource-logo" />
+<img src="../greenl.png" alt="GreenLedger" class="resource-logo" />
                     </div>
                     <a href="https://44664037.hs-sites.com/greenledger" target="_blank" rel="noopener noreferrer" class="resource-url">
                         greenledger platform
@@ -406,7 +609,7 @@
                     <a href="https://debanked.com/" target="_blank" rel="noopener noreferrer" class="resource-url">
                         debanked.com
                         <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                         </svg>
                     </a>
                     <p class="resource-description">
@@ -416,7 +619,7 @@
 
                 <div class="resource-card">
                     <div class="resource-header">
-<img src="../ilp.png"     alt="ILPA"     class="resource-logo" />
+<img src="../ilp.png" alt="ILPA" class="resource-logo" />
                     </div>
                     <a href="https://innovativelending.org/" target="_blank" rel="noopener noreferrer" class="resource-url">
                         innovativelending.org
@@ -449,6 +652,31 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenuToggle.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                mobileMenuToggle.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            }
+        });
+
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
