@@ -78,6 +78,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
         
         .logo {
@@ -96,77 +97,18 @@
             width: auto;
         }
         
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: flex;
         }
         
-        .mobile-menu-toggle:hover {
-            background-color: var(--gray-100);
-        }
-        
-        .hamburger {
-            width: 24px;
-            height: 18px;
-            position: relative;
-        }
-        
-        .hamburger span {
-            display: block;
-            position: absolute;
-            height: 2px;
-            width: 100%;
-            background: var(--gray-600);
-            border-radius: 1px;
-            opacity: 1;
-            left: 0;
-            transform: rotate(0deg);
-            transition: .25s ease-in-out;
-        }
-        
-        .hamburger span:nth-child(1) {
-            top: 0px;
-        }
-        
-        .hamburger span:nth-child(2) {
-            top: 8px;
-        }
-        
-        .hamburger span:nth-child(3) {
-            top: 16px;
-        }
-        
-        .mobile-menu-toggle.open .hamburger span:nth-child(1) {
-            top: 8px;
-            transform: rotate(135deg);
-        }
-        
-        .mobile-menu-toggle.open .hamburger span:nth-child(2) {
-            opacity: 0;
-            left: -60px;
-        }
-        
-        .mobile-menu-toggle.open .hamburger span:nth-child(3) {
-            top: 8px;
-            transform: rotate(-135deg);
-        }
-        
-        nav {
-            position: relative;
-        }
-        
-        nav ul {
+        .desktop-nav ul {
             display: flex;
             list-style: none;
             gap: 40px;
         }
         
-        nav a {
+        .desktop-nav a {
             color: var(--gray-600);
             text-decoration: none;
             font-weight: 500;
@@ -175,11 +117,11 @@
             position: relative;
         }
         
-        nav a:hover {
+        .desktop-nav a:hover {
             color: var(--spartan-blue);
         }
         
-        nav a::after {
+        .desktop-nav a::after {
             content: '';
             position: absolute;
             bottom: -4px;
@@ -190,16 +132,121 @@
             transition: width 0.3s ease;
         }
         
-        nav a:hover::after {
+        .desktop-nav a:hover::after {
             width: 100%;
         }
 
-        nav a.active {
+        .desktop-nav a.active {
             color: var(--spartan-blue);
         }
 
-        nav a.active::after {
+        .desktop-nav a.active::after {
             width: 100%;
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1002;
+        }
+        
+        .hamburger {
+            width: 25px;
+            height: 20px;
+            position: relative;
+        }
+        
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: var(--gray-700);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 8px; }
+        .hamburger span:nth-child(3) { top: 16px; }
+        
+        .mobile-menu-btn.active .hamburger span:nth-child(1) {
+            top: 8px;
+            transform: rotate(45deg);
+        }
+        
+        .mobile-menu-btn.active .hamburger span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-btn.active .hamburger span:nth-child(3) {
+            top: 8px;
+            transform: rotate(-45deg);
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 24px;
+            right: 24px;
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            overflow: hidden;
+        }
+        
+        .mobile-nav.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .mobile-nav li {
+            border-bottom: 1px solid var(--gray-100);
+        }
+        
+        .mobile-nav li:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-nav a {
+            display: block;
+            padding: 16px 20px;
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background-color: var(--gray-50);
+            color: var(--spartan-blue);
         }
         
         /* Page Header */
@@ -367,55 +414,12 @@
                 font-size: 18px;
             }
             
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            nav ul {
-                position: absolute;
-                top: calc(100% + 15px);
-                left: -16px;
-                right: -16px;
-                background: white;
-                border: 1px solid var(--gray-200);
-                border-radius: 8px;
-                padding: 20px;
-                flex-direction: column;
-                gap: 12px;
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(-10px);
-                transition: all 0.25s ease;
-                z-index: 1001;
+            .desktop-nav {
                 display: none;
             }
             
-            nav ul.open {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-                display: flex;
-            }
-            
-            nav li {
-                text-align: center;
-            }
-            
-            nav a {
-                font-size: 16px;
-                padding: 8px 16px;
+            .mobile-menu-btn {
                 display: block;
-                border-radius: 6px;
-                transition: background-color 0.3s ease, color 0.3s ease;
-            }
-            
-            nav a:hover {
-                background-color: var(--gray-50);
-            }
-            
-            nav a::after {
-                display: none;
             }
             
             .page-header {
@@ -528,7 +532,17 @@
                     <img src="../spartan.png" alt="Spartan Projects" class="logo-image" />
                 </a>
                 
-                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="https://spartan-projects-com.github.io/spartan-site/">Back Home</a></li>
+                        <li><a href="resources.html" class="active">Resources</a></li>
+                        <li><a href="https://spartan-projects-com.github.io/spartan-site/contact/">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <div class="hamburger">
                         <span></span>
                         <span></span>
@@ -536,8 +550,9 @@
                     </div>
                 </button>
                 
-                <nav>
-                    <ul id="mobileMenu">
+                <!-- Mobile Navigation -->
+                <nav class="mobile-nav" id="mobileNav">
+                    <ul>
                         <li><a href="https://spartan-projects-com.github.io/spartan-site/">Back Home</a></li>
                         <li><a href="resources.html" class="active">Resources</a></li>
                         <li><a href="https://spartan-projects-com.github.io/spartan-site/contact/">Contact</a></li>
@@ -653,45 +668,32 @@
     </footer>
 
     <script>
-        // Mobile menu toggle - Simple and direct approach
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            const mobileMenu = document.getElementById('mobileMenu');
+        // Simple mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
 
-            console.log('Mobile menu elements:', mobileMenuToggle, mobileMenu);
+        mobileMenuBtn.addEventListener('click', function() {
+            // Toggle button animation
+            mobileMenuBtn.classList.toggle('active');
+            
+            // Toggle menu visibility
+            mobileNav.classList.toggle('show');
+        });
 
-            if (mobileMenuToggle && mobileMenu) {
-                mobileMenuToggle.addEventListener('click', function(e) {
-                    console.log('Hamburger clicked');
-                    e.preventDefault();
-                    
-                    const isOpen = mobileMenu.classList.contains('open');
-                    
-                    if (isOpen) {
-                        mobileMenuToggle.classList.remove('open');
-                        mobileMenu.classList.remove('open');
-                    } else {
-                        mobileMenuToggle.classList.add('open');
-                        mobileMenu.classList.add('open');
-                    }
-                });
+        // Close menu when clicking on a link
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuBtn.classList.remove('active');
+                mobileNav.classList.remove('show');
+            });
+        });
 
-                // Close mobile menu when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!mobileMenuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-                        mobileMenuToggle.classList.remove('open');
-                        mobileMenu.classList.remove('open');
-                    }
-                });
-
-                // Close mobile menu when clicking on a link
-                const menuLinks = mobileMenu.querySelectorAll('a');
-                menuLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        mobileMenuToggle.classList.remove('open');
-                        mobileMenu.classList.remove('open');
-                    });
-                });
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuBtn.contains(e.target) && !mobileNav.contains(e.target)) {
+                mobileMenuBtn.classList.remove('active');
+                mobileNav.classList.remove('show');
             }
         });
 
