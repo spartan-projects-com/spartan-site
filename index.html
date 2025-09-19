@@ -86,17 +86,9 @@
             text-decoration: none;
         }
         
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-primary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 900;
-            font-size: 18px;
+        .logo-image {
+            height: 160px;
+            width: auto;
         }
         
         nav ul {
@@ -217,41 +209,16 @@
         .hero-visual {
             position: relative;
             padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-        
-        .metric-card {
-            background: white;
-            padding: 32px 24px;
+        .hero-image {
+            max-width: 120%;
+            height: auto;
             border-radius: 12px;
-            border: 1px solid var(--gray-200);
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-        }
-        
-        .metric-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .metric-number {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--spartan-blue);
-            display: block;
-            margin-bottom: 8px;
-        }
-        
-        .metric-label {
-            color: var(--gray-600);
-            font-size: 14px;
-            font-weight: 500;
+            box-shadow: var(--shadow-lg);
         }
         
         /* Trust Section */
@@ -417,14 +384,57 @@
             color: var(--gray-600);
         }
         
+        /* Results Section */
+        .results-section {
+            background: var(--gray-50);
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .result-card {
+            background: white;
+            padding: 32px 24px;
+            border-radius: 12px;
+            border: 1px solid var(--gray-200);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .result-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--spartan-blue);
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .result-label {
+            color: var(--gray-600);
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
         /* Case Studies */
         .case-studies {
-            background: var(--gray-50);
+            background: white;
         }
         
         .cases-grid {
             display: grid;
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
         }
         
         .case-study {
@@ -433,6 +443,10 @@
             overflow: hidden;
             box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .case-study:hover {
@@ -441,47 +455,57 @@
         }
         
         .case-content {
-            padding: 40px;
+            padding: 32px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .case-header {
+            margin-bottom: 20px;
         }
         
         .case-logo-container {
-            margin-bottom: 20px;
-            height: 80px;
+            margin-bottom: 16px;
+            height: 60px;
             display: flex;
             align-items: center;
         }
         
         .case-company-logo {
-            height: 80px;
-            width: 240px;
+            height: 60px;
+            width: 180px;
             object-fit: contain;
         }
         
         .case-company {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
             color: var(--gray-900);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         
         .case-type {
             color: var(--spartan-blue);
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
         
         .case-description {
             color: var(--gray-600);
-            line-height: 1.7;
-            margin-bottom: 24px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 14px;
         }
         
         .case-metrics {
             display: flex;
-            gap: 32px;
+            gap: 24px;
+            justify-content: center;
         }
         
         .case-metric {
@@ -489,14 +513,14 @@
         }
         
         .case-metric-value {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 800;
             color: var(--spartan-blue);
             display: block;
         }
         
         .case-metric-label {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--gray-500);
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -701,6 +725,14 @@
                 flex-direction: column;
                 text-align: center;
             }
+            
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
@@ -709,13 +741,13 @@
         <div class="container">
             <div class="header-content">
                 <a href="#" class="logo">
-                    <div class="logo-icon">S</div>
-                    SPARTAN PROJECTS
+                    <img src="spartan-logo.png" alt="Spartan Projects" class="logo-image" />
                 </a>
                 <nav>
                     <ul>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#process">Process</a></li>
+                        <li><a href="#results">Results</a></li>
                         <li><a href="#cases">Cases</a></li>
                         <li><a href="#pricing">Investment</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -744,24 +776,7 @@
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="metrics-grid">
-                        <div class="metric-card">
-                            <span class="metric-number">$50M+</span>
-                            <div class="metric-label">Capital Facilitated</div>
-                        </div>
-                        <div class="metric-card">
-                            <span class="metric-number">150+</span>
-                            <div class="metric-label">Projects Completed</div>
-                        </div>
-                        <div class="metric-card">
-                            <span class="metric-number">95%</span>
-                            <div class="metric-label">Client Retention</div>
-                        </div>
-                        <div class="metric-card">
-                            <span class="metric-number">2.5x</span>
-                            <div class="metric-label">Avg Revenue Growth</div>
-                        </div>
-                    </div>
+                    <img src="hero-photo.png" alt="Spartan Projects Team" class="hero-image" />
                 </div>
             </div>
         </div>
@@ -773,106 +788,6 @@
         </div>
         <div class="carousel-container">
             <div class="carousel-track">
-                <div class="logo-item">
-                    <img src="ACHWorks.jpg" alt="ACH Works" />
-                </div>
-                <div class="logo-item">
-                    <img src="Aquamark.jpg" alt="Aquamark" />
-                </div>
-                <div class="logo-item">
-                    <img src="Backd.jpg" alt="Backd" />
-                </div>
-                <div class="logo-item">
-                    <img src="Balboa Capital.jpg" alt="Balboa Capital" />
-                </div>
-                <div class="logo-item">
-                    <img src="Big Think Capital.jpg" alt="Big Think Capital" />
-                </div>
-                <div class="logo-item">
-                    <img src="BusinessLoans.com.jpg" alt="BusinessLoans.com" />
-                </div>
-                <div class="logo-item">
-                    <img src="CFG Merchant Solutions.jpg" alt="CFG Merchant Solutions" />
-                </div>
-                <div class="logo-item">
-                    <img src="Can Capital.jpg" alt="Can Capital" />
-                </div>
-                <div class="logo-item">
-                    <img src="Capfront.jpg" alt="Capfront" />
-                </div>
-                <div class="logo-item">
-                    <img src="Clear.jpg" alt="Clear" />
-                </div>
-                <div class="logo-item">
-                    <img src="Cloudsquare.jpg" alt="Cloudsquare" />
-                </div>
-                <div class="logo-item">
-                    <img src="Credibly.jpg" alt="Credibly" />
-                </div>
-                <div class="logo-item">
-                    <img src="Docusign.jpg" alt="DocuSign" />
-                </div>
-                <div class="logo-item">
-                    <img src="dragin.jpg" alt="dragin" />
-                </div>
-                <div class="logo-item">
-                    <img src="Elevate.jpg" alt="Elevate" />
-                </div>
-                <div class="logo-item">
-                    <img src="Expansion Capital Group.jpg" alt="Expansion Capital Group" />
-                </div>
-                <div class="logo-item">
-                    <img src="Expertan.jpg" alt="Expertan" />
-                </div>
-                <div class="logo-item">
-                    <img src="Fora Financial.jpg" alt="Fora Financial" />
-                </div>
-                <div class="logo-item">
-                    <img src="Forward Financing.jpg" alt="Forward Financing" />
-                </div>
-                <div class="logo-item">
-                    <img src="Fundera.jpg" alt="Fundera" />
-                </div>
-                <div class="logo-item">
-                    <img src="Gorg.jpg" alt="Gorg" />
-                </div>
-                <div class="logo-item">
-                    <img src="Heron Bird.jpg" alt="Heron Bird" />
-                </div>
-                <div class="logo-item">
-                    <img src="Kapitus.jpg" alt="Kapitus" />
-                </div>
-                <div class="logo-item">
-                    <img src="Lending Tree.jpg" alt="Lending Tree" />
-                </div>
-                <div class="logo-item">
-                    <img src="Lendio.jpg" alt="Lendio" />
-                </div>
-                <div class="logo-item">
-                    <img src="Lendz.jpg" alt="Lendz" />
-                </div>
-                <div class="logo-item">
-                    <img src="MoneyThumb.jpg" alt="MoneyThumb" />
-                </div>
-                <div class="logo-item">
-                    <img src="National Funding.jpg" alt="National Funding" />
-                </div>
-                <div class="logo-item">
-                    <img src="Ocrolus.jpg" alt="Ocrolus" />
-                </div>
-                <div class="logo-item">
-                    <img src="On Deck.jpg" alt="On Deck" />
-                </div>
-                <div class="logo-item">
-                    <img src="Onyx.jpg" alt="Onyx" />
-                </div>
-                <div class="logo-item">
-                    <img src="Plaid.jpg" alt="Plaid" />
-                </div>
-                <div class="logo-item">
-                    <img src="Trulo.jpg" alt="Trulo" />
-                </div>
-                <!-- Duplicate for seamless loop -->
                 <div class="logo-item">
                     <img src="ACHWorks.jpg" alt="ACH Works" />
                 </div>
@@ -1091,7 +1006,7 @@
         </div>
     </section>
 
-  <section class="section" style="background: var(--gradient-primary); color: white; text-align: center;">
+    <section class="section" style="background: var(--gradient-primary); color: white; text-align: center;">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title" style="color: white;">We take discretion seriously.</h2>
@@ -1102,7 +1017,6 @@
             </div>
         </div>
     </section>
-    
 
     <section class="section" id="process">
         <div class="container">
@@ -1139,6 +1053,34 @@
         </div>
     </section>
 
+    <section class="section results-section" id="results">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Proven Results</h2>
+                <p class="section-subtitle">Track record of success across our client portfolio</p>
+            </div>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <span class="result-number">$50M+</span>
+                    <div class="result-label">Capital Facilitated</div>
+                </div>
+                <div class="result-card">
+                    <span class="result-number">150+</span>
+                    <div class="result-label">Projects Completed</div>
+                </div>
+                <div class="result-card">
+                    <span class="result-number">95%</span>
+                    <div class="result-label">Client Retention</div>
+                </div>
+                <div class="result-card">
+                    <span class="result-number">2.5x</span>
+                    <div class="result-label">Avg Revenue Growth</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section case-studies" id="cases">
         <div class="container">
             <div class="section-header">
@@ -1149,10 +1091,12 @@
             <div class="cases-grid">
                 <div class="case-study">
                     <div class="case-content">
-                        <div class="case-logo-container">
-                            <img src="aquacase.png" alt="Aquamark" class="case-company-logo" />
+                        <div class="case-header">
+                            <div class="case-logo-container">
+                                <img src="aquacase.png" alt="Aquamark" class="case-company-logo" />
+                            </div>
+                            <div class="case-type">Fintech Startup</div>
                         </div>
-                        <div class="case-type">Fintech Startup</div>
                         <p class="case-description">Guided market entry strategy and secured key industry partnerships to accelerate customer acquisition and establish market presence in competitive lending software space.</p>
                         <div class="case-metrics">
                             <div class="case-metric">
@@ -1169,10 +1113,12 @@
                 
                 <div class="case-study">
                     <div class="case-content">
-                        <div class="case-logo-container">
-                            <img src="forwardcase.png" alt="Forward Financing" class="case-company-logo" />
+                        <div class="case-header">
+                            <div class="case-logo-container">
+                                <img src="forwardcase.png" alt="Forward Financing" class="case-company-logo" />
+                            </div>
+                            <div class="case-type">Commercial Lender</div>
                         </div>
-                        <div class="case-type">Commercial Lender</div>
                         <p class="case-description">Optimized capital allocation strategies and expanded distribution channels, resulting in significant portfolio growth and improved operational efficiency across multiple business lines.</p>
                         <div class="case-metrics">
                             <div class="case-metric">
@@ -1189,10 +1135,12 @@
                 
                 <div class="case-study">
                     <div class="case-content">
-                        <div class="case-logo-container">
-                            <img src="onrampcase.png" alt="Onramp Funds" class="case-company-logo" />
+                        <div class="case-header">
+                            <div class="case-logo-container">
+                                <img src="onrampcase.png" alt="Onramp Funds" class="case-company-logo" />
+                            </div>
+                            <div class="case-type">Alternative Lender</div>
                         </div>
-                        <div class="case-type">Alternative Lender</div>
                         <p class="case-description">Restructured operations and implemented technology solutions that streamlined underwriting processes and enhanced portfolio management capabilities.</p>
                         <div class="case-metrics">
                             <div class="case-metric">
@@ -1303,6 +1251,7 @@
                 <div class="footer-links">
                     <a href="#services">Services</a>
                     <a href="#process">Process</a>
+                    <a href="#results">Results</a>
                     <a href="#cases">Case Studies</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -1354,7 +1303,7 @@
         }, observerOptions);
 
         // Observe elements for animations
-        document.querySelectorAll('.service-card, .case-study, .process-step, .metric-card').forEach(el => {
+        document.querySelectorAll('.service-card, .case-study, .process-step, .result-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
