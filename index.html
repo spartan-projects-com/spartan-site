@@ -7,12 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" sizes="32x32" href="./helmet.png?v=2">
-<link rel="shortcut icon" href="./helmet.png?v=2">
-<link rel="apple-touch-icon" sizes="180x180" href="./helmet.png?v=2">
-
-
-    
+    <link rel="icon" type="image/png" sizes="32x32" href="./helmet.png?v=2">
+    <link rel="shortcut icon" href="./helmet.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="./helmet.png?v=2">
 
     <style>
         :root {
@@ -43,706 +40,167 @@
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--gray-800);
-            background-color: #ffffff;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: var(--gray-800); background-color: #ffffff; overflow-x: hidden; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
         /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--gray-200);
-            padding: 9px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--spartan-blue);
-            font-weight: 800;
-            font-size: 20px;
-            letter-spacing: -0.02em;
-            text-decoration: none;
-        }
-        
-        .logo-image {
-            height: 70px;
-            width: auto;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-        }
-        
-        nav a {
-            color: var(--gray-600);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        nav a:hover {
-            color: var(--spartan-blue);
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--spartan-blue);
-            transition: width 0.3s ease;
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 100px 0 80px;
-            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-            position: relative;
-        }
-        
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-        
-        .hero-text h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--gray-900);
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
-        }
-        
-        .hero-text h1 .highlight {
-            color: var(--spartan-blue);
-        }
-        
-        .hero-text p {
-            font-size: 20px;
-            color: var(--gray-600);
-            margin-bottom: 40px;
-            line-height: 1.7;
-        }
-        
-        .cta-group {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 16px 32px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 16px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--spartan-blue);
-            padding: 16px 32px;
-            border: 2px solid var(--spartan-blue);
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 16px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-secondary:hover {
-            background: var(--spartan-blue);
-            color: white;
-        }
-        
-        .hero-visual {
-            position: relative;
-            padding: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .hero-image {
-            max-width: 120%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: var(--shadow-lg);
-        }
-        
-        /* Trust Section */
-        .trust-section {
-            padding: 60px 0;
-            background: var(--gray-50);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .trust-title {
-            text-align: center;
-            font-size: 16px;
-            color: var(--gray-500);
-            margin-bottom: 40px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-        
-        .carousel-container {
-            overflow: hidden;
-            width: 100%;
-        }
-        
-        .carousel-track {
-            display: flex;
-            animation: scroll-left 45s linear infinite;
-            gap: 32px;
-            width: fit-content;
-        }
-        
-        .logo-item {
-            width: 140px;
-            height: 80px;
-            flex-shrink: 0;
-            transition: all 0.3s ease;
-        }
-        
-        .logo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: all 0.3s ease;
-        }
-        
-        .logo-item:hover img {
-            transform: scale(1.05);
-        }
-        
-        @keyframes scroll-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        
-        /* Section Styling */
-        .section {
-            padding: 80px 0;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title {
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-        
-        .section-subtitle {
-            font-size: 18px;
-            color: var(--gray-600);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
+        header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--gray-200); padding: 9px 0; position: sticky; top: 0; z-index: 1000; transition: all 0.3s ease; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; position: relative; }
+        .logo { display: flex; align-items: center; gap: 12px; color: var(--spartan-blue); font-weight: 800; font-size: 20px; letter-spacing: -0.02em; text-decoration: none; }
+        .logo-image { height: 70px; width: auto; }
+
+        /* Primary nav (desktop) */
+        nav ul { display: flex; list-style: none; gap: 40px; }
+        nav a { color: var(--gray-600); text-decoration: none; font-weight: 500; font-size: 15px; transition: all 0.3s ease; position: relative; }
+        nav a:hover { color: var(--spartan-blue); }
+        nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--spartan-blue); transition: width 0.3s ease; }
+        nav a:hover::after { width: 100%; }
+
+        /* Mobile nav toggle (hidden on desktop) */
+        .nav-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--gray-200); border-radius: 8px; background: white; align-items: center; justify-content: center; gap: 5px; padding: 0 10px; box-shadow: var(--shadow-sm); }
+        .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--gray-700); border-radius: 2px; }
+        .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .nav-toggle[aria-expanded="true"] span:first-child { transform: translateY(4px) rotate(45deg); }
+        .nav-toggle[aria-expanded="true"] span:last-child { transform: translateY(-4px) rotate(-45deg); }
+        .nav-toggle span { transition: transform 0.2s ease, opacity 0.2s ease; }
+
+        /* Hero */
+        .hero { padding: 100px 0 80px; background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%); position: relative; }
+        .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .hero-text h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.2; color: var(--gray-900); margin-bottom: 24px; letter-spacing: -0.02em; }
+        .hero-text h1 .highlight { color: var(--spartan-blue); }
+        .hero-text p { font-size: 20px; color: var(--gray-600); margin-bottom: 40px; line-height: 1.7; }
+        .cta-group { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-primary { background: var(--gradient-primary); color: white; padding: 16px 32px; border: none; border-radius: 8px; font-weight: 600; font-size: 16px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; box-shadow: var(--shadow-md); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .btn-secondary { background: transparent; color: var(--spartan-blue); padding: 16px 32px; border: 2px solid var(--spartan-blue); border-radius: 8px; font-weight: 600; font-size: 16px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; }
+        .btn-secondary:hover { background: var(--spartan-blue); color: white; }
+        .hero-visual { position: relative; padding: 40px; display: flex; justify-content: center; align-items: center; }
+        .hero-image { max-width: 120%; height: auto; border-radius: 12px; box-shadow: var(--shadow-lg); }
+
+        /* Trust */
+        .trust-section { padding: 60px 0; background: var(--gray-50); position: relative; overflow: hidden; }
+        .trust-title { text-align: center; font-size: 16px; color: var(--gray-500); margin-bottom: 40px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; }
+        .carousel-container { overflow: hidden; width: 100%; }
+        .carousel-track { display: flex; animation: scroll-left 45s linear infinite; gap: 32px; width: fit-content; }
+        .logo-item { width: 140px; height: 80px; flex-shrink: 0; transition: all 0.3s ease; }
+        .logo-item img { width: 100%; height: 100%; object-fit: contain; transition: all 0.3s ease; }
+        .logo-item:hover img { transform: scale(1.05); }
+        @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Sections */
+        .section { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-title { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 700; color: var(--gray-900); margin-bottom: 16px; letter-spacing: -0.02em; }
+        .section-subtitle { font-size: 18px; color: var(--gray-600); max-width: 600px; margin: 0 auto; }
+
         /* Services */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-        }
-        
-        .service-card {
-            background: white;
-            padding: 32px;
-            border-radius: 12px;
-            border: 1px solid var(--gray-200);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--spartan-blue-light);
-        }
-        
-        .service-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--gradient-primary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            margin-bottom: 20px;
-        }
-        
-        .service-card h3 {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--gray-900);
-            margin-bottom: 12px;
-        }
-        
-        .service-card p {
-            color: var(--gray-600);
-            line-height: 1.6;
-        }
-        
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+        .service-card { background: white; padding: 32px; border-radius: 12px; border: 1px solid var(--gray-200); transition: all 0.3s ease; position: relative; }
+        .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--spartan-blue-light); }
+        .service-icon { width: 48px; height: 48px; background: var(--gradient-primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; margin-bottom: 20px; }
+        .service-card h3 { font-size: 18px; font-weight: 600; color: var(--gray-900); margin-bottom: 12px; }
+        .service-card p { color: var(--gray-600); line-height: 1.6; }
+
         /* Process */
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            position: relative;
-        }
-        
-        .process-step {
-            text-align: center;
-            position: relative;
-        }
-        
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: white;
-            font-size: 20px;
-            font-weight: 700;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .step-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--gray-900);
-            margin-bottom: 12px;
-        }
-        
-        .step-description {
-            color: var(--gray-600);
-        }
-        
-        /* Results Section */
-        .results-section {
-            background: var(--gray-50);
-        }
-        
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 32px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .result-card {
-            background: white;
-            padding: 32px 24px;
-            border-radius: 12px;
-            border: 1px solid var(--gray-200);
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-        }
-        
-        .result-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .result-number {
-            font-size: 48px;
-            font-weight: 800;
-            color: var(--spartan-blue);
-            display: block;
-            margin-bottom: 8px;
-        }
-        
-        .result-label {
-            color: var(--gray-600);
-            font-size: 16px;
-            font-weight: 500;
-        }
-        
-        /* Case Studies */
-        .case-studies {
-            background: white;
-        }
-        
-        .cases-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
-        }
-        
-        .case-study {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            border: 1px solid var(--gray-200);
-            aspect-ratio: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .case-study:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .case-content {
-            padding: 32px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        .case-header {
-            margin-bottom: 20px;
-        }
-        
-        .case-logo-container {
-            margin-bottom: 16px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .case-company-logo {
-            height: 60px;
-            width: 180px;
-            object-fit: contain;
-        }
-        
-        .case-company {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: 6px;
-        }
-        
-        .case-type {
-            color: var(--spartan-blue);
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 16px;
-        }
-        
-        .case-description {
-            color: var(--gray-600);
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
-        
-        .case-metrics {
-            display: flex;
-            gap: 24px;
-            justify-content: center;
-        }
-        
-        .case-metric {
-            text-align: center;
-        }
-        
-        .case-metric-value {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--spartan-blue);
-            display: block;
-        }
-        
-        .case-metric-label {
-            font-size: 11px;
-            color: var(--gray-500);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-        
+        .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; position: relative; }
+        .process-step { text-align: center; position: relative; }
+        .step-number { width: 60px; height: 60px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 20px; font-weight: 700; box-shadow: var(--shadow-md); }
+        .step-title { font-size: 18px; font-weight: 600; color: var(--gray-900); margin-bottom: 12px; }
+        .step-description { color: var(--gray-600); }
+
+        /* Results */
+        .results-section { background: var(--gray-50); }
+        .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px; max-width: 800px; margin: 0 auto; }
+        .result-card { background: white; padding: 32px 24px; border-radius: 12px; border: 1px solid var(--gray-200); text-align: center; box-shadow: var(--shadow-sm); transition: all 0.3s ease; }
+        .result-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .result-number { font-size: 48px; font-weight: 800; color: var(--spartan-blue); display: block; margin-bottom: 8px; }
+        .result-label { color: var(--gray-600); font-size: 16px; font-weight: 500; }
+
+        /* Case studies */
+        .case-studies { background: white; }
+        .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 32px; }
+        .case-study { background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); transition: all 0.3s ease; border: 1px solid var(--gray-200); aspect-ratio: 1; display: flex; flex-direction: column; }
+        .case-study:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .case-content { padding: 32px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .case-header { margin-bottom: 20px; }
+        .case-logo-container { margin-bottom: 16px; height: 60px; display: flex; align-items: center; }
+        .case-company-logo { height: 60px; width: 180px; object-fit: contain; }
+        .case-company { font-size: 20px; font-weight: 700; color: var(--gray-900); margin-bottom: 6px; }
+        .case-type { color: var(--spartan-blue); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+        .case-description { color: var(--gray-600); line-height: 1.6; margin-bottom: 20px; font-size: 14px; }
+        .case-metrics { display: flex; gap: 24px; justify-content: center; }
+        .case-metric { text-align: center; }
+        .case-metric-value { font-size: 24px; font-weight: 800; color: var(--spartan-blue); display: block; }
+        .case-metric-label { font-size: 11px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.1em; }
+
         /* Pricing */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .pricing-card {
-            background: white;
-            padding: 40px 32px;
-            border-radius: 12px;
-            border: 2px solid var(--gray-200);
-            text-align: center;
-            position: relative;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        .pricing-card.featured {
-            border-color: var(--spartan-blue);
-            transform: scale(1.02);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .pricing-card.featured::before {
-            content: "Popular";
-            position: absolute;
-            top: -1px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--success);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 0 0 8px 8px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-        
-        .pricing-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: 8px;
-        }
-        
-        .pricing-subtitle {
-            color: var(--gray-500);
-            margin-bottom: 32px;
-        }
-        
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 32px;
-            text-align: left;
-        }
-        
-        .pricing-features li {
-            padding: 8px 0;
-            color: var(--gray-600);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .pricing-features li::before {
-            content: "✓";
-            background: var(--spartan-blue);
-            color: white;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-        
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; max-width: 1000px; margin: 0 auto; }
+        .pricing-card { background: white; padding: 40px 32px; border-radius: 12px; border: 2px solid var(--gray-200); text-align: center; position: relative; transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; }
+        .pricing-card.featured { border-color: var(--spartan-blue); transform: scale(1.02); box-shadow: var(--shadow-lg); }
+        .pricing-card.featured::before { content: "Popular"; position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--success); color: white; padding: 8px 20px; border-radius: 0 0 8px 8px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+        .pricing-title { font-size: 24px; font-weight: 700; color: var(--gray-900); margin-bottom: 8px; }
+        .pricing-subtitle { color: var(--gray-500); margin-bottom: 32px; }
+        .pricing-features { list-style: none; margin-bottom: 32px; text-align: left; }
+        .pricing-features li { padding: 8px 0; color: var(--gray-600); display: flex; align-items: center; gap: 12px; }
+        .pricing-features li::before { content: "✓"; background: var(--spartan-blue); color: white; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; flex-shrink: 0; }
+
         /* Contact */
-        .contact-section {
-            background: var(--gradient-primary);
-            color: white;
-            text-align: center;
-        }
-        
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .contact-section h2 {
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-        
-        .contact-section p {
-            font-size: 18px;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-        
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 16px 24px;
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-        }
-        
+        .contact-section { background: var(--gradient-primary); color: white; text-align: center; }
+        .contact-content { max-width: 600px; margin: 0 auto; }
+        .contact-section h2 { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 16px; }
+        .contact-section p { font-size: 18px; margin-bottom: 40px; opacity: 0.9; }
+        .contact-info { display: flex; justify-content: center; gap: 40px; margin-top: 40px; flex-wrap: wrap; }
+        .contact-item { display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.1); padding: 16px 24px; border-radius: 8px; backdrop-filter: blur(10px); }
+
         /* Footer */
-        footer {
-            background: var(--gray-900);
-            color: rgba(255, 255, 255, 0.8);
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .footer-logo {
-            color: white;
-            font-weight: 700;
-            font-size: 18px;
-        }
-        
-        .footer-links {
-            display: flex;
-            gap: 32px;
-            flex-wrap: wrap;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-        }
-        
-        /* Responsive */
+        footer { background: var(--gray-900); color: rgba(255, 255, 255, 0.8); padding: 40px 0; text-align: center; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .footer-logo { color: white; font-weight: 700; font-size: 18px; }
+        .footer-links { display: flex; gap: 32px; flex-wrap: wrap; }
+        .footer-links a { color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: white; }
+
+        /* ========================= */
+        /* Responsive (mobile only)  */
+        /* ========================= */
         @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-            
-            .nav-toggle {
-                display: block;
-            }
-            
-            nav ul {
-                display: none;
-            }
-            
-            .container {
-                padding: 0 16px;
-            }
-            
-            .section {
-                padding: 60px 0;
-            }
-            
-            .pricing-card.featured {
-                transform: none;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .cases-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .results-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .container { padding: 0 16px; }
+
+            /* Header */
+            .logo-image { height: 48px; }
+            .nav-toggle { display: flex; }
+            /* Convert nav to dropdown */
+            nav { position: absolute; top: 64px; left: 0; right: 0; display: none; background: #fff; border-top: 1px solid var(--gray-200); box-shadow: var(--shadow-md); }
+            nav.open { display: block; }
+            nav ul { display: flex; flex-direction: column; gap: 0; padding: 8px 8px; }
+            nav li a { display: block; padding: 14px 8px; }
+
+            /* Hero */
+            .hero { padding: 72px 0 56px; }
+            .hero-content { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+            .hero-visual { padding: 0; }
+            .hero-image { max-width: 100%; }
+            .cta-group { justify-content: center; }
+
+            /* Sections */
+            .section { padding: 60px 0; }
+
+            /* Grids */
+            .cases-grid { grid-template-columns: 1fr; }
+            .case-study { aspect-ratio: auto; }
+            .results-grid { grid-template-columns: repeat(2, 1fr); }
+
+            /* Contact/Footer */
+            .contact-info { flex-direction: column; gap: 20px; }
+            .footer-content { flex-direction: column; text-align: center; }
+
+            /* Featured card scale reset */
+            .pricing-card.featured { transform: none; }
+        }
+        @media (max-width: 480px) {
+            .results-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -753,6 +211,9 @@
                 <a href="#" class="logo">
                     <img src="spartan.png" alt="Spartan Projects" class="logo-image" />
                 </a>
+                <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
                 <nav>
                     <ul>
                         <li><a href="#services">Services</a></li>
@@ -779,9 +240,7 @@
                                 <path d="m9 18 6-6-6-6"/>
                             </svg>
                         </a>
-                        <a href="#cases" class="btn-secondary">
-                            View Case Studies
-                        </a>
+                        <a href="#cases" class="btn-secondary">View Case Studies</a>
                     </div>
                 </div>
                 <div class="hero-visual">
@@ -797,204 +256,74 @@
         </div>
         <div class="carousel-container">
             <div class="carousel-track">
-                <div class="logo-item">
-                    <img src="achw.png" alt="ACH Works" />
-                </div>
-                <div class="logo-item">
-                    <img src="aquacase.png" alt="Aquamark" />
-                </div>
-                <div class="logo-item">
-                    <img src="backd1.png" alt="Backd" />
-                </div>
-                <div class="logo-item">
-                    <img src="balboa.png" alt="Balboa Capital" />
-                </div>
-                <div class="logo-item">
-                    <img src="big.png" alt="Big Think Capital" />
-                </div>
-                <div class="logo-item">
-                    <img src="bizloans.png" alt="BusinessLoans.com" />
-                </div>
-                <div class="logo-item">
-                    <img src="cfg.png" alt="CFG Merchant Solutions" />
-                </div>
-                <div class="logo-item">
-                    <img src="can.png" alt="Can Capital" />
-                </div>
-                <div class="logo-item">
-                    <img src="cap.png" alt="Capfront" />
-                </div>
-                <div class="logo-item">
-                    <img src="clear.png" alt="Clear" />
-                </div>
-                <div class="logo-item">
-                    <img src="cloud.png" alt="Cloudsquare" />
-                </div>
-                <div class="logo-item">
-                    <img src="credibly.png" alt="Credibly" />
-                </div>
-                <div class="logo-item">
-                    <img src="docusign.png" alt="DocuSign" />
-                </div>
-                <div class="logo-item">
-                    <img src="dragin.png" alt="dragin" />
-                </div>
-                <div class="logo-item">
-                    <img src="elevate.png" alt="Elevate" />
-                </div>
-                <div class="logo-item">
-                    <img src="ecg.png" alt="Expansion Capital Group" />
-                </div>
-                <div class="logo-item">
-                    <img src="experian.png" alt="Expertan" />
-                </div>
-                <div class="logo-item">
-                    <img src="fora.png" alt="Fora Financial" />
-                </div>
-                <div class="logo-item">
-                    <img src="forwardcase.png" alt="Forward Financing" />
-                </div>
-                <div class="logo-item">
-                    <img src="funderas.png" alt="Fundera" />
-                </div>
-                <div class="logo-item">
-                    <img src="gongs.png" alt="Gong" />
-                </div>
-                <div class="logo-item">
-                    <img src="heron.png" alt="Heron Bird" />
-                </div>
-                <div class="logo-item">
-                    <img src="Kapitus.jpg" alt="Kapitus" />
-                </div>
-                <div class="logo-item">
-                    <img src="lendingtree.png" alt="Lending Tree" />
-                </div>
-                <div class="logo-item">
-                    <img src="lendio1.png" alt="Lendio" />
-                </div>
-                <div class="logo-item">
-                    <img src="lendzi1.png" alt="Lendzi" />
-                </div>
-                <div class="logo-item">
-                    <img src="money.png" alt="MoneyThumb" />
-                </div>
-                <div class="logo-item">
-                    <img src="national.png" alt="National Funding" />
-                </div>
-                <div class="logo-item">
-                    <img src="ocrolous.png" alt="Ocrolus" />
-                </div>
-                <div class="logo-item">
-                    <img src="ondeck.png" alt="OnDeck" />
-                </div>
-                <div class="logo-item">
-                    <img src="onyx.png" alt="Onyx" />
-                </div>
-                <div class="logo-item">
-                    <img src="plaid.png" alt="Plaid" />
-                </div>
-                <div class="logo-item">
-                    <img src="trulo.png" alt="Trulo" />
-                </div>
-                <div class="logo-item">
-                    <img src="achw.png" alt="ACH Works" />
-                </div>
-                <div class="logo-item">
-                    <img src="aquacase.png" alt="Aquamark" />
-                </div>
-                <div class="logo-item">
-                    <img src="backd1.png" alt="Backd" />
-                </div>
-                <div class="logo-item">
-                    <img src="balboa.png" alt="Balboa Capital" />
-                </div>
-                <div class="logo-item">
-                    <img src="big.png" alt="Big Think Capital" />
-                </div>
-                <div class="logo-item">
-                    <img src="bizloans.png" alt="BusinessLoans.com" />
-                </div>
-                <div class="logo-item">
-                    <img src="cfg.png" alt="CFG Merchant Solutions" />
-                </div>
-                <div class="logo-item">
-                    <img src="can.png" alt="Can Capital" />
-                </div>
-                <div class="logo-item">
-                    <img src="cap.png" alt="Capfront" />
-                </div>
-                <div class="logo-item">
-                    <img src="clear.png" alt="Clear" />
-                </div>
-                <div class="logo-item">
-                    <img src="cloud.png" alt="Cloudsquare" />
-                </div>
-                <div class="logo-item">
-                    <img src="credibly.png" alt="Credibly" />
-                </div>
-                <div class="logo-item">
-                    <img src="docusign.png" alt="DocuSign" />
-                </div>
-                <div class="logo-item">
-                    <img src="dragin.png" alt="dragin" />
-                </div>
-                <div class="logo-item">
-                    <img src="elevate.png" alt="Elevate" />
-                </div>
-                <div class="logo-item">
-                    <img src="ecg.png" alt="Expansion Capital Group" />
-                </div>
-                <div class="logo-item">
-                    <img src="experian.png" alt="Expertan" />
-                </div>
-                <div class="logo-item">
-                    <img src="fora.png" alt="Fora Financial" />
-                </div>
-                <div class="logo-item">
-                    <img src="forwardcase.png" alt="Forward Financing" />
-                </div>
-                <div class="logo-item">
-                    <img src="funderas.png" alt="Fundera" />
-                </div>
-                <div class="logo-item">
-                    <img src="gongs.png" alt="Gong" />
-                </div>
-                <div class="logo-item">
-                    <img src="heron.png" alt="Heron Bird" />
-                </div>
-                <div class="logo-item">
-                    <img src="Kapitus.jpg" alt="Kapitus" />
-                </div>
-                <div class="logo-item">
-                    <img src="lendingtree.png" alt="Lending Tree" />
-                </div>
-                <div class="logo-item">
-                    <img src="lendio1.png" alt="Lendio" />
-                </div>
-                <div class="logo-item">
-                    <img src="lendzi1.png" alt="Lendzi" />
-                </div>
-                <div class="logo-item">
-                    <img src="money.png" alt="MoneyThumb" />
-                </div>
-                <div class="logo-item">
-                    <img src="national.png" alt="National Funding" />
-                </div>
-                <div class="logo-item">
-                    <img src="ocrolous.png" alt="Ocrolus" />
-                </div>
-                <div class="logo-item">
-                    <img src="ondeck.png" alt="OnDeck" />
-                </div>
-                <div class="logo-item">
-                    <img src="onyx.png" alt="Onyx" />
-                </div>
-                <div class="logo-item">
-                    <img src="plaid.png" alt="Plaid" />
-                </div>
-                <div class="logo-item">
-                    <img src="trulo.png" alt="Trulo" />
-                </div>
+                <!-- (logos unchanged) -->
+                <div class="logo-item"><img src="achw.png" alt="ACH Works" /></div>
+                <div class="logo-item"><img src="aquacase.png" alt="Aquamark" /></div>
+                <div class="logo-item"><img src="backd1.png" alt="Backd" /></div>
+                <div class="logo-item"><img src="balboa.png" alt="Balboa Capital" /></div>
+                <div class="logo-item"><img src="big.png" alt="Big Think Capital" /></div>
+                <div class="logo-item"><img src="bizloans.png" alt="BusinessLoans.com" /></div>
+                <div class="logo-item"><img src="cfg.png" alt="CFG Merchant Solutions" /></div>
+                <div class="logo-item"><img src="can.png" alt="Can Capital" /></div>
+                <div class="logo-item"><img src="cap.png" alt="Capfront" /></div>
+                <div class="logo-item"><img src="clear.png" alt="Clear" /></div>
+                <div class="logo-item"><img src="cloud.png" alt="Cloudsquare" /></div>
+                <div class="logo-item"><img src="credibly.png" alt="Credibly" /></div>
+                <div class="logo-item"><img src="docusign.png" alt="DocuSign" /></div>
+                <div class="logo-item"><img src="dragin.png" alt="dragin" /></div>
+                <div class="logo-item"><img src="elevate.png" alt="Elevate" /></div>
+                <div class="logo-item"><img src="ecg.png" alt="Expansion Capital Group" /></div>
+                <div class="logo-item"><img src="experian.png" alt="Expertan" /></div>
+                <div class="logo-item"><img src="fora.png" alt="Fora Financial" /></div>
+                <div class="logo-item"><img src="forwardcase.png" alt="Forward Financing" /></div>
+                <div class="logo-item"><img src="funderas.png" alt="Fundera" /></div>
+                <div class="logo-item"><img src="gongs.png" alt="Gong" /></div>
+                <div class="logo-item"><img src="heron.png" alt="Heron Bird" /></div>
+                <div class="logo-item"><img src="Kapitus.jpg" alt="Kapitus" /></div>
+                <div class="logo-item"><img src="lendingtree.png" alt="Lending Tree" /></div>
+                <div class="logo-item"><img src="lendio1.png" alt="Lendio" /></div>
+                <div class="logo-item"><img src="lendzi1.png" alt="Lendzi" /></div>
+                <div class="logo-item"><img src="money.png" alt="MoneyThumb" /></div>
+                <div class="logo-item"><img src="national.png" alt="National Funding" /></div>
+                <div class="logo-item"><img src="ocrolous.png" alt="Ocrolus" /></div>
+                <div class="logo-item"><img src="ondeck.png" alt="OnDeck" /></div>
+                <div class="logo-item"><img src="onyx.png" alt="Onyx" /></div>
+                <div class="logo-item"><img src="plaid.png" alt="Plaid" /></div>
+                <div class="logo-item"><img src="trulo.png" alt="Trulo" /></div>
+                <!-- duplicated row for continuous scroll -->
+                <div class="logo-item"><img src="achw.png" alt="ACH Works" /></div>
+                <div class="logo-item"><img src="aquacase.png" alt="Aquamark" /></div>
+                <div class="logo-item"><img src="backd1.png" alt="Backd" /></div>
+                <div class="logo-item"><img src="balboa.png" alt="Balboa Capital" /></div>
+                <div class="logo-item"><img src="big.png" alt="Big Think Capital" /></div>
+                <div class="logo-item"><img src="bizloans.png" alt="BusinessLoans.com" /></div>
+                <div class="logo-item"><img src="cfg.png" alt="CFG Merchant Solutions" /></div>
+                <div class="logo-item"><img src="can.png" alt="Can Capital" /></div>
+                <div class="logo-item"><img src="cap.png" alt="Capfront" /></div>
+                <div class="logo-item"><img src="clear.png" alt="Clear" /></div>
+                <div class="logo-item"><img src="cloud.png" alt="Cloudsquare" /></div>
+                <div class="logo-item"><img src="credibly.png" alt="Credibly" /></div>
+                <div class="logo-item"><img src="docusign.png" alt="DocuSign" /></div>
+                <div class="logo-item"><img src="dragin.png" alt="dragin" /></div>
+                <div class="logo-item"><img src="elevate.png" alt="Elevate" /></div>
+                <div class="logo-item"><img src="ecg.png" alt="Expansion Capital Group" /></div>
+                <div class="logo-item"><img src="experian.png" alt="Expertan" /></div>
+                <div class="logo-item"><img src="fora.png" alt="Fora Financial" /></div>
+                <div class="logo-item"><img src="forwardcase.png" alt="Forward Financing" /></div>
+                <div class="logo-item"><img src="funderas.png" alt="Fundera" /></div>
+                <div class="logo-item"><img src="gongs.png" alt="Gong" /></div>
+                <div class="logo-item"><img src="heron.png" alt="Heron Bird" /></div>
+                <div class="logo-item"><img src="Kapitus.jpg" alt="Kapitus" /></div>
+                <div class="logo-item"><img src="lendingtree.png" alt="Lending Tree" /></div>
+                <div class="logo-item"><img src="lendio1.png" alt="Lendio" /></div>
+                <div class="logo-item"><img src="lendzi1.png" alt="Lendzi" /></div>
+                <div class="logo-item"><img src="money.png" alt="MoneyThumb" /></div>
+                <div class="logo-item"><img src="national.png" alt="National Funding" /></div>
+                <div class="logo-item"><img src="ocrolous.png" alt="Ocrolus" /></div>
+                <div class="logo-item"><img src="ondeck.png" alt="OnDeck" /></div>
+                <div class="logo-item"><img src="onyx.png" alt="Onyx" /></div>
+                <div class="logo-item"><img src="plaid.png" alt="Plaid" /></div>
+                <div class="logo-item"><img src="trulo.png" alt="Trulo" /></div>
             </div>
         </div>
     </section>
@@ -1005,111 +334,17 @@
                 <h2 class="section-title">Spartan Services</h2>
                 <p class="section-subtitle">Comprehensive advisory services designed for fintech companies</p>
             </div>
-            
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 3v18h18"/>
-                            <path d="m19 9-5 5-4-4-3 3"/>
-                        </svg>
-                    </div>
-                    <h3>Revenue Growth</h3>
-                    <p>Accelerate revenue and profitability through strategic planning and execution</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="1" x2="12" y2="23"/>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        </svg>
-                    </div>
-                    <h3>Lending Solutions</h3>
-                    <p>Start funding in 30 days with our proven lending framework</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="m22 21-3-3m0 0-3-3m3 3 3-3m-3 3-3 3"/>
-                        </svg>
-                    </div>
-                    <h3>Acquisition Strategy</h3>
-                    <p>Valuation, deal structuring, and execution support for business acquisitions</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                            <path d="m2 17 10 5 10-5"/>
-                            <path d="m2 12 10 5 10-5"/>
-                        </svg>
-                    </div>
-                    <h3>Operations</h3>
-                    <p>Streamline, automate, and reduce costs across your organization</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
-                    </div>
-                    <h3>Team Training</h3>
-                    <p>Develop leaders and enhance sales team performance</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="m9 12 2 2 4-4"/>
-                            <path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"/>
-                            <path d="M21 12A9 9 0 1 1 12 3"/>
-                        </svg>
-                    </div>
-                    <h3>Compliance</h3>
-                    <p>Navigate complex requirements and regulatory environments</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                        </svg>
-                    </div>
-                    <h3>Tech Stack</h3>
-                    <p>Optimize software infrastructure and technology solutions</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 3v18h18"/>
-                            <rect x="7" y="8" width="3" height="8"/>
-                            <rect x="12" y="4" width="3" height="12"/>
-                            <rect x="17" y="6" width="3" height="10"/>
-                        </svg>
-                    </div>
-                    <h3>Portfolio Management</h3>
-                    <p>Maximize returns and minimize risk across your investment portfolio</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
-                        </svg>
-                    </div>
-                    <h3>Strategic Partnerships</h3>
-                    <p>Leverage our network and relationships for accelerated growth</p>
-                </div>
+                <!-- (cards unchanged) -->
+                <div class="service-card"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div><h3>Revenue Growth</h3><p>Accelerate revenue and profitability through strategic planning and execution</p></div>
+                <div class="service-card"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Lending Solutions</h3><p>Start funding in 30 days with our proven lending framework</p></div>
+                <div class="service-card"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m22 21-3-3m0 0-3-3m3 3 3-3m-3 3-3 3"/></svg></div><h3>Acquisition Strategy</h3><p>Valuation, deal structuring, and execution support for business acquisitions</p></div>
+                <div class="service-card"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></div><h3>Operations</h3><p>Streamline, automate, and reduce costs across your organization</p></div>
+                <div class="service-card"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Team Training</h3><p>Develop leaders and enhance sales team performance</p></div>
+                <div class="service-card"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"/><path d="M21 12A9 9 0 1 1 12 3"/></svg></div><h3>Compliance</h3><p>Navigate complex requirements and regulatory environments</p></div>
+                <div class="service-card"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3>Tech Stack</h3><p>Optimize software infrastructure and technology solutions</p></div>
+                <div class="service-card"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><rect x="7" y="8" width="3" height="8"/><rect x="12" y="4" width="3" height="12"/><rect x="17" y="6" width="3" height="10"/></svg></div><h3>Portfolio Management</h3><p>Maximize returns and minimize risk across your investment portfolio</p></div>
+                <div class="service-card"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></div><h3>Strategic Partnerships</h3><p>Leverage our network and relationships for accelerated growth</p></div>
             </div>
         </div>
     </section>
@@ -1132,31 +367,11 @@
                 <h2 class="section-title">Our Approach</h2>
                 <p class="section-subtitle">A proven methodology that delivers results</p>
             </div>
-            
             <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Free Assessment</h3>
-                    <p class="step-description">Comprehensive analysis of your business, market position, and opportunities</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">Custom Strategy</h3>
-                    <p class="step-description">Tailored roadmap with clear objectives, timelines, and metrics</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Implementation</h3>
-                    <p class="step-description">Hands-on execution support with your team to ensure successful delivery</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3 class="step-title">Optimization</h3>
-                    <p class="step-description">Continuous monitoring and refinement to maximize performance</p>
-                </div>
+                <div class="process-step"><div class="step-number">1</div><h3 class="step-title">Free Assessment</h3><p class="step-description">Comprehensive analysis of your business, market position, and opportunities</p></div>
+                <div class="process-step"><div class="step-number">2</div><h3 class="step-title">Custom Strategy</h3><p class="step-description">Tailored roadmap with clear objectives, timelines, and metrics</p></div>
+                <div class="process-step"><div class="step-number">3</div><h3 class="step-title">Implementation</h3><p class="step-description">Hands-on execution support with your team to ensure successful delivery</p></div>
+                <div class="process-step"><div class="step-number">4</div><h3 class="step-title">Optimization</h3><p class="step-description">Continuous monitoring and refinement to maximize performance</p></div>
             </div>
         </div>
     </section>
@@ -1167,24 +382,11 @@
                 <h2 class="section-title">Proven Results</h2>
                 <p class="section-subtitle">Track record of success across our client portfolio</p>
             </div>
-            
             <div class="results-grid">
-                <div class="result-card">
-                    <span class="result-number">40+</span>
-                    <div class="result-label">Clients Across Fintech</div>
-                </div>
-                <div class="result-card">
-                    <span class="result-number">150+</span>
-                    <div class="result-label">Projects Completed</div>
-                </div>
-                <div class="result-card">
-                    <span class="result-number">95%</span>
-                    <div class="result-label">Goal Acheivment</div>
-                </div>
-                <div class="result-card">
-                    <span class="result-number">2.5x</span>
-                    <div class="result-label">Avg Revenue Growth</div>
-                </div>
+                <div class="result-card"><span class="result-number">40+</span><div class="result-label">Clients Across Fintech</div></div>
+                <div class="result-card"><span class="result-number">150+</span><div class="result-label">Projects Completed</div></div>
+                <div class="result-card"><span class="result-number">95%</span><div class="result-label">Goal Acheivment</div></div>
+                <div class="result-card"><span class="result-number">2.5x</span><div class="result-label">Avg Revenue Growth</div></div>
             </div>
         </div>
     </section>
@@ -1195,73 +397,10 @@
                 <h2 class="section-title">Spartan Success Stories</h2>
                 <p class="section-subtitle">Measurable results across diverse fintech verticals</p>
             </div>
-            
             <div class="cases-grid">
-                <div class="case-study">
-                    <div class="case-content">
-                        <div class="case-header">
-                            <div class="case-logo-container">
-                                <img src="aquacase.png" alt="Aquamark" class="case-company-logo" />
-                            </div>
-                            <div class="case-type">Fintech Startup</div>
-                        </div>
-                        <p class="case-description">Guided market entry strategy and secured key industry partnerships to accelerate customer acquisition and establish market presence in competitive fintech software space.</p>
-                        <div class="case-metrics">
-                            <div class="case-metric">
-                                <span class="case-metric-value">100+</span>
-                                <div class="case-metric-label">Users in 90 Days</div>
-                            </div>
-                            <div class="case-metric">
-                                <span class="case-metric-value">2</span>
-                                <div class="case-metric-label">Strategic Partnerships</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="case-study">
-                    <div class="case-content">
-                        <div class="case-header">
-                            <div class="case-logo-container">
-                                <img src="forwardcase.png" alt="Forward Financing" class="case-company-logo" />
-                            </div>
-                            <div class="case-type">Commercial Lender</div>
-                        </div>
-                        <p class="case-description">Optimized capital allocation strategies and expanded distribution channels, resulting in significant portfolio growth and improved operational efficiency across multiple business lines.</p>
-                        <div class="case-metrics">
-                            <div class="case-metric">
-                                <span class="case-metric-value">25%</span>
-                                <div class="case-metric-label">Market Reach Increase</div>
-                            </div>
-                            <div class="case-metric">
-                                <span class="case-metric-value">40%</span>
-                                <div class="case-metric-label">Efficiency Gains</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="case-study">
-                    <div class="case-content">
-                        <div class="case-header">
-                            <div class="case-logo-container">
-                                <img src="onrampcase.png" alt="Onramp Funds" class="case-company-logo" />
-                            </div>
-                            <div class="case-type">Alternative Lender</div>
-                        </div>
-                        <p class="case-description">Restructured operations and implemented technology solutions that streamlined underwriting processes and enhanced portfolio management capabilities.</p>
-                        <div class="case-metrics">
-                            <div class="case-metric">
-                                <span class="case-metric-value">60%</span>
-                                <div class="case-metric-label">Process Improvement</div>
-                            </div>
-                            <div class="case-metric">
-                                <span class="case-metric-value">2.1x</span>
-                                <div class="case-metric-label">Revenue Growth</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="case-study"><div class="case-content"><div class="case-header"><div class="case-logo-container"><img src="aquacase.png" alt="Aquamark" class="case-company-logo" /></div><div class="case-type">Fintech Startup</div></div><p class="case-description">Guided market entry strategy and secured key industry partnerships to accelerate customer acquisition and establish market presence in competitive fintech software space.</p><div class="case-metrics"><div class="case-metric"><span class="case-metric-value">100+</span><div class="case-metric-label">Users in 90 Days</div></div><div class="case-metric"><span class="case-metric-value">2</span><div class="case-metric-label">Strategic Partnerships</div></div></div></div></div>
+                <div class="case-study"><div class="case-content"><div class="case-header"><div class="case-logo-container"><img src="forwardcase.png" alt="Forward Financing" class="case-company-logo" /></div><div class="case-type">Commercial Lender</div></div><p class="case-description">Optimized capital allocation strategies and expanded distribution channels, resulting in significant portfolio growth and improved operational efficiency across multiple business lines.</p><div class="case-metrics"><div class="case-metric"><span class="case-metric-value">25%</span><div class="case-metric-label">Market Reach Increase</div></div><div class="case-metric"><span class="case-metric-value">40%</span><div class="case-metric-label">Efficiency Gains</div></div></div></div></div>
+                <div class="case-study"><div class="case-content"><div class="case-header"><div class="case-logo-container"><img src="onrampcase.png" alt="Onramp Funds" class="case-company-logo" /></div><div class="case-type">Alternative Lender</div></div><p class="case-description">Restructured operations and implemented technology solutions that streamlined underwriting processes and enhanced portfolio management capabilities.</p><div class="case-metrics"><div class="case-metric"><span class="case-metric-value">60%</span><div class="case-metric-label">Process Improvement</div></div><div class="case-metric"><span class="case-metric-value">2.1x</span><div class="case-metric-label">Revenue Growth</div></div></div></div></div>
             </div>
         </div>
     </section>
@@ -1272,42 +411,10 @@
                 <h2 class="section-title">Flexible Advisory Plans</h2>
                 <p class="section-subtitle">Designed to deliver value at every stage of your journey</p>
             </div>
-            
             <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-title">Part-Time</div>
-                    <div class="pricing-subtitle">There when you need us</div>
-                    <ul class="pricing-features">
-                        <li>Strategic guidance</li>
-                        <li>Monthly strategy sessions</li>
-                        <li>Email and phone support</li>
-                        <li>Flexible scheduling</li>
-                    </ul>
-                    <a href="https://spartan-projects-com.github.io/spartan-site/contact/" class="btn-primary" style="width: 100%; justify-content: center;">Contact Us</a>
-                </div>
-                
-                <div class="pricing-card featured">
-                    <div class="pricing-title">Project-Based</div>
-                    <div class="pricing-subtitle">Defined scope and timeline</div>
-                    <ul class="pricing-features">
-                        <li>Clearly defined deliverables</li>
-                        <li>Milestone-based execution</li>
-                        <li>Regular progress updates</li>
-                    </ul>
-                    <a href="https://spartan-projects-com.github.io/spartan-site/contact/" class="btn-primary" style="width: 100%; justify-content: center;">Contact Us</a>
-                </div>
-                
-                <div class="pricing-card">
-                    <div class="pricing-title">Full-Time</div>
-                    <div class="pricing-subtitle">Dedicated partnership</div>
-                    <ul class="pricing-features">
-                        <li>Dedicated consultant</li>
-                        <li>Weekly sessions</li>
-                        <li>Priority support</li>
-                        <li>Implementation oversight</li>
-                    </ul>
-                    <a href="https://spartan-projects-com.github.io/spartan-site/contact/" class="btn-primary" style="width: 100%; justify-content: center;">Contact Us</a>
-                </div>
+                <div class="pricing-card"><div class="pricing-title">Part-Time</div><div class="pricing-subtitle">There when you need us</div><ul class="pricing-features"><li>Strategic guidance</li><li>Monthly strategy sessions</li><li>Email and phone support</li><li>Flexible scheduling</li></ul><a href="https://spartan-projects-com.github.io/spartan-site/contact/" class="btn-primary" style="width: 100%; justify-content: center;">Contact Us</a></div>
+                <div class="pricing-card featured"><div class="pricing-title">Project-Based</div><div class="pricing-subtitle">Defined scope and timeline</div><ul class="pricing-features"><li>Clearly defined deliverables</li><li>Milestone-based execution</li><li>Regular progress updates</li></ul><a href="https://spartan-projects-com.github.io/spartan-site/contact/" class="btn-primary" style="width: 100%; justify-content: center;">Contact Us</a></div>
+                <div class="pricing-card"><div class="pricing-title">Full-Time</div><div class="pricing-subtitle">Dedicated partnership</div><ul class="pricing-features"><li>Dedicated consultant</li><li>Weekly sessions</li><li>Priority support</li><li>Implementation oversight</li></ul><a href="https://spartan-projects-com.github.io/spartan-site/contact/" class="btn-primary" style="width: 100%; justify-content: center;">Contact Us</a></div>
             </div>
         </div>
     </section>
@@ -1317,18 +424,11 @@
             <div class="contact-content">
                 <h2>Ready to Accelerate Your Growth?</h2>
                 <p>Schedule a free confidential consultation to discuss objectives.</p>
-                
                 <div class="cta-group" style="justify-content: center;">
                     <a href="https://spartan-projects-com.github.io/spartan-site/contact/" class="btn-primary" style="background: white; color: var(--spartan-blue);">
                         Schedule Consultation
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     </a>
-                </div>
-                
-    
                 </div>
             </div>
         </div>
@@ -1338,23 +438,26 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">Spartan Projects</div>
-
                 <div style="font-size: 14px;">© 2025 Spartan Projects. All rights reserved.</div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for internal anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Close mobile menu after click
+                    const nav = document.querySelector('header nav');
+                    const toggle = document.querySelector('.nav-toggle');
+                    if (nav && toggle && window.matchMedia('(max-width: 768px)').matches) {
+                        nav.classList.remove('open');
+                        toggle.setAttribute('aria-expanded', 'false');
+                    }
                 }
             });
         });
@@ -1371,27 +474,38 @@
             }
         });
 
-        // Simple fade-in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
+        // Reveal-on-scroll animation
+        const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        // Observe elements for animations
         document.querySelectorAll('.service-card, .case-study, .process-step, .result-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
+        });
+
+        // Mobile nav toggle
+        const toggle = document.querySelector('.nav-toggle');
+        const nav = document.querySelector('header nav');
+        toggle.addEventListener('click', () => {
+            const expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!expanded));
+            nav.classList.toggle('open');
+        });
+
+        // Ensure nav resets when resizing up to desktop
+        window.addEventListener('resize', () => {
+            if (window.matchMedia('(min-width: 769px)').matches) {
+                nav.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
         });
     </script>
 </body>
