@@ -168,10 +168,24 @@
         
         .resources-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(6, 1fr);
             gap: 32px;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
+        }
+        
+        .resources-grid .resource-card:nth-child(1),
+        .resources-grid .resource-card:nth-child(2),
+        .resources-grid .resource-card:nth-child(3) {
+            grid-column: span 2;
+        }
+        
+        .resources-grid .resource-card:nth-child(4) {
+            grid-column: 2 / span 2;
+        }
+        
+        .resources-grid .resource-card:nth-child(5) {
+            grid-column: 4 / span 2;
         }
         
         .resource-card {
@@ -194,27 +208,20 @@
         
         .resource-header {
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
+            padding: 24px;
+            background: linear-gradient(135deg, var(--spartan-blue) 0%, var(--spartan-cyan) 100%);
+            border-radius: 12px;
+            margin: -32px -32px 24px -32px;
         }
         
         .resource-logo {
-            width: 80px;
+            width: 120px;
             height: 80px;
             object-fit: contain;
-            flex-shrink: 0;
-        }
-        
-        .resource-info {
-            flex: 1;
-        }
-        
-        .resource-name {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: 8px;
+            filter: brightness(0) invert(1);
         }
         
         .resource-url {
@@ -295,6 +302,11 @@
                 grid-template-columns: 1fr;
             }
             
+            .resources-grid .resource-card:nth-child(4),
+            .resources-grid .resource-card:nth-child(5) {
+                grid-column: span 1;
+            }
+            
             .resource-header {
                 flex-direction: column;
                 text-align: center;
@@ -315,16 +327,16 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">
-                    <img src="spartan.png" alt="Spartan Projects" class="logo-image" />
+                <a href="../index.html" class="logo">
+                    <img src="../spartan.png" alt="Spartan Projects" class="logo-image" />
                 </a>
                 <nav>
                     <ul>
-                        <li><a href="index.html#services">Services</a></li>
-                        <li><a href="index.html#cases">Cases</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="../index.html#cases">Cases</a></li>
                         <li><a href="resources.html" class="active">Resources</a></li>
-                        <li><a href="index.html#pricing">Plans</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="../index.html#pricing">Plans</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -345,16 +357,13 @@
                 <div class="resource-card">
                     <div class="resource-header">
                         <img src="aquacase.png" alt="Aquamark" class="resource-logo" />
-                        <div class="resource-info">
-                            <h3 class="resource-name">Aquamark</h3>
-                            <a href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer" class="resource-url">
-                                www.aquamark.io
-                                <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                                </svg>
-                            </a>
-                        </div>
                     </div>
+                    <a href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer" class="resource-url">
+                        www.aquamark.io
+                        <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                    </a>
                     <p class="resource-description">
                         Comprehensive fintech software platform providing advanced analytics, risk management, and operational tools for commercial lenders and financial institutions. Aquamark specializes in streamlining lending operations through innovative technology solutions.
                     </p>
@@ -363,16 +372,13 @@
                 <div class="resource-card">
                     <div class="resource-header">
                         <img src="sbfa.png" alt="SBFA" class="resource-logo" />
-                        <div class="resource-info">
-                            <h3 class="resource-name">SBFA</h3>
-                            <a href="https://sbfassociation.org/" target="_blank" rel="noopener noreferrer" class="resource-url">
-                                sbfassociation.org
-                                <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                                </svg>
-                            </a>
-                        </div>
                     </div>
+                    <a href="https://sbfassociation.org/" target="_blank" rel="noopener noreferrer" class="resource-url">
+                        sbfassociation.org
+                        <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                    </a>
                     <p class="resource-description">
                         The Small Business Finance Association represents responsible small business finance companies, promoting industry best practices, advocacy, and professional development for alternative lending professionals across the United States.
                     </p>
@@ -381,16 +387,13 @@
                 <div class="resource-card">
                     <div class="resource-header">
                         <img src="green.png" alt="Greenledger" class="resource-logo" />
-                        <div class="resource-info">
-                            <h3 class="resource-name">Greenledger</h3>
-                            <a href="https://44664037.hs-sites.com/greenledger" target="_blank" rel="noopener noreferrer" class="resource-url">
-                                greenledger platform
-                                <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                                </svg>
-                            </a>
-                        </div>
                     </div>
+                    <a href="https://44664037.hs-sites.com/greenledger" target="_blank" rel="noopener noreferrer" class="resource-url">
+                        greenledger platform
+                        <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                    </a>
                     <p class="resource-description">
                         Advanced portfolio management and analytics platform designed for alternative lenders and investment firms. Greenledger provides comprehensive tools for risk assessment, performance tracking, and strategic decision-making in commercial finance.
                     </p>
@@ -399,16 +402,13 @@
                 <div class="resource-card">
                     <div class="resource-header">
                         <img src="debanked.png" alt="deBanked" class="resource-logo" />
-                        <div class="resource-info">
-                            <h3 class="resource-name">deBanked</h3>
-                            <a href="https://debanked.com/" target="_blank" rel="noopener noreferrer" class="resource-url">
-                                debanked.com
-                                <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                                </svg>
-                            </a>
-                        </div>
                     </div>
+                    <a href="https://debanked.com/" target="_blank" rel="noopener noreferrer" class="resource-url">
+                        debanked.com
+                        <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                    </a>
                     <p class="resource-description">
                         Leading industry publication and information resource covering alternative business finance, fintech innovations, and market trends. deBanked provides news, analysis, and insights for professionals in the alternative lending space.
                     </p>
@@ -417,16 +417,13 @@
                 <div class="resource-card">
                     <div class="resource-header">
                         <img src="ilpa.png" alt="ILPA" class="resource-logo" />
-                        <div class="resource-info">
-                            <h3 class="resource-name">ILPA</h3>
-                            <a href="https://innovativelending.org/" target="_blank" rel="noopener noreferrer" class="resource-url">
-                                innovativelending.org
-                                <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                                </svg>
-                            </a>
-                        </div>
                     </div>
+                    <a href="https://innovativelending.org/" target="_blank" rel="noopener noreferrer" class="resource-url">
+                        innovativelending.org
+                        <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                    </a>
                     <p class="resource-description">
                         The Innovative Lending Platform Association advocates for responsible innovation in financial services, bringing together industry leaders to promote best practices, regulatory clarity, and sustainable growth in alternative lending markets.
                     </p>
@@ -441,10 +438,10 @@
             <div class="footer-content">
                 <div class="footer-logo">Spartan Projects</div>
                 <div class="footer-links">
-                    <a href="index.html#services">Services</a>
-                    <a href="index.html#process">Process</a>
-                    <a href="index.html#cases">Case Studies</a>
-                    <a href="index.html#contact">Contact</a>
+                    <a href="../index.html#services">Services</a>
+                    <a href="../index.html#process">Process</a>
+                    <a href="../index.html#cases">Case Studies</a>
+                    <a href="../index.html#contact">Contact</a>
                 </div>
                 <div style="font-size: 14px;">© 2025 Spartan Projects. All rights reserved.</div>
             </div>
