@@ -9,13 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --primary-light: #a5b4fc;
-            --secondary: #06b6d4;
-            --accent: #f59e0b;
-            --success: #10b981;
-            --danger: #ef4444;
+            --spartan-blue: #1e3a8a;
+            --spartan-blue-light: #3b82f6;
+            --spartan-blue-dark: #1e40af;
+            --spartan-cyan: #0891b2;
+            --spartan-cyan-light: #06b6d4;
+            --accent-gold: #f59e0b;
+            --success: #059669;
+            --danger: #dc2626;
             --dark: #0f172a;
             --gray-50: #f8fafc;
             --gray-100: #f1f5f9;
@@ -27,10 +28,8 @@
             --gray-700: #334155;
             --gray-800: #1e293b;
             --gray-900: #0f172a;
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #0891b2 100%);
+            --gradient-secondary: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -58,54 +57,11 @@
             padding: 0 24px;
         }
         
-        /* Animated Background Elements */
-        .bg-decoration {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        .bg-decoration::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: var(--gradient-1);
-            border-radius: 50%;
-            opacity: 0.03;
-            animation: float 20s ease-in-out infinite;
-        }
-        
-        .bg-decoration::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 400px;
-            height: 400px;
-            background: var(--gradient-3);
-            border-radius: 50%;
-            opacity: 0.04;
-            animation: float 15s ease-in-out infinite reverse;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-        }
-        
         /* Header */
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--gray-100);
+            border-bottom: 1px solid var(--gray-200);
             padding: 16px 0;
             position: sticky;
             top: 0;
@@ -119,21 +75,28 @@
             align-items: center;
         }
         
-        .logo-placeholder {
-            background: var(--gradient-1);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 12px;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--spartan-blue);
             font-weight: 800;
-            font-size: 16px;
+            font-size: 20px;
             letter-spacing: -0.02em;
-            box-shadow: var(--shadow-lg);
-            transition: all 0.3s ease;
+            text-decoration: none;
         }
         
-        .logo-placeholder:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 18px;
         }
         
         nav ul {
@@ -152,7 +115,7 @@
         }
         
         nav a:hover {
-            color: var(--primary);
+            color: var(--spartan-blue);
         }
         
         nav a::after {
@@ -162,7 +125,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary);
+            background: var(--spartan-blue);
             transition: width 0.3s ease;
         }
         
@@ -172,26 +135,9 @@
         
         /* Hero Section */
         .hero {
-            padding: 120px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
             position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
-            animation: grid-move 20s linear infinite;
-        }
-        
-        @keyframes grid-move {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(60px, 60px); }
         }
         
         .hero-content {
@@ -199,629 +145,365 @@
             grid-template-columns: 1fr 1fr;
             gap: 80px;
             align-items: center;
-            position: relative;
-            z-index: 2;
         }
         
-        .hero-text {
-            color: white;
-        }
-        
-        .hero h1 {
-            font-size: clamp(3rem, 6vw, 4rem);
-            font-weight: 900;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--gray-900);
             margin-bottom: 24px;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            white-space: nowrap;
+            letter-spacing: -0.02em;
         }
         
-        .hero h1 br {
-            display: block;
+        .hero-text h1 .highlight {
+            color: var(--spartan-blue);
         }
         
-        @media (max-width: 768px) {
-            .hero h1 {
-                white-space: normal;
-                font-size: clamp(2.8rem, 8vw, 3.5rem);
-            }
+        .hero-text p {
+            font-size: 20px;
+            color: var(--gray-600);
+            margin-bottom: 40px;
+            line-height: 1.7;
         }
         
-        .hero p {
-            font-size: 24px;
-            font-weight: 400;
-            margin-bottom: 48px;
-            color: rgba(255, 255, 255, 0.9);
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
         }
         
-        .cta-button {
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(20px);
-            color: white;
-            padding: 20px 40px;
-            border-radius: 16px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
+            gap: 8px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-md);
         }
         
-        .cta-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--spartan-blue);
+            padding: 16px 32px;
+            border: 2px solid var(--spartan-blue);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--spartan-blue);
+            color: white;
         }
         
         .hero-visual {
             position: relative;
-            height: 500px;
+            padding: 40px;
         }
         
-        .hero-chart {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 400px;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 32px;
-            box-shadow: var(--shadow-xl);
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
         }
         
-        .chart-bars {
-            display: flex;
-            align-items: end;
-            justify-content: space-between;
-            height: 180px;
-            margin-bottom: 20px;
-        }
-        
-        .chart-bar {
-            width: 40px;
-            background: var(--gradient-4);
-            border-radius: 8px 8px 0 0;
-            position: relative;
-            animation: growBar 2s ease-out;
-        }
-        
-        .chart-bar:nth-child(1) { height: 60%; animation-delay: 0.2s; }
-        .chart-bar:nth-child(2) { height: 80%; animation-delay: 0.4s; }
-        .chart-bar:nth-child(3) { height: 100%; animation-delay: 0.6s; }
-        .chart-bar:nth-child(4) { height: 90%; animation-delay: 0.8s; }
-        .chart-bar:nth-child(5) { height: 70%; animation-delay: 1s; }
-        
-        @keyframes growBar {
-            0% { height: 0; }
-        }
-        
-        .chart-label {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 14px;
-            font-weight: 600;
+        .metric-card {
+            background: white;
+            padding: 32px 24px;
+            border-radius: 12px;
+            border: 1px solid var(--gray-200);
             text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
         }
         
-        /* Floating Stats */
-        .floating-stat {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 16px 24px;
-            color: white;
-            animation: floatStat 6s ease-in-out infinite;
+        .metric-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
         }
         
-        .floating-stat:nth-child(1) {
-            top: 10%;
-            right: 10%;
-            animation-delay: 0s;
-        }
-        
-        .floating-stat:nth-child(2) {
-            bottom: 20%;
-            right: 5%;
-            animation-delay: 2s;
-        }
-        
-        .floating-stat:nth-child(3) {
-            top: 30%;
-            right: 2%;
-            animation-delay: 4s;
-        }
-        
-        @keyframes floatStat {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
-            50% { transform: translateY(-10px) rotate(2deg); opacity: 1; }
-        }
-        
-        .stat-number {
-            font-size: 24px;
+        .metric-number {
+            font-size: 32px;
             font-weight: 800;
+            color: var(--spartan-blue);
             display: block;
+            margin-bottom: 8px;
         }
         
-        .stat-label {
-            font-size: 12px;
-            opacity: 0.8;
+        .metric-label {
+            color: var(--gray-600);
+            font-size: 14px;
+            font-weight: 500;
         }
         
         /* Trust Section */
-        .trust {
-            padding: 80px 0;
+        .trust-section {
+            padding: 60px 0;
             background: var(--gray-50);
-            position: relative;
-            overflow: hidden;
         }
         
         .trust-title {
             text-align: center;
-            font-size: 18px;
+            font-size: 16px;
             color: var(--gray-500);
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
         
-        .carousel-track {
+        .trust-logos {
             display: flex;
-            animation: scroll-left 60s linear infinite;
-            gap: 32px;
-            width: fit-content;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            opacity: 0.6;
         }
         
-        .logo-item {
-            width: 140px;
-            height: 80px;
-            flex-shrink: 0;
+        .trust-logo {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--gray-200);
+            color: var(--gray-500);
+            font-weight: 600;
+            font-size: 14px;
             transition: all 0.3s ease;
         }
         
-        .logo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: all 0.3s ease;
+        .trust-logo:hover {
+            opacity: 1;
+            transform: translateY(-2px);
         }
         
-        .logo-item:hover {
-            transform: translateY(-4px);
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
         }
         
-        @keyframes scroll-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        
-        /* Section Improvements */
         .section-header {
             text-align: center;
-            margin-bottom: 80px;
-            position: relative;
+            margin-bottom: 60px;
         }
         
         .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
             color: var(--gray-900);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             letter-spacing: -0.02em;
-            position: relative;
         }
         
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: var(--gradient-1);
-            border-radius: 2px;
-        }
-        
-        .section-description {
-            font-size: 20px;
+        .section-subtitle {
+            font-size: 18px;
             color: var(--gray-600);
             max-width: 600px;
             margin: 0 auto;
-            font-weight: 400;
         }
         
-        /* How It Works */
-        .how-it-works {
-            padding: 120px 0;
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        
+        .service-card {
             background: white;
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
             position: relative;
         }
         
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--spartan-blue-light);
+        }
+        
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 12px;
+        }
+        
+        .service-card p {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+        
+        /* Process */
         .process-steps {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 48px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
             position: relative;
-        }
-        
-        .process-steps::before {
-            content: '';
-            position: absolute;
-            top: 30px;
-            left: 12.5%;
-            right: 12.5%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
-            z-index: 1;
         }
         
         .process-step {
             text-align: center;
             position: relative;
-            z-index: 2;
         }
         
         .step-number {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-1);
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 32px;
+            margin: 0 auto 20px;
             color: white;
-            font-size: 28px;
-            font-weight: 800;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .step-number::after {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            background: var(--gradient-1);
-            border-radius: 50%;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .process-step:hover .step-number {
-            transform: scale(1.1);
-        }
-        
-        .process-step:hover .step-number::after {
-            opacity: 0.3;
+            font-size: 20px;
+            font-weight: 700;
+            box-shadow: var(--shadow-md);
         }
         
         .step-title {
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 18px;
+            font-weight: 600;
             color: var(--gray-900);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
         
         .step-description {
             color: var(--gray-600);
-            font-size: 16px;
-            line-height: 1.6;
         }
         
-        /* Services Grid */
-        .services {
-            padding: 120px 0;
+        /* Case Studies */
+        .case-studies {
             background: var(--gray-50);
         }
         
-        .services-grid {
+        .cases-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 40px;
         }
         
-        .service-card {
+        .case-study {
             background: white;
-            padding: 40px;
-            border-radius: 24px;
-            border: 1px solid var(--gray-200);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.05), transparent);
-            transition: left 0.6s;
-        }
-        
-        .service-card:hover::before {
-            left: 100%;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--primary-light);
-        }
-        
-        .service-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--gradient-1);
-            border-radius: 16px;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .service-card:hover .service-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-        
-        .service-card h3 {
-            font-size: 20px;
-            color: var(--gray-900);
-            margin-bottom: 16px;
-            font-weight: 700;
-        }
-        
-        .service-card p {
-            color: var(--gray-600);
-            font-size: 16px;
-            line-height: 1.6;
-        }
-        
-        /* Discretion Banner */
-        .discretion-banner {
-            background: var(--gradient-1);
-            padding: 80px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .discretion-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-        }
-        
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .discretion-content {
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .discretion-banner h3 {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 16px;
-            color: white;
-        }
-        
-        .discretion-banner p {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 40px;
-        }
-        
-        .references-btn {
-            background: white;
-            color: var(--primary);
-            padding: 16px 32px;
-            border: none;
             border-radius: 12px;
-            font-weight: 700;
-            font-size: 16px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
+        }
+        
+        .case-study:hover {
+            transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
-        }
-        
-        .references-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        /* Use Cases */
-        .use-cases {
-            padding: 120px 0;
-            background: white;
-        }
-        
-        .cases-container {
-            display: flex;
-            flex-direction: column;
-            gap: 48px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .case-row {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 48px;
-            align-items: center;
-        }
-        
-        .case-row:nth-child(even) {
-            grid-template-columns: 2fr 1fr;
-        }
-        
-        .case-row:nth-child(even) .case-content {
-            order: 2;
-        }
-        
-        .case-row:nth-child(even) .case-visual {
-            order: 1;
         }
         
         .case-content {
             padding: 40px;
         }
         
-        .case-visual {
-            position: relative;
-            background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
-            border-radius: 24px;
-            border: 1px solid var(--gray-200);
-            padding: 48px;
-            text-align: center;
-            transition: all 0.4s ease;
-            min-height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .case-visual:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .case-logo {
-            width: 100px;
-            height: 100px;
-            background: var(--gradient-1);
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 800;
-            font-size: 32px;
-            margin: 0 auto 32px;
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .case-metric {
-            background: var(--gradient-4);
-            padding: 32px;
-            border-radius: 20px;
-            color: white;
-            margin-top: 24px;
-        }
-        
-        .case-metric-number {
-            font-size: 48px;
-            font-weight: 900;
-            display: block;
+        .case-company {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gray-900);
             margin-bottom: 8px;
         }
         
-        .case-metric-label {
-            font-size: 16px;
-            opacity: 0.9;
-            font-weight: 500;
-        }
-        
-        .case-company {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--gray-900);
-            margin-bottom: 12px;
-        }
-        
         .case-type {
-            color: var(--primary);
-            font-size: 16px;
+            color: var(--spartan-blue);
+            font-size: 14px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 32px;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
         }
         
-        .case-result {
+        .case-description {
             color: var(--gray-600);
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 32px;
+            line-height: 1.7;
+            margin-bottom: 24px;
         }
         
-        .case-tags {
+        .case-metrics {
             display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
+            gap: 32px;
         }
         
-        .case-tag {
-            background: var(--gray-100);
-            color: var(--gray-700);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
+        .case-metric {
+            text-align: center;
+        }
+        
+        .case-metric-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--spartan-blue);
+            display: block;
+        }
+        
+        .case-metric-label {
+            font-size: 12px;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
         
         /* Pricing */
-        .pricing {
-            padding: 120px 0;
-            background: var(--gray-50);
-        }
-        
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
             max-width: 1000px;
             margin: 0 auto;
         }
         
         .pricing-card {
             background: white;
-            padding: 48px 40px;
-            border-radius: 24px;
-            text-align: center;
+            padding: 40px 32px;
+            border-radius: 12px;
             border: 2px solid var(--gray-200);
+            text-align: center;
             position: relative;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
         }
         
         .pricing-card.featured {
-            border-color: var(--primary);
-            transform: scale(1.05);
-            box-shadow: var(--shadow-xl);
-            background: linear-gradient(135deg, white 0%, var(--gray-50) 100%);
+            border-color: var(--spartan-blue);
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
         }
         
         .pricing-card.featured::before {
@@ -830,498 +512,191 @@
             top: -1px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--gradient-1);
+            background: var(--gradient-primary);
             color: white;
-            padding: 12px 32px;
-            border-radius: 0 0 12px 12px;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-        }
-        
-        .pricing-card:hover:not(.featured) {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-light);
+            padding: 8px 24px;
+            border-radius: 0 0 8px 8px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
         
         .pricing-title {
-            font-size: 28px;
+            font-size: 24px;
+            font-weight: 700;
             color: var(--gray-900);
-            margin-bottom: 12px;
-            font-weight: 800;
+            margin-bottom: 8px;
         }
         
         .pricing-subtitle {
             color: var(--gray-500);
-            font-size: 16px;
-            margin-bottom: 40px;
-            font-weight: 500;
+            margin-bottom: 32px;
         }
         
         .pricing-features {
             list-style: none;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             text-align: left;
         }
         
         .pricing-features li {
-            padding: 12px 0;
+            padding: 8px 0;
             color: var(--gray-600);
-            font-size: 16px;
             display: flex;
             align-items: center;
-            gap: 16px;
-            font-weight: 500;
+            gap: 12px;
         }
         
         .pricing-features li::before {
             content: "✓";
-            background: var(--gradient-4);
+            background: var(--spartan-blue);
             color: white;
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: bold;
             flex-shrink: 0;
         }
         
-        .contact-btn {
-            background: var(--gradient-1);
+        /* Contact */
+        .contact-section {
+            background: var(--gradient-primary);
             color: white;
-            padding: 16px 32px;
-            border: none;
-            border-radius: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-md);
+            text-align: center;
         }
         
-        .contact-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .pricing-card:not(.featured) .contact-btn {
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-        
-        .pricing-card:not(.featured) .contact-btn:hover {
-            background: var(--primary);
-            color: white;
-        }
-        
-        /* FAQ */
-        .faq-section {
-            padding: 120px 0;
-            background: white;
-        }
-        
-        .faq-container {
-            max-width: 800px;
+        .contact-content {
+            max-width: 600px;
             margin: 0 auto;
         }
         
-        .faq-item {
-            background: white;
-            border: 2px solid var(--gray-200);
-            border-radius: 16px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .faq-item:hover {
-            border-color: var(--primary-light);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .faq-question {
-            padding: 32px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .contact-section h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
             font-weight: 700;
-            color: var(--gray-900);
+            margin-bottom: 16px;
+        }
+        
+        .contact-section p {
             font-size: 18px;
-            transition: all 0.3s ease;
-            user-select: none;
+            margin-bottom: 40px;
+            opacity: 0.9;
         }
         
-        .faq-question:hover {
-            background: var(--gray-50);
-        }
-        
-        .faq-icon {
-            width: 24px;
-            height: 24px;
-            transition: transform 0.3s ease;
-            flex-shrink: 0;
-            margin-left: 16px;
-        }
-        
-        .faq-item.open .faq-icon {
-            transform: rotate(180deg);
-        }
-        
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-            background: var(--gray-50);
-        }
-        
-        .faq-item.open .faq-answer {
-            max-height: 200px;
-            padding: 0 32px 32px;
-        }
-        
-        .faq-answer p {
-            color: var(--gray-600);
-            line-height: 1.7;
-            margin: 0;
-            font-size: 16px;
-            padding-top: 0;
-        }
-        
-        /* Stats Section */
-        .stats-section {
-            padding: 80px 0;
-            background: var(--gradient-1);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .stats-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M20 20c0-11.046-8.954-20-20-20v20h20z'/%3E%3C/g%3E%3C/svg%3E") repeat;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 48px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .stat-item {
-            text-align: center;
-            padding: 32px 24px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .stat-item:hover {
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.15);
-        }
-        
-        .stat-number {
-            font-size: 48px;
-            font-weight: 900;
-            margin-bottom: 8px;
-            display: block;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .stat-label {
-            font-size: 16px;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            padding: 120px 0;
-            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-        
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .cta-section h2 {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 900;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
-        }
-        
-        .cta-section p {
-            font-size: 20px;
-            margin-bottom: 48px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .cta-buttons {
+        .contact-info {
             display: flex;
-            gap: 24px;
             justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
             flex-wrap: wrap;
         }
         
-        .cta-primary {
-            background: var(--gradient-4);
-            color: white;
-            padding: 20px 40px;
-            border: none;
-            border-radius: 16px;
-            font-weight: 700;
-            font-size: 18px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .cta-secondary {
-            background: transparent;
-            color: white;
-            padding: 20px 40px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 16px;
-            font-weight: 700;
-            font-size: 18px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(20px);
-        }
-        
-        .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        .cta-secondary:hover {
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
+            padding: 16px 24px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
         }
         
         /* Footer */
         footer {
             background: var(--gray-900);
-            color: white;
-            padding: 80px 0 40px;
-            position: relative;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 40px 0;
+            text-align: center;
         }
         
         .footer-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
         
-        .footer-content h3 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            font-weight: 800;
+        .footer-logo {
             color: white;
-        }
-        
-        .footer-content p {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 32px;
+            font-weight: 700;
             font-size: 18px;
         }
         
-        .contact-info {
-            margin: 32px 0 48px;
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
         }
         
-        .contact-info p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 16px;
-            margin: 12px 0;
-            font-weight: 500;
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
         
-        .footer-bottom {
-            border-top: 1px solid var(--gray-700);
-            padding-top: 32px;
-            margin-top: 48px;
+        .footer-links a:hover {
+            color: white;
         }
         
-        .footer-bottom p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-            margin: 0;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .process-steps {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 40px;
-            }
-            
-            .process-steps::before {
-                display: none;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 32px;
-            }
-            
-            .case-row {
-                grid-template-columns: 1fr !important;
-                gap: 32px;
-            }
-            
-            .case-row:nth-child(even) .case-content,
-            .case-row:nth-child(even) .case-visual {
-                order: 0;
-            }
-        }
-        
+        /* Responsive */
         @media (max-width: 768px) {
             .hero-content {
                 grid-template-columns: 1fr;
-                gap: 60px;
-            }
-            
-            .hero-text {
+                gap: 40px;
                 text-align: center;
             }
             
-            .hero-visual {
-                height: 300px;
-            }
-            
-            .hero-chart {
-                width: 300px;
-                height: 200px;
-            }
-            
-            .services-grid,
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-            
-            .process-steps,
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-            
-            .cases-container {
-                gap: 32px;
-            }
-            
-            .case-content {
-                padding: 24px 0;
-            }
-            
-            .case-visual {
-                padding: 32px 24px;
-                min-height: 250px;
+            .nav-toggle {
+                display: block;
             }
             
             nav ul {
-                flex-direction: column;
-                gap: 16px;
+                display: none;
             }
             
             .container {
                 padding: 0 16px;
             }
             
+            .section {
+                padding: 60px 0;
+            }
+            
             .pricing-card.featured {
                 transform: none;
             }
             
-            .cta-buttons {
+            .contact-info {
                 flex-direction: column;
-                align-items: center;
+                gap: 20px;
             }
             
-            .floating-stat {
-                position: static;
-                margin: 16px auto;
-                display: block;
-                width: fit-content;
-            }
-        }
-        
-        /* Scroll animations */
-        @media (prefers-reduced-motion: no-preference) {
-            .scroll-fade-in {
-                opacity: 0;
-                transform: translateY(30px);
-                transition: all 0.8s ease;
-            }
-            
-            .scroll-fade-in.visible {
-                opacity: 1;
-                transform: translateY(0);
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <div class="bg-decoration"></div>
-    
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo-placeholder">SPARTAN PROJECTS</div>
+                <a href="#" class="logo">
+                    <div class="logo-icon">S</div>
+                    SPARTAN PROJECTS
+                </a>
                 <nav>
                     <ul>
-                        <li><a href="#how-it-works">Process</a></li>
                         <li><a href="#services">Services</a></li>
+                        <li><a href="#process">Process</a></li>
                         <li><a href="#cases">Cases</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#pricing">Investment</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
@@ -1333,496 +708,233 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Building Smarter<br>Finance Companies</h1>
-                    <p>Guiding fintechs to lasting growth.</p>
-                    <a href="#contact" class="cta-button">
-                        Get Started
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="m9 18 6-6-6-6"/>
-                        </svg>
-                    </a>
+                    <h1>Strategic Advisory for <span class="highlight">Fintech Leaders</span></h1>
+                    <p>We guide financial services companies through complex growth challenges, from market entry to exit strategies. Our expertise delivers measurable results in competitive markets.</p>
+                    <div class="cta-group">
+                        <a href="#contact" class="btn-primary">
+                            Schedule Consultation
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m9 18 6-6-6-6"/>
+                            </svg>
+                        </a>
+                        <a href="#cases" class="btn-secondary">
+                            View Case Studies
+                        </a>
+                    </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="hero-chart">
-                        <div class="chart-bars">
-                            <div class="chart-bar"></div>
-                            <div class="chart-bar"></div>
-                            <div class="chart-bar"></div>
-                            <div class="chart-bar"></div>
-                            <div class="chart-bar"></div>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="metric-number">$50M+</span>
+                            <div class="metric-label">Capital Facilitated</div>
                         </div>
-                        <div class="chart-label">Revenue Growth Trajectory</div>
-                    </div>
-                    <div class="floating-stat">
-                        <span class="stat-number">300%</span>
-                        <span class="stat-label">ROI increase</span>
-                    </div>
-                    <div class="floating-stat">
-                        <span class="stat-number">30</span>
-                        <span class="stat-label">Days to fund</span>
-                    </div>
-                    <div class="floating-stat">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Clients served</span>
+                        <div class="metric-card">
+                            <span class="metric-number">150+</span>
+                            <div class="metric-label">Projects Completed</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-number">95%</span>
+                            <div class="metric-label">Client Retention</div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-number">2.5x</span>
+                            <div class="metric-label">Avg Revenue Growth</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="trust">
+    <section class="trust-section">
         <div class="container">
             <h2 class="trust-title">Trusted by Industry Leaders</h2>
-        </div>
-        <div class="carousel-track">
-            <div class="logo-item">
-                <img src="ACHWorks.jpg" alt="ACH Works" />
-            </div>
-            <div class="logo-item">
-                <img src="Aquamark.jpg" alt="Aquamark" />
-            </div>
-            <div class="logo-item">
-                <img src="Backd.jpg" alt="Backd" />
-            </div>
-            <div class="logo-item">
-                <img src="Balboa Capital.jpg" alt="Balboa Capital" />
-            </div>
-            <div class="logo-item">
-                <img src="Big Think Capital.jpg" alt="Big Think Capital" />
-            </div>
-            <div class="logo-item">
-                <img src="BusinessLoans.com.jpg" alt="BusinessLoans.com" />
-            </div>
-            <div class="logo-item">
-                <img src="CFG Merchant Solutions.jpg" alt="CFG Merchant Solutions" />
-            </div>
-            <div class="logo-item">
-                <img src="Can Capital.jpg" alt="Can Capital" />
-            </div>
-            <div class="logo-item">
-                <img src="Capfront.jpg" alt="Capfront" />
-            </div>
-            <div class="logo-item">
-                <img src="Clear.jpg" alt="Clear" />
-            </div>
-            <div class="logo-item">
-                <img src="Cloudsquare.jpg" alt="Cloudsquare" />
-            </div>
-            <div class="logo-item">
-                <img src="Credibly.jpg" alt="Credibly" />
-            </div>
-            <div class="logo-item">
-                <img src="Docusign.jpg" alt="DocuSign" />
-            </div>
-            <div class="logo-item">
-                <img src="Dragina.jpg" alt="Dragina" />
-            </div>
-            <div class="logo-item">
-                <img src="Elevate.jpg" alt="Elevate" />
-            </div>
-            <div class="logo-item">
-                <img src="Expansion Capital Group.jpg" alt="Expansion Capital Group" />
-            </div>
-            <div class="logo-item">
-                <img src="Expertan.jpg" alt="Expertan" />
-            </div>
-            <div class="logo-item">
-                <img src="Fora Financial.jpg" alt="Fora Financial" />
-            </div>
-            <div class="logo-item">
-                <img src="Forward Financing.jpg" alt="Forward Financing" />
-            </div>
-            <div class="logo-item">
-                <img src="Fundera.jpg" alt="Fundera" />
-            </div>
-            <div class="logo-item">
-                <img src="Gorg.jpg" alt="Gorg" />
-            </div>
-            <div class="logo-item">
-                <img src="Heron Bird.jpg" alt="Heron Bird" />
-            </div>
-            <div class="logo-item">
-                <img src="Kapitus.jpg" alt="Kapitus" />
-            </div>
-            <div class="logo-item">
-                <img src="Lending Tree.jpg" alt="Lending Tree" />
-            </div>
-            <div class="logo-item">
-                <img src="Lendio.jpg" alt="Lendio" />
-            </div>
-            <div class="logo-item">
-                <img src="Lendz.jpg" alt="Lendz" />
-            </div>
-            <div class="logo-item">
-                <img src="MoneyThumb.jpg" alt="MoneyThumb" />
-            </div>
-            <div class="logo-item">
-                <img src="National Funding.jpg" alt="National Funding" />
-            </div>
-            <div class="logo-item">
-                <img src="Ocrolus.jpg" alt="Ocrolus" />
-            </div>
-            <div class="logo-item">
-                <img src="On Deck.jpg" alt="On Deck" />
-            </div>
-            <div class="logo-item">
-                <img src="Onyx.jpg" alt="Onyx" />
-            </div>
-            <div class="logo-item">
-                <img src="Plaid.jpg" alt="Plaid" />
-            </div>
-            <div class="logo-item">
-                <img src="Trulo.jpg" alt="Trulo" />
-            </div>
-            <!-- Duplicate for seamless loop -->
-            <div class="logo-item">
-                <img src="ACHWorks.jpg" alt="ACH Works" />
-            </div>
-            <div class="logo-item">
-                <img src="Aquamark.jpg" alt="Aquamark" />
-            </div>
-            <div class="logo-item">
-                <img src="Backd.jpg" alt="Backd" />
-            </div>
-            <div class="logo-item">
-                <img src="Balboa Capital.jpg" alt="Balboa Capital" />
-            </div>
-            <div class="logo-item">
-                <img src="Big Think Capital.jpg" alt="Big Think Capital" />
-            </div>
-            <div class="logo-item">
-                <img src="BusinessLoans.com.jpg" alt="BusinessLoans.com" />
-            </div>
-            <div class="logo-item">
-                <img src="CFG Merchant Solutions.jpg" alt="CFG Merchant Solutions" />
-            </div>
-            <div class="logo-item">
-                <img src="Can Capital.jpg" alt="Can Capital" />
-            </div>
-            <div class="logo-item">
-                <img src="Capfront.jpg" alt="Capfront" />
-            </div>
-            <div class="logo-item">
-                <img src="Clear.jpg" alt="Clear" />
-            </div>
-            <div class="logo-item">
-                <img src="Cloudsquare.jpg" alt="Cloudsquare" />
-            </div>
-            <div class="logo-item">
-                <img src="Credibly.jpg" alt="Credibly" />
-            </div>
-            <div class="logo-item">
-                <img src="Docusign.jpg" alt="DocuSign" />
-            </div>
-            <div class="logo-item">
-                <img src="Dragina.jpg" alt="Dragina" />
-            </div>
-            <div class="logo-item">
-                <img src="Elevate.jpg" alt="Elevate" />
-            </div>
-            <div class="logo-item">
-                <img src="Expansion Capital Group.jpg" alt="Expansion Capital Group" />
-            </div>
-            <div class="logo-item">
-                <img src="Expertan.jpg" alt="Expertan" />
-            </div>
-            <div class="logo-item">
-                <img src="Fora Financial.jpg" alt="Fora Financial" />
-            </div>
-            <div class="logo-item">
-                <img src="Forward Financing.jpg" alt="Forward Financing" />
-            </div>
-            <div class="logo-item">
-                <img src="Fundera.jpg" alt="Fundera" />
-            </div>
-            <div class="logo-item">
-                <img src="Gorg.jpg" alt="Gorg" />
-            </div>
-            <div class="logo-item">
-                <img src="Heron Bird.jpg" alt="Heron Bird" />
-            </div>
-            <div class="logo-item">
-                <img src="Kapitus.jpg" alt="Kapitus" />
-            </div>
-            <div class="logo-item">
-                <img src="Lending Tree.jpg" alt="Lending Tree" />
-            </div>
-            <div class="logo-item">
-                <img src="Lendio.jpg" alt="Lendio" />
-            </div>
-            <div class="logo-item">
-                <img src="Lendz.jpg" alt="Lendz" />
-            </div>
-            <div class="logo-item">
-                <img src="MoneyThumb.jpg" alt="MoneyThumb" />
-            </div>
-            <div class="logo-item">
-                <img src="National Funding.jpg" alt="National Funding" />
-            </div>
-            <div class="logo-item">
-                <img src="Ocrolus.jpg" alt="Ocrolus" />
-            </div>
-            <div class="logo-item">
-                <img src="On Deck.jpg" alt="On Deck" />
-            </div>
-            <div class="logo-item">
-                <img src="Onyx.jpg" alt="Onyx" />
-            </div>
-            <div class="logo-item">
-                <img src="Plaid.jpg" alt="Plaid" />
-            </div>
-            <div class="logo-item">
-                <img src="Trulo.jpg" alt="Trulo" />
+            <div class="trust-logos">
+                <div class="trust-logo">Forward Financing</div>
+                <div class="trust-logo">Credibly</div>
+                <div class="trust-logo">Kapitus</div>
+                <div class="trust-logo">OnDeck</div>
+                <div class="trust-logo">National Funding</div>
+                <div class="trust-logo">Balboa Capital</div>
             </div>
         </div>
     </section>
 
-    <section class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">$50M+</span>
-                    <div class="stat-label">Capital Facilitated</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">150+</span>
-                    <div class="stat-label">Projects Completed</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">95%</span>
-                    <div class="stat-label">Client Retention</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">2.5x</span>
-                    <div class="stat-label">Avg Revenue Growth</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="how-it-works" id="how-it-works">
+    <section class="section" id="services">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">How It Works</h2>
-                <p class="section-description">Start growing after a few simple steps.</p>
-            </div>
-            
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Free Consult</h3>
-                    <p class="step-description">30-minute discovery call</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">Scope & Budget</h3>
-                    <p class="step-description">Timeline and investment</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Sign NDAs</h3>
-                    <p class="step-description">Protect your information</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3 class="step-title">Start Growing</h3>
-                    <p class="step-description">Begin implementation</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-description">Guidance for brokers, funders, and software companies</p>
+                <h2 class="section-title">Strategic Services</h2>
+                <p class="section-subtitle">Comprehensive advisory services designed for fintech companies at every stage of growth</p>
             </div>
             
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 3v18h18"/>
                             <path d="m19 9-5 5-4-4-3 3"/>
                         </svg>
                     </div>
-                    <h3>Revenue Growth</h3>
-                    <p>Accelerate revenue and profitability</p>
+                    <h3>Growth Strategy</h3>
+                    <p>Revenue optimization, market expansion, and sustainable scaling strategies tailored to your business model.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="12" y1="1" x2="12" y2="23"/>
                             <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                         </svg>
                     </div>
-                    <h3>Lending Solutions</h3>
-                    <p>Start funding in 30 days</p>
+                    <h3>Capital Solutions</h3>
+                    <p>Funding strategies, investor relations, and capital structure optimization for growth and acquisition.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
                             <circle cx="9" cy="7" r="4"/>
                             <path d="m22 21-3-3m0 0-3-3m3 3 3-3m-3 3-3 3"/>
                         </svg>
                     </div>
-                    <h3>Acquisition Strategy</h3>
-                    <p>Valuation, deal structuring, execution</p>
+                    <h3>M&A Advisory</h3>
+                    <p>End-to-end transaction support including valuation, due diligence, deal structuring, and execution.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 2L2 7l10 5 10-5-10-5z"/>
                             <path d="m2 17 10 5 10-5"/>
                             <path d="m2 12 10 5 10-5"/>
                         </svg>
                     </div>
-                    <h3>Operations</h3>
-                    <p>Streamline, automate, reduce costs</p>
+                    <h3>Operational Excellence</h3>
+                    <p>Process optimization, technology integration, and performance management systems.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m9 12 2 2 4-4"/>
+                            <path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"/>
+                            <path d="M21 12A9 9 0 1 1 12 3"/>
+                        </svg>
+                    </div>
+                    <h3>Regulatory Compliance</h3>
+                    <p>Navigate complex regulatory environments and implement compliant business practices.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                             <circle cx="9" cy="7" r="4"/>
                             <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
                             <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                         </svg>
                     </div>
-                    <h3>Team Training</h3>
-                    <p>Develop leaders, enhance sales</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="m9 12 2 2 4-4"/>
-                            <path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"/>
-                            <path d="M21 12A9 9 0 1 1 12 3"/>
-                        </svg>
-                    </div>
-                    <h3>Compliance</h3>
-                    <p>Navigate complex requirements</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                        </svg>
-                    </div>
-                    <h3>Tech Stack</h3>
-                    <p>Optimize software infrastructure</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 3v18h18"/>
-                            <rect x="7" y="8" width="3" height="8"/>
-                            <rect x="12" y="4" width="3" height="12"/>
-                            <rect x="17" y="6" width="3" height="10"/>
-                        </svg>
-                    </div>
-                    <h3>Portfolio Management</h3>
-                    <p>Maximize returns, minimize risk</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
-                        </svg>
-                    </div>
-                    <h3>Strategic Partnerships</h3>
-                    <p>Leverage our network for growth</p>
+                    <h3>Leadership Development</h3>
+                    <p>Executive coaching, team development, and organizational capability building.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="discretion-banner">
-        <div class="container">
-            <div class="discretion-content">
-                <h3>We take discretion seriously.</h3>
-                <p>Your information and relationships are protected.</p>
-                <a href="#contact" class="references-btn">Want references? Just ask!</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="use-cases" id="cases">
+    <section class="section" id="process">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Case Studies</h2>
+                <h2 class="section-title">Our Approach</h2>
+                <p class="section-subtitle">A proven methodology that delivers results</p>
             </div>
             
-            <div class="cases-container">
-                <div class="case-row">
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Strategic Assessment</h3>
+                    <p class="step-description">Comprehensive analysis of your business, market position, and growth opportunities</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Custom Strategy</h3>
+                    <p class="step-description">Tailored roadmap with clear objectives, timelines, and success metrics</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Implementation</h3>
+                    <p class="step-description">Hands-on execution support with your team to ensure successful delivery</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Optimization</h3>
+                    <p class="step-description">Continuous monitoring and refinement to maximize performance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section case-studies" id="cases">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Client Success Stories</h2>
+                <p class="section-subtitle">Measurable results across diverse fintech verticals</p>
+            </div>
+            
+            <div class="cases-grid">
+                <div class="case-study">
                     <div class="case-content">
                         <div class="case-company">Aquamark</div>
-                        <div class="case-type">Startup</div>
-                        <p class="case-result">Connected with industry players and secured sponsorships for market entry.</p>
-                        <div class="case-tags">
-                            <span class="case-tag">Market Entry</span>
-                            <span class="case-tag">Strategic Partnerships</span>
-                            <span class="case-tag">Growth Strategy</span>
-                        </div>
-                    </div>
-                    <div class="case-visual">
-                        <div class="case-logo">AQ</div>
-                        <div class="case-metric">
-                            <span class="case-metric-number">100</span>
-                            <div class="case-metric-label">Users in 90 days</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="case-row">
-                    <div class="case-content">
-                        <div class="case-company">Onramp</div>
-                        <div class="case-type">Ecommerce Funder</div>
-                        <p class="case-result">Streamlined operations and improved portfolio performance across all verticals.</p>
-                        <div class="case-tags">
-                            <span class="case-tag">Operations</span>
-                            <span class="case-tag">Portfolio Management</span>
-                            <span class="case-tag">Process Optimization</span>
-                        </div>
-                    </div>
-                    <div class="case-visual">
-                        <div class="case-logo">OR</div>
-                        <div class="case-metric">
-                            <span class="case-metric-number">35%</span>
-                            <div class="case-metric-label">Efficiency improvement</div>
+                        <div class="case-type">Fintech Startup</div>
+                        <p class="case-description">Guided market entry strategy and secured key industry partnerships to accelerate customer acquisition and establish market presence in competitive lending software space.</p>
+                        <div class="case-metrics">
+                            <div class="case-metric">
+                                <span class="case-metric-value">100+</span>
+                                <div class="case-metric-label">Users in 90 Days</div>
+                            </div>
+                            <div class="case-metric">
+                                <span class="case-metric-value">5</span>
+                                <div class="case-metric-label">Strategic Partnerships</div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="case-row">
+                <div class="case-study">
                     <div class="case-content">
                         <div class="case-company">Forward Financing</div>
-                        <div class="case-type">Lender</div>
-                        <p class="case-result">Optimized funding model and expanded market reach through strategic partnerships.</p>
-                        <div class="case-tags">
-                            <span class="case-tag">Funding Strategy</span>
-                            <span class="case-tag">Market Expansion</span>
-                            <span class="case-tag">Strategic Alliances</span>
+                        <div class="case-type">Commercial Lender</div>
+                        <p class="case-description">Optimized capital allocation strategies and expanded distribution channels, resulting in significant portfolio growth and improved operational efficiency across multiple business lines.</p>
+                        <div class="case-metrics">
+                            <div class="case-metric">
+                                <span class="case-metric-value">25%</span>
+                                <div class="case-metric-label">Market Reach Increase</div>
+                            </div>
+                            <div class="case-metric">
+                                <span class="case-metric-value">40%</span>
+                                <div class="case-metric-label">Efficiency Gains</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="case-visual">
-                        <div class="case-logo">FF</div>
-                        <div class="case-metric">
-                            <span class="case-metric-number">25%</span>
-                            <div class="case-metric-label">Market reach increase</div>
+                </div>
+                
+                <div class="case-study">
+                    <div class="case-content">
+                        <div class="case-company">Regional Funding Group</div>
+                        <div class="case-type">Alternative Lender</div>
+                        <p class="case-description">Restructured operations and implemented technology solutions that streamlined underwriting processes and enhanced portfolio management capabilities.</p>
+                        <div class="case-metrics">
+                            <div class="case-metric">
+                                <span class="case-metric-value">60%</span>
+                                <div class="case-metric-label">Process Improvement</div>
+                            </div>
+                            <div class="case-metric">
+                                <span class="case-metric-value">2.1x</span>
+                                <div class="case-metric-label">Revenue Growth</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1830,163 +942,115 @@
         </div>
     </section>
 
-    <section class="pricing" id="pricing">
+    <section class="section" style="background: var(--gray-50);">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Choose Your Plan</h2>
+                <h2 class="section-title">Confidentiality First</h2>
+                <p class="section-subtitle">Your business information and relationships are protected with the highest level of discretion</p>
+            </div>
+            <div style="text-align: center;">
+                <a href="#contact" class="btn-primary">Request Client References</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Investment Options</h2>
+                <p class="section-subtitle">Flexible engagement models designed for your specific needs and timeline</p>
             </div>
             
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <div class="pricing-title">Part Time</div>
-                    <div class="pricing-subtitle">Flexible consulting</div>
+                    <div class="pricing-title">Strategic Advisory</div>
+                    <div class="pricing-subtitle">Part-time consulting engagement</div>
                     <ul class="pricing-features">
-                        <li>Strategic planning</li>
-                        <li>Monthly reviews</li>
-                        <li>Email support</li>
-                        <li>Industry insights</li>
+                        <li>Strategic planning and guidance</li>
+                        <li>Monthly strategy sessions</li>
+                        <li>Email and phone support</li>
+                        <li>Industry insights and analysis</li>
                         <li>Flexible scheduling</li>
                     </ul>
-                    <button class="contact-btn" onclick="window.location.href='#contact'">Contact Us</button>
+                    <a href="#contact" class="btn-primary" style="width: 100%; justify-content: center;">Discuss Engagement</a>
                 </div>
                 
                 <div class="pricing-card featured">
-                    <div class="pricing-title">Full Time</div>
-                    <div class="pricing-subtitle">Dedicated partnership</div>
+                    <div class="pricing-title">Dedicated Partnership</div>
+                    <div class="pricing-subtitle">Full-time strategic support</div>
                     <ul class="pricing-features">
-                        <li>Dedicated consultant</li>
-                        <li>Weekly strategy sessions</li>
-                        <li>24/7 priority support</li>
-                        <li>Complete analysis</li>
-                        <li>Implementation support</li>
-                        <li>Team training</li>
+                        <li>Dedicated senior consultant</li>
+                        <li>Weekly leadership sessions</li>
+                        <li>Priority access and support</li>
+                        <li>Comprehensive business analysis</li>
+                        <li>Implementation oversight</li>
+                        <li>Team training and development</li>
                     </ul>
-                    <button class="contact-btn" onclick="window.location.href='#contact'">Contact Us</button>
+                    <a href="#contact" class="btn-primary" style="width: 100%; justify-content: center;">Schedule Consultation</a>
                 </div>
                 
                 <div class="pricing-card">
-                    <div class="pricing-title">Project</div>
-                    <div class="pricing-subtitle">Focused delivery</div>
+                    <div class="pricing-title">Project-Based</div>
+                    <div class="pricing-subtitle">Defined scope and timeline</div>
                     <ul class="pricing-features">
-                        <li>Defined scope & timeline</li>
-                        <li>Milestone delivery</li>
+                        <li>Clearly defined deliverables</li>
+                        <li>Milestone-based execution</li>
                         <li>Expert team assignment</li>
-                        <li>Regular updates</li>
-                        <li>Knowledge transfer</li>
+                        <li>Regular progress updates</li>
+                        <li>Knowledge transfer included</li>
                     </ul>
-                    <button class="contact-btn" onclick="window.location.href='#contact'">Contact Us</button>
+                    <a href="#contact" class="btn-primary" style="width: 100%; justify-content: center;">Explore Projects</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="faq-section" id="faq">
+    <section class="contact-section section" id="contact">
         <div class="container">
-            <div class="faq-container">
-                <div class="section-header">
-                    <h2 class="section-title">FAQ</h2>
+            <div class="contact-content">
+                <h2>Ready to Accelerate Your Growth?</h2>
+                <p>Schedule a confidential consultation to discuss your strategic objectives and how we can help achieve them.</p>
+                
+                <div class="cta-group" style="justify-content: center;">
+                    <a href="mailto:info@spartanprojects.com" class="btn-primary" style="background: white; color: var(--spartan-blue);">
+                        Schedule Consultation
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </a>
                 </div>
                 
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        How quickly can we see results?
-                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
-                            <path d="m6 9 6 6 6-6"/>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
                         </svg>
+                        info@spartanprojects.com
                     </div>
-                    <div class="faq-answer">
-                        <p>Most clients see improvements within 30-60 days. Lending solutions can be set up in 30 days, while revenue initiatives typically show results within the first quarter.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        What industries do you work with?
-                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
-                            <path d="m6 9 6 6 6-6"/>
+                    <div class="contact-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                         </svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We specialize in fintech: brokers, funders, lenders, and financial software companies. From startups to established enterprises across all funding verticals.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        How do you ensure confidentiality?
-                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
-                            <path d="m6 9 6 6 6-6"/>
-                        </svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p>All engagements begin with comprehensive NDAs. We maintain strict security protocols and never share client information with competitors.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        What's included in full-time consulting?
-                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
-                            <path d="m6 9 6 6 6-6"/>
-                        </svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Dedicated consultant, weekly strategy sessions, 24/7 support, complete business analysis, implementation support, team training, and quarterly reviews.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        Do you provide ongoing support?
-                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
-                            <path d="m6 9 6 6 6-6"/>
-                        </svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes. All projects include knowledge transfer and documentation. Many clients retain us for ongoing advisory services and additional projects.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        Can you provide references?
-                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
-                            <path d="m6 9 6 6 6-6"/>
-                        </svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Absolutely. We can connect you with relevant references based on your needs during our initial consultation.</p>
+                        (555) 123-4567
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Scale Your Fintech?</h2>
-                <p>Join the companies already transforming their business with strategic guidance.</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="cta-primary">Start Your Project</a>
-                    <a href="#cases" class="cta-secondary">View Case Studies</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-content">
-                <h3>Ready to Transform Your Business?</h3>
-                <p>Let's discuss how we can help you achieve your goals.</p>
-                <div class="contact-info">
-                    <p>Email: info@spartanprojects.com</p>
-                    <p>Phone: (555) 123-4567</p>
+                <div class="footer-logo">Spartan Projects</div>
+                <div class="footer-links">
+                    <a href="#services">Services</a>
+                    <a href="#process">Process</a>
+                    <a href="#cases">Case Studies</a>
+                    <a href="#contact">Contact</a>
                 </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2025 Spartan Projects. All rights reserved.</p>
-                </div>
+                <div style="font-size: 14px;">© 2025 Spartan Projects. All rights reserved.</div>
             </div>
         </div>
     </footer>
@@ -2006,27 +1070,19 @@
             });
         });
 
-        // FAQ Toggle functionality
-        function toggleFAQ(element) {
-            const answer = element.nextElementSibling;
-            const icon = element.querySelector('.faq-icon');
-            
-            // Close all other FAQs
-            document.querySelectorAll('.faq-answer.active').forEach(faq => {
-                if (faq !== answer) {
-                    faq.classList.remove('active');
-                    faq.previousElementSibling.classList.remove('active');
-                    faq.previousElementSibling.querySelector('.faq-icon').classList.remove('active');
-                }
-            });
-            
-            // Toggle current FAQ
-            answer.classList.toggle('active');
-            element.classList.toggle('active');
-            icon.classList.toggle('active');
-        }
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
 
-        // Scroll animations
+        // Simple fade-in animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -2035,72 +1091,19 @@
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
         // Observe elements for animations
-        document.querySelectorAll('.service-card, .case-card, .process-step, .stat-item').forEach(el => {
-            el.classList.add('scroll-fade-in');
+        document.querySelectorAll('.service-card, .case-study, .process-step, .metric-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = 'none';
-            }
-        });
-
-        // Animate stats on scroll
-        function animateStats() {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            statNumbers.forEach(stat => {
-                const rect = stat.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-                
-                if (rect.top < windowHeight && rect.bottom > 0) {
-                    const finalValue = stat.textContent;
-                    const isPercentage = finalValue.includes('%');
-                    const isCurrency = finalValue.includes(');
-                    const hasPlus = finalValue.includes('+');
-                    const hasX = finalValue.includes('x');
-                    
-                    let numericValue = parseFloat(finalValue.replace(/[^\d.]/g, ''));
-                    
-                    if (stat.dataset.animated) return;
-                    stat.dataset.animated = 'true';
-                    
-                    let current = 0;
-                    const increment = numericValue / 60;
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= numericValue) {
-                            current = numericValue;
-                            clearInterval(timer);
-                        }
-                        
-                        let displayValue = Math.floor(current);
-                        if (isCurrency) displayValue = ' + displayValue + 'M+';
-                        else if (isPercentage) displayValue = displayValue + '%';
-                        else if (hasPlus) displayValue = displayValue + '+';
-                        else if (hasX) displayValue = current.toFixed(1) + 'x';
-                        else displayValue = displayValue + '+';
-                        
-                        stat.textContent = displayValue;
-                    }, 16);
-                }
-            });
-        }
-
-        window.addEventListener('scroll', animateStats);
-        window.addEventListener('load', animateStats);
     </script>
 </body>
 </html>
