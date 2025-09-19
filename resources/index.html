@@ -376,25 +376,25 @@
                 top: calc(100% + 10px);
                 left: 0;
                 right: 0;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(20px);
+                background: white;
                 border: 1px solid var(--gray-200);
                 border-radius: 8px;
-                padding: 16px;
+                padding: 20px;
                 flex-direction: column;
                 gap: 16px;
                 box-shadow: var(--shadow-lg);
-                transform: translateY(-20px);
                 opacity: 0;
                 visibility: hidden;
+                transform: translateY(-10px);
                 transition: all 0.3s ease;
                 z-index: 1001;
+                display: flex;
             }
             
             nav ul.open {
-                transform: translateY(0);
                 opacity: 1;
                 visibility: visible;
+                transform: translateY(0);
             }
             
             nav li {
@@ -538,7 +538,6 @@
                 <nav>
                     <ul id="mobileMenu">
                         <li><a href="https://spartan-projects-com.github.io/spartan-site/">Back Home</a></li>
-                        <li><a href="resources.html" class="active">Resources</a></li>
                         <li><a href="https://spartan-projects-com.github.io/spartan-site/contact/">Contact</a></li>
                     </ul>
                 </nav>
