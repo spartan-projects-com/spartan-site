@@ -1,275 +1,716 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resources</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <!-- IMPORTANT: This page lives in /resources/ and images live one level up (project root) -->
-  <link rel="icon" type="image/png" sizes="32x32" href="../helmet.png?v=2" />
-  <link rel="shortcut icon" href="../helmet.png?v=2" />
-  <link rel="apple-touch-icon" sizes="180x180" href="../helmet.png?v=2" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="../helmet.png?v=2">
+<link rel="shortcut icon" href="../helmet.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="../helmet.png?v=2">
 
-  <style>
-    :root {
-      --spartan-blue: #1e3a8a;
-      --spartan-blue-light: #3b82f6;
-      --spartan-blue-dark: #1e40af;
-      --spartan-cyan: #0891b2;
-      --spartan-cyan-light: #06b6d4;
-      --accent-gold: #f59e0b;
-      --success: #059669;
-      --danger: #dc2626;
-      --dark: #0f172a;
-      --gray-50: #f8fafc;
-      --gray-100: #f1f5f9;
-      --gray-200: #e2e8f0;
-      --gray-300: #cbd5e1;
-      --gray-400: #94a3b8;
-      --gray-500: #64748b;
-      --gray-600: #475569;
-      --gray-700: #334155;
-      --gray-800: #1e293b;
-      --gray-900: #0f172a;
-      --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #0891b2 100%);
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    img { max-width: 100%; height: auto; display: block; }
-    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: var(--gray-800); background-color: #ffffff; overflow-x: hidden; }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
-    /* Header */
-    header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--gray-200); padding: 9px 0; position: sticky; top: 0; z-index: 1000; transition: all 0.3s ease; }
-    .header-content { display: flex; justify-content: space-between; align-items: center; position: relative; }
-    .logo { display: flex; align-items: center; gap: 12px; color: var(--spartan-blue); font-weight: 800; font-size: 20px; letter-spacing: -0.02em; text-decoration: none; }
-    .logo-image { height: 70px; width: auto; }
+    <style>
+        :root {
+            --spartan-blue: #1e3a8a;
+            --spartan-blue-light: #3b82f6;
+            --spartan-blue-dark: #1e40af;
+            --spartan-cyan: #0891b2;
+            --spartan-cyan-light: #06b6d4;
+            --accent-gold: #f59e0b;
+            --success: #059669;
+            --danger: #dc2626;
+            --dark: #0f172a;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #0891b2 100%);
+            --gradient-secondary: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 9px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--spartan-blue);
+            font-weight: 800;
+            font-size: 20px;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+        }
+        
+        .logo-image {
+            height: 70px;
+            width: auto;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .mobile-menu-toggle:hover {
+            background-color: var(--gray-100);
+        }
+        
+        .hamburger {
+            width: 24px;
+            height: 18px;
+            position: relative;
+        }
+        
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: var(--gray-600);
+            border-radius: 1px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        
+        .hamburger span:nth-child(1) {
+            top: 0px;
+        }
+        
+        .hamburger span:nth-child(2) {
+            top: 8px;
+        }
+        
+        .hamburger span:nth-child(3) {
+            top: 16px;
+        }
+        
+        .mobile-menu-toggle.open .hamburger span:nth-child(1) {
+            top: 8px;
+            transform: rotate(135deg);
+        }
+        
+        .mobile-menu-toggle.open .hamburger span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+        
+        .mobile-menu-toggle.open .hamburger span:nth-child(3) {
+            top: 8px;
+            transform: rotate(-135deg);
+        }
+        
+        nav {
+            position: relative;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+        
+        nav a {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--spartan-blue);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--spartan-blue);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
 
-    nav ul { display: flex; list-style: none; gap: 40px; }
-    nav a { color: var(--gray-600); text-decoration: none; font-weight: 500; font-size: 15px; transition: all 0.3s ease; position: relative; }
-    nav a:hover { color: var(--spartan-blue); }
-    nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--spartan-blue); transition: width 0.3s ease; }
-    nav a:hover::after { width: 100%; }
-    nav a.active { color: var(--spartan-blue); }
-    nav a.active::after { width: 100%; }
+        nav a.active {
+            color: var(--spartan-blue);
+        }
 
-    /* Page Header */
-    .page-header { padding: 80px 0 60px; background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%); text-align: center; }
-    .page-title { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.2; color: var(--gray-900); margin-bottom: 16px; letter-spacing: -0.02em; }
-    .page-subtitle { font-size: 18px; color: var(--gray-600); max-width: 640px; margin: 0 auto; line-height: 1.7; }
+        nav a.active::after {
+            width: 100%;
+        }
+        
+        /* Page Header */
+        .page-header {
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        
+        .page-subtitle {
+            font-size: 20px;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        /* Resources Section */
+        .resources-section {
+            padding: 80px 0;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .resources-grid .resource-card:nth-child(1),
+        .resources-grid .resource-card:nth-child(2),
+        .resources-grid .resource-card:nth-child(3) {
+            grid-column: span 2;
+        }
+        
+        .resources-grid .resource-card:nth-child(4) {
+            grid-column: 2 / span 2;
+        }
+        
+        .resources-grid .resource-card:nth-child(5) {
+            grid-column: 4 / span 2;
+        }
+        
+        .resource-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--spartan-blue-light);
+        }
+        
+        .resource-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 24px;
+            padding: 24px;
+            background: linear-gradient(135deg, var(--spartan-blue) 0%, var(--spartan-cyan) 100%);
+            border-radius: 12px;
+            margin: -32px -32px 24px -32px;
+        }
+        
+        .resource-logo {
+            width: 130px;
+            height: 90px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+        
+        .resource-url {
+            color: var(--spartan-blue);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-url:hover {
+            color: var(--spartan-blue-dark);
+            text-decoration: underline;
+        }
+        
+        .resource-description {
+            color: var(--gray-600);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        .external-link-icon {
+            width: 16px;
+            height: 16px;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--gray-900);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .footer-logo {
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .logo-image {
+                height: 50px;
+            }
+            
+            .logo {
+                font-size: 18px;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                border: 1px solid var(--gray-200);
+                border-radius: 8px;
+                margin-top: 8px;
+                padding: 16px;
+                flex-direction: column;
+                gap: 16px;
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-10px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            nav ul.open {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav li {
+                text-align: center;
+            }
+            
+            nav a {
+                font-size: 16px;
+                padding: 8px 16px;
+                display: block;
+                border-radius: 6px;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+            
+            nav a:hover {
+                background-color: var(--gray-50);
+            }
+            
+            nav a::after {
+                display: none;
+            }
+            
+            .page-header {
+                padding: 60px 0 40px;
+            }
+            
+            .page-title {
+                font-size: clamp(2rem, 8vw, 2.5rem);
+            }
+            
+            .page-subtitle {
+                font-size: 18px;
+                padding: 0 16px;
+            }
+            
+            .resources-section {
+                padding: 60px 0;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .resources-grid .resource-card:nth-child(1),
+            .resources-grid .resource-card:nth-child(2),
+            .resources-grid .resource-card:nth-child(3),
+            .resources-grid .resource-card:nth-child(4),
+            .resources-grid .resource-card:nth-child(5) {
+                grid-column: span 1;
+            }
+            
+            .resource-card {
+                padding: 24px;
+            }
+            
+            .resource-header {
+                margin: -24px -24px 20px -24px;
+                padding: 20px;
+            }
+            
+            .resource-logo {
+                width: 100px;
+                height: 70px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+            
+            .footer-links {
+                gap: 24px;
+                justify-content: center;
+            }
+        }
 
-    /* Resources Section */
-    .resources-section { padding: 80px 0; }
-    .resources-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 32px; max-width: 1200px; margin: 0 auto; }
-    .resources-grid .resource-card:nth-child(1),
-    .resources-grid .resource-card:nth-child(2),
-    .resources-grid .resource-card:nth-child(3) { grid-column: span 2; }
-    .resources-grid .resource-card:nth-child(4) { grid-column: 2 / span 2; }
-    .resources-grid .resource-card:nth-child(5) { grid-column: 4 / span 2; }
-
-    .resource-card { background: white; padding: 28px; border-radius: 12px; border: 1px solid var(--gray-200); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; display: flex; flex-direction: column; gap: 16px; box-shadow: var(--shadow-sm); }
-    .resource-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--spartan-blue); }
-    .resource-header { display: flex; justify-content: center; align-items: center; margin-bottom: 8px; padding: 18px; background: linear-gradient(135deg, var(--spartan-blue) 0%, var(--spartan-cyan) 100%); border-radius: 12px; margin: -28px -28px 16px -28px; }
-    .resource-logo { width: 140px; height: 90px; object-fit: contain; /* keep original colors for better brand fidelity */ filter: none; }
-    .resource-url { color: var(--spartan-blue); text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.2s ease; word-break: break-word; }
-    .resource-url:hover { color: var(--spartan-blue-dark); text-decoration: underline; }
-    .resource-description { color: var(--gray-600); line-height: 1.6; font-size: 15px; }
-    .external-link-icon { width: 16px; height: 16px; margin-left: 4px; vertical-align: middle; }
-
-    /* Footer */
-    footer { background: var(--gray-900); color: rgba(255, 255, 255, 0.8); padding: 40px 0; text-align: center; }
-    .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-    .footer-logo { color: white; font-weight: 700; font-size: 18px; }
-    .footer-links { display: flex; gap: 32px; flex-wrap: wrap; }
-    .footer-links a { color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s ease; }
-    .footer-links a:hover { color: white; }
-
-    /* Mobile nav button */
-    .nav-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--gray-200); border-radius: 8px; background: #fff; align-items: center; justify-content: center; gap: 5px; padding: 0 10px; box-shadow: var(--shadow-sm); }
-    .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--gray-700); border-radius: 2px; transition: transform 0.2s ease, opacity 0.2s ease; }
-    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-    .nav-toggle[aria-expanded="true"] span:first-child { transform: translateY(4px) rotate(45deg); }
-    .nav-toggle[aria-expanded="true"] span:last-child { transform: translateY(-4px) rotate(-45deg); }
-
-    /* ========= Responsive ========= */
-    @media (max-width: 1024px) {
-      .resources-grid { grid-template-columns: repeat(3, 1fr); }
-      .resources-grid .resource-card { grid-column: auto / span 1; }
-    }
-    @media (max-width: 768px) {
-      .container { padding: 0 16px; }
-      .logo-image { height: 48px; }
-
-      /* Mobile dropdown nav; desktop unchanged */
-      header nav { position: absolute; top: 64px; left: 0; right: 0; display: none; background: #fff; border-top: 1px solid var(--gray-200); box-shadow: var(--shadow-md); z-index: 1001; }
-      header nav.open { display: block; }
-      header nav ul { display: flex; flex-direction: column; gap: 0; padding: 8px 8px; }
-      header nav li a { display: block; padding: 14px 8px; }
-      .nav-toggle { display: flex; }
-
-      .page-header { padding: 56px 0 36px; }
-      .page-subtitle { font-size: 16px; }
-
-      .resources-grid { grid-template-columns: 1fr; gap: 20px; }
-      .resource-header { margin: -20px -20px 12px -20px; padding: 16px; }
-      .resource-logo { width: 120px; height: 80px; }
-
-      .footer-content { flex-direction: column; text-align: center; }
-    }
-    @media (max-width: 480px) {
-      .resource-logo { width: 100px; height: 70px; }
-    }
-  </style>
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
+            }
+            
+            .page-header {
+                padding: 40px 0 30px;
+            }
+            
+            .resources-section {
+                padding: 40px 0;
+            }
+            
+            .resources-grid {
+                gap: 20px;
+            }
+            
+            .resource-card {
+                padding: 20px;
+            }
+            
+            .resource-header {
+                margin: -20px -20px 16px -20px;
+                padding: 16px;
+            }
+            
+            .resource-logo {
+                width: 80px;
+                height: 60px;
+            }
+            
+            .resource-url {
+                font-size: 15px;
+            }
+            
+            .resource-description {
+                font-size: 15px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="header-content">
-        <a href="../index.html" class="logo">
-          <img src="../spartan.png" alt="Spartan Projects" class="logo-image" />
-        </a>
-        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-        <nav>
-          <ul>
-            <li><a href="https://spartan-projects-com.github.io/spartan-site/">Back Home</a></li>
-            <li><a href="resources.html" class="active">Resources</a></li>
-            <li><a href="https://spartan-projects-com.github.io/spartan-site/contact/">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <section class="page-header">
-    <div class="container">
-      <h1 class="page-title">Industry Resources</h1>
-      <p class="page-subtitle">Trusted partners and organizations</p>
-    </div>
-  </section>
-
-  <section class="resources-section">
-    <div class="container">
-      <div class="resources-grid">
-        <!-- NOTE: use ../ because this file is /resources/index.html and images are in project root -->
-        <div class="resource-card">
-          <div class="resource-header"><img src="../aquacase.png" alt="Aquamark" class="resource-logo" /></div>
-          <a href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer" class="resource-url">www.aquamark.io
-            <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          </a>
-          <p class="resource-description">A lightweight watermarking tool used by funders and brokers to deter deal theft.</p>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <img src="../spartan.png" alt="Spartan Projects" class="logo-image" />
+                </a>
+                
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+                
+                <nav>
+                    <ul id="mobileMenu">
+                        <li><a href="https://spartan-projects-com.github.io/spartan-site/">Back Home</a></li>
+                        <li><a href="resources.html" class="active">Resources</a></li>
+                        <li><a href="https://spartan-projects-com.github.io/spartan-site/contact/">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
+    </header>
 
-        <div class="resource-card">
-          <div class="resource-header"><img src="../sbfa.png" alt="SBFA" class="resource-logo" /></div>
-          <a href="https://sbfassociation.org/" target="_blank" rel="noopener noreferrer" class="resource-url">sbfassociation.org
-            <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          </a>
-          <p class="resource-description">A nonprofit that promotes responsible, transparent small‑business lending.</p>
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Industry Resources</h1>
+            <p class="page-subtitle">Trusted partners and organizations</p>
         </div>
+    </section>
 
-        <div class="resource-card">
-          <div class="resource-header"><img src="../greenl.png" alt="GreenLedger" class="resource-logo" /></div>
-          <a href="https://44664037.hs-sites.com/greenledger" target="_blank" rel="noopener noreferrer" class="resource-url">GreenLedger platform
-            <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          </a>
-          <p class="resource-description">Helps small businesses avoid MCA default with tailored, reasonable repayment plans.</p>
+    <section class="resources-section">
+        <div class="container">
+            <div class="resources-grid">
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+<img src="../aquacase.png" alt="Aquamark" class="resource-logo" />
+                    </div>
+                    <a href="https://www.aquamark.io/" target="_blank" rel="noopener noreferrer" class="resource-url">
+                        www.aquamark.io
+                        <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                    </a>
+                    <p class="resource-description">
+                        Aquamark is a lightweight watermarking tool used by funders and brokers to prevent deal theft.
+                    </p>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+<img src="../sbfa.png"     alt="SBFA"      class="resource-logo" />
+                    </div>
+                    <a href="https://sbfassociation.org/" target="_blank" rel="noopener noreferrer" class="resource-url">
+                        sbfassociation.org
+                        <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                    </a>
+                    <p class="resource-description">
+                        The Small Business Finance Association is a nonprofit that promotes responsible, transparent small-business lending.
+                    </p>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+<img src="../greenl.png"    alt="GreenLedger" class="resource-logo" />
+                    </div>
+                    <a href="https://44664037.hs-sites.com/greenledger" target="_blank" rel="noopener noreferrer" class="resource-url">
+                        greenledger platform
+                        <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                    </a>
+                    <p class="resource-description">
+                        GreenLedger helps small businesses avoid MCA defaults with tailored, reasonable repayment plans.
+                    </p>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+<img src="../debanked.png" alt="deBanked" class="resource-logo" />
+                    </div>
+                    <a href="https://debanked.com/" target="_blank" rel="noopener noreferrer" class="resource-url">
+                        debanked.com
+                        <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                    </a>
+                    <p class="resource-description">
+                        deBanked is a leading publication for alternative business finance and fintech, offering news, analysis, and market insights.
+                    </p>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+<img src="../ilp.png"     alt="ILPA"     class="resource-logo" />
+                    </div>
+                    <a href="https://innovativelending.org/" target="_blank" rel="noopener noreferrer" class="resource-url">
+                        innovativelending.org
+                        <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                    </a>
+                    <p class="resource-description">
+                        The ILPA is a trade group for online small-business funders, promoting best-practice standards and access to capital.
+                    </p>
+                </div>
+
+            </div>
         </div>
+    </section>
 
-        <div class="resource-card">
-          <div class="resource-header"><img src="../debanked.png" alt="deBanked" class="resource-logo" /></div>
-          <a href="https://debanked.com/" target="_blank" rel="noopener noreferrer" class="resource-url">debanked.com
-            <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          </a>
-          <p class="resource-description">Leading publication for alternative business finance and fintech with news and insights.</p>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Spartan Projects</div>
+                <div class="footer-links">
+                    <a href="../index.html#services">Services</a>
+                    <a href="../index.html#process">Process</a>
+                    <a href="../index.html#cases">Case Studies</a>
+                    <a href="../index.html#contact">Contact</a>
+                </div>
+                <div style="font-size: 14px;">© 2025 Spartan Projects. All rights reserved.</div>
+            </div>
         </div>
+    </footer>
 
-        <div class="resource-card">
-          <div class="resource-header"><img src="../ilp.png" alt="ILPA" class="resource-logo" /></div>
-          <a href="https://innovativelending.org/" target="_blank" rel="noopener noreferrer" class="resource-url">innovativelending.org
-            <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          </a>
-          <p class="resource-description">Trade group for online small‑business funders, promoting best‑practice standards.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
 
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">Spartan Projects</div>
-        <div class="footer-links">
-          <a href="../index.html#services">Services</a>
-          <a href="../index.html#process">Process</a>
-          <a href="../index.html#cases">Case Studies</a>
-          <a href="../index.html#contact">Contact</a>
-        </div>
-        <div style="font-size: 14px;">© 2025 Spartan Projects. All rights reserved.</div>
-      </div>
-    </div>
-  </footer>
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
 
-  <script>
-    // Header scroll effect
-    window.addEventListener('scroll', () => {
-      const header = document.querySelector('header');
-      if (window.scrollY > 50) {
-        header.style.background = 'rgba(255, 255, 255, 0.98)';
-        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-      } else {
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
-        header.style.boxShadow = 'none';
-      }
-    });
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenuToggle.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            }
+        });
 
-    // Animate cards on reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        // Close mobile menu when clicking on a link
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                mobileMenuToggle.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            }
+        });
 
-    document.querySelectorAll('.resource-card').forEach((el) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(16px)';
-      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      observer.observe(el);
-    });
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
 
-    // Mobile nav toggle
-    const toggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('header nav');
-    if (toggle) {
-      toggle.addEventListener('click', () => {
-        const expanded = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!expanded));
-        nav.classList.toggle('open');
-      });
-    }
+        // Simple fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-    // Close mobile nav after clicking a link
-    document.querySelectorAll('header nav a').forEach((a) => {
-      a.addEventListener('click', () => {
-        if (window.matchMedia('(max-width: 768px)').matches) {
-          nav.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-    });
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-    // Reset on resize up to desktop
-    window.addEventListener('resize', () => {
-      if (window.matchMedia('(min-width: 769px)').matches) {
-        nav.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  </script>
+        // Observe elements for animations
+        document.querySelectorAll('.resource-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
