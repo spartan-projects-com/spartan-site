@@ -77,6 +77,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
         
         .logo {
@@ -95,13 +96,18 @@
             width: auto;
         }
         
-        nav ul {
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: flex;
+        }
+        
+        .desktop-nav ul {
             display: flex;
             list-style: none;
             gap: 40px;
         }
         
-        nav a {
+        .desktop-nav a {
             color: var(--gray-600);
             text-decoration: none;
             font-weight: 500;
@@ -110,11 +116,11 @@
             position: relative;
         }
         
-        nav a:hover {
+        .desktop-nav a:hover {
             color: var(--spartan-blue);
         }
         
-        nav a::after {
+        .desktop-nav a::after {
             content: '';
             position: absolute;
             bottom: -4px;
@@ -125,16 +131,121 @@
             transition: width 0.3s ease;
         }
         
-        nav a:hover::after {
+        .desktop-nav a:hover::after {
             width: 100%;
         }
 
-        nav a.active {
+        .desktop-nav a.active {
             color: var(--spartan-blue);
         }
 
-        nav a.active::after {
+        .desktop-nav a.active::after {
             width: 100%;
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1002;
+        }
+        
+        .hamburger {
+            width: 25px;
+            height: 20px;
+            position: relative;
+        }
+        
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: var(--gray-700);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 8px; }
+        .hamburger span:nth-child(3) { top: 16px; }
+        
+        .mobile-menu-btn.active .hamburger span:nth-child(1) {
+            top: 8px;
+            transform: rotate(45deg);
+        }
+        
+        .mobile-menu-btn.active .hamburger span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-btn.active .hamburger span:nth-child(3) {
+            top: 8px;
+            transform: rotate(-45deg);
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 24px;
+            right: 24px;
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            overflow: hidden;
+        }
+        
+        .mobile-nav.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .mobile-nav li {
+            border-bottom: 1px solid var(--gray-100);
+        }
+        
+        .mobile-nav li:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-nav a {
+            display: block;
+            padding: 16px 20px;
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background-color: var(--gray-50);
+            color: var(--spartan-blue);
         }
         
         /* Page Header */
@@ -325,13 +436,59 @@
                 padding: 0 16px;
             }
             
-            nav ul {
+            .logo-image {
+                height: 50px;
+            }
+            
+            .logo {
+                font-size: 18px;
+            }
+            
+            .desktop-nav {
                 display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .page-header {
+                padding: 60px 0 40px;
+            }
+            
+            .page-title {
+                font-size: clamp(2rem, 8vw, 2.5rem);
+            }
+            
+            .page-subtitle {
+                font-size: 18px;
+                padding: 0 16px;
+            }
+            
+            .contact-section {
+                padding: 60px 0;
             }
             
             .contact-container {
                 grid-template-columns: 1fr;
                 gap: 40px;
+            }
+            
+            .contact-info {
+                padding: 0;
+            }
+            
+            .contact-info h3 {
+                font-size: 22px;
+            }
+            
+            .contact-item {
+                padding: 16px;
+            }
+            
+            .contact-icon {
+                width: 40px;
+                height: 40px;
             }
             
             .form-container {
@@ -342,13 +499,76 @@
                 padding: 24px;
             }
             
+            .form-header h3 {
+                font-size: 22px;
+            }
+            
             .footer-content {
                 flex-direction: column;
                 text-align: center;
+                gap: 16px;
             }
+        }
 
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
+            }
+            
             .page-header {
-                padding: 60px 0 40px;
+                padding: 40px 0 30px;
+            }
+            
+            .contact-section {
+                padding: 40px 0;
+            }
+            
+            .contact-container {
+                gap: 30px;
+            }
+            
+            .contact-info h3 {
+                font-size: 20px;
+                margin-bottom: 16px;
+            }
+            
+            .contact-info p {
+                font-size: 15px;
+                margin-bottom: 24px;
+            }
+            
+            .contact-details {
+                gap: 16px;
+            }
+            
+            .contact-item {
+                padding: 14px;
+                gap: 12px;
+            }
+            
+            .contact-icon {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .contact-item-value {
+                font-size: 15px;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+            
+            .form-header {
+                padding: 20px;
+            }
+            
+            .form-header h3 {
+                font-size: 20px;
+            }
+            
+            .form-header p {
+                font-size: 15px;
             }
         }
     </style>
@@ -360,7 +580,26 @@
                 <a href="https://spartan-projects-com.github.io/spartan-site/" class="logo">
                     <img src="../spartan.png" alt="Spartan Projects" class="logo-image" />
                 </a>
-                <nav>
+                
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="https://spartan-projects-com.github.io/spartan-site/">Back Home</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+                
+                <!-- Mobile Navigation -->
+                <nav class="mobile-nav" id="mobileNav">
                     <ul>
                         <li><a href="https://spartan-projects-com.github.io/spartan-site/">Back Home</a></li>
                         <li><a href="contact.html" class="active">Contact</a></li>
@@ -442,6 +681,35 @@
 
     <script src="https://server.fillout.com/embed/v1/"></script>
     <script>
+        // Simple mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            // Toggle button animation
+            mobileMenuBtn.classList.toggle('active');
+            
+            // Toggle menu visibility
+            mobileNav.classList.toggle('show');
+        });
+
+        // Close menu when clicking on a link
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuBtn.classList.remove('active');
+                mobileNav.classList.remove('show');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuBtn.contains(e.target) && !mobileNav.contains(e.target)) {
+                mobileMenuBtn.classList.remove('active');
+                mobileNav.classList.remove('show');
+            }
+        });
+
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
